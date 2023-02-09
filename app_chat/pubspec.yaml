@@ -39,6 +39,9 @@ dependencies:
   firebase_auth: ^4.2.6
   # firebase_storage: ^11.0.11
 
+design_system: 
+    path: ../design_system
+    
 dev_dependencies:
   flutter_test:
     sdk: flutter

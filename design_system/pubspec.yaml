@@ -10,6 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    
+app_chat: 
+    path: ../app_chat
 
 dev_dependencies:
   flutter_test:
