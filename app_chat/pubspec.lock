@@ -171,7 +171,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutterando_analysis:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: flutterando_analysis
       url: "https://pub.dartlang.org"
