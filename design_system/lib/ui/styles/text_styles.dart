@@ -1,32 +1,23 @@
+import 'package:design_system/ui/styles/colors_app.dart';
 import 'package:flutter/material.dart';
 
 class TextStyles {
-  static TextStyle get textLigth => const TextStyle(
-        fontWeight: FontWeight.w300,
-        // fontFamily: font,
-      );
-  static TextStyle get textRegular => const TextStyle(
+  // String get font => 'poppins';
+
+  static TextStyle get textRegular => TextStyle(
         fontWeight: FontWeight.normal,
         // fontFamily: font,
-      );
-  static TextStyle get textMedum => const TextStyle(
-        fontWeight: FontWeight.w500,
-        // fontFamily: font,
-      );
-  static TextStyle get textSemiBold => const TextStyle(
-        fontWeight: FontWeight.w600,
-        // fontFamily: font,
-      );
-  static TextStyle get textBold => const TextStyle(
-        fontWeight: FontWeight.bold, // w700
-        // fontFamily: font,
-      );
-  static TextStyle get textExtraBold => const TextStyle(
-        fontWeight: FontWeight.w800,
-        // fontFamily: font,
+        color: ColorsApp.secondary,
       );
 
-  static TextStyle get textButtonLabel => textBold.copyWith(
-        fontSize: 14,
+  static TextStyle get textSemiBoldCard => TextStyle(
+        fontWeight: FontWeight.w600,
+        // fontFamily: font,
+        color: ColorsApp.secondaryTextColor,
+      );
+  static TextStyle get textSemiBoldChat => TextStyle(
+        fontWeight: FontWeight.w600,
+        // fontFamily: font,
+        color: ColorsApp.secondary,
       );
 }
