@@ -1,0 +1,14 @@
+{
+    	"folders": [
+		{
+			"name": "app_chat",
+			"path": "app_chat"
+		},
+	
+		{
+			"name": "design_system",
+			"path": "design_system"
+		}
+	],
+	"settings": {}
+}
