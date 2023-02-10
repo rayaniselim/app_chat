@@ -19,7 +19,10 @@ class AppBarChatWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const ImageAppWidget(),
+            ImageAppWidget(
+              height: size.height * 1.58,
+              width: size.width * 0.038,
+            ),
             SizedBox(
               width: size.width * 0.01, //16,
             ),

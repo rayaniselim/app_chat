@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 import '../design_system.dart';
+import '../ui/widgets/home/recent_home_widget.dart';
 
 class PageWidgetbook extends StatelessWidget {
   const PageWidgetbook({super.key});
@@ -28,6 +29,15 @@ class PageWidgetbook extends StatelessWidget {
                 WidgetbookUseCase(
                   name: 'AppBar Chat',
                   builder: (context) => const AppBarChatWidget(),
+                ),
+              ],
+            ),
+            WidgetbookComponent(
+              name: 'Recent Home',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Recent Home',
+                  builder: (context) => const RecentHomeWidget(),
                 ),
               ],
             ),
