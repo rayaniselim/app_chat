@@ -9,10 +9,11 @@ class ThemeApp {
       backgroundColor: ColorsApp.primary,
       elevation: 0,
       centerTitle: true,
-      iconTheme: IconThemeData(
-        color: ColorsApp.secondary,
-      ),
     ),
+    iconTheme: IconThemeData(
+      color: ColorsApp.secondary,
+    ),
+
     primaryColor: ColorsApp.primary,
     colorScheme: ColorScheme.fromSeed(
       seedColor: Colors.pink, //ColorsApp.primary,
@@ -28,12 +29,11 @@ class ThemeApp {
       filled: true,
       isDense: true,
       contentPadding: const EdgeInsets.all(13),
-      labelStyle: TextStyles.textRegular.copyWith(
-        color: Colors.green,
-      ),
-      errorStyle: TextStyles.textRegular.copyWith(
-        color: Colors.redAccent,
-      ),
     ),
+    // errorStyle: TextStyles.textRegular.copyWith(
+    // color: Colors.redAccent,
+    // ),
   );
+
+  static final themeLight = ThemeData();
 }

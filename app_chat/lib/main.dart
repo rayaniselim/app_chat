@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'app/modules/presenter/pages/home_page.dart';
+import 'package:design_system/design_system.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,10 +11,10 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  FirebaseFirestore.instance
-      .collection('User')
-      .doc()
-      .set({'id': '01', 'name': 'rayani'});
+//   FirebaseFirestore.instance
+//       .collection('User')
+//       .doc()
+//       .set({'id': '01', 'name': 'rayani'});
 }
 
 class MyApp extends StatelessWidget {
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const PageWidgetbook(),
     );
   }
 }
