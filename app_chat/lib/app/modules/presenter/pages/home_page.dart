@@ -8,19 +8,20 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: ColorsApp.primary, // TODO: CADE O TEMA?
       body: CustomScrollView(
         scrollDirection: Axis.vertical,
         slivers: [
-          // AppBarHomeWidget(),
-          const AppBarChatWidget(),
+          const AppBarHomeWidget(),
           SliverToBoxAdapter(
-              child: Container(
-            height: 100,
-            color: Colors.pink,
-            child: const ListImagesHomeWidget(),
-          )),
+            child: SizedBox(
+              height: size.height * 0.116,
+              child: const ListImagesHomeWidget(),
+            ),
+          ),
         ],
       ),
     );

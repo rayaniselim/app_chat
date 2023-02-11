@@ -13,14 +13,9 @@ class AppBarChatWidget extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final statusBar = MediaQuery.of(context).viewPadding.top;
     final heightAppBar = AppBar().preferredSize.height;
-    final list = ListStoriesData(
-            //  TODO arrumar o tamanho depois
-            )
-        .listStoriesData(
+    final list = ListStoriesData().listStoriesData(
       height: size.height * 0.05,
       width: size.width * 0.045,
-      // height: 0,
-      // width: 0,
     );
     return SliverAppBar(
       toolbarHeight: heightAppBar + statusBar,
@@ -30,13 +25,19 @@ class AppBarChatWidget extends StatelessWidget {
       centerTitle: false,
       actions: [
         Padding(
-          padding: const EdgeInsets.only(left: 25),
+          padding: const EdgeInsets.only(
+            left: 25,
+            top: 10,
+          ),
           child: Row(
             children: [
-              ImageAppWidget(
-                height: size.height * 0.06,
-                width: size.width * 0.12,
-                image: list[0].image,
+              FittedBox(
+                child: ImageAppWidget(
+                  height: size.height * 0.062,
+                  width: size.width * 0.13,
+                  image: list[0]
+                      .image, // TODO: COLOCAR O BUILDER PARA O INDEXATUAL
+                ),
               ),
             ],
           ),
@@ -44,10 +45,20 @@ class AppBarChatWidget extends StatelessWidget {
         SizedBox(
           width: size.width * 0.02,
         ),
-        const Center(child: NameChatWidget()),
+        const Center(
+          child: Padding(
+              padding: EdgeInsets.only(
+                left: 5,
+                top: 10,
+              ),
+              child: NameChatWidget()),
+        ),
         const Spacer(),
         const Padding(
-          padding: EdgeInsets.only(right: 25),
+          padding: EdgeInsets.only(
+            right: 25,
+            top: 10,
+          ),
           child: IconSearchWidget(),
         ),
       ],

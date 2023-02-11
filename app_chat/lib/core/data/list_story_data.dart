@@ -24,20 +24,7 @@ class ListStoriesData {
         heigth: height,
         width: width,
         name: 'Son Ye-jin',
-        // image: 'assets/image/Son-Ye-jin.avif',
-        image: 'assets/image/Seo-Ji-hye .png',
-      ),
-      StoryModel(
-        heigth: height,
-        width: width,
-        name: 'Song Joong-ki',
-        image: 'assets/image/vincenzo.png',
-      ),
-      StoryModel(
-        heigth: height,
-        width: width,
-        name: 'Jeon Yeo-been',
-        image: 'assets/image/Jeon Yeo-been.jpeg',
+        image: 'assets/image/Son Ye-jin.webp',
       ),
       StoryModel(
         heigth: height,
@@ -50,6 +37,18 @@ class ListStoriesData {
         width: width,
         name: 'Shin Min-a',
         image: 'assets/image/Shin Min-a .jpeg',
+      ),
+      StoryModel(
+        heigth: height,
+        width: width,
+        name: 'Song Joong-ki',
+        image: 'assets/image/vincenzo.png',
+      ),
+      StoryModel(
+        heigth: height,
+        width: width,
+        name: 'Jeon Yeo-been',
+        image: 'assets/image/Jeon Yeo-been.jpeg',
       ),
     ];
   }

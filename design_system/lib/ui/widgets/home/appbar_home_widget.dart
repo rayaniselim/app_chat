@@ -1,3 +1,4 @@
+import 'package:design_system/ui/widgets/home/recent_home_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../styles/colors_app.dart';
@@ -18,18 +19,30 @@ class AppBarHomeWidget extends StatelessWidget {
       elevation: 0,
       backgroundColor: ColorsApp.primary,
       centerTitle: false,
-      title: Padding(
-        padding: const EdgeInsets.only(left: 25),
-        child: Text(
-          'Messages',
-          style: TextStyles.textSemiBoldTitles.copyWith(
-            fontSize: 28,
+      title: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: Text(
+              'Messages',
+              style: TextStyles.textSemiBoldTitles.copyWith(
+                fontSize: 28,
+              ),
+            ),
           ),
-        ),
+          Row(
+            children: const [
+              RecentHomeWidget(),
+            ],
+          ),
+        ],
       ),
       actions: const [
         Padding(
-          padding: EdgeInsets.only(right: 25),
+          padding: EdgeInsets.only(
+            right: 10,
+          ),
           child: IconSearchWidget(),
         ),
       ],

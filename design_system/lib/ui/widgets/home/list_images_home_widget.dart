@@ -1,6 +1,7 @@
 import 'package:app_chat/core/data/list_story_data.dart';
 import 'package:flutter/material.dart';
 
+import '../../styles/text_styles.dart';
 import '../image_app_widget.dart';
 
 class ListImagesHomeWidget extends StatelessWidget {
@@ -10,29 +11,38 @@ class ListImagesHomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    final list = ListStoriesData(
-            //  TODO arrumar o tamanho depois
-            )
-        .listStoriesData(
-      height: size.height * 0.05,
-      width: size.width * 0.12,
+    final list = ListStoriesData().listStoriesData(
+      height: size.height * 0.08,
+      width: size.width * 0.18,
     );
+
     return ListView.builder(
       scrollDirection: Axis.horizontal,
       itemCount: list.length,
       itemBuilder: (context, indexAtual) {
-        return Padding(
-          padding: const EdgeInsets.only(
-            left: 20,
-            // right: 20,
-            top: 24,
-            bottom: 24,
-          ),
-          child: ImageAppWidget(
-            height: list[indexAtual].heigth,
-            width: list[indexAtual].width,
-            image: list[indexAtual].image,
-          ),
+        return Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 12,
+                bottom: 9,
+                right: 12,
+              ),
+              child: Column(
+                children: [
+                  ImageAppWidget(
+                    height: list[indexAtual].heigth,
+                    width: list[indexAtual].width,
+                    image: list[indexAtual].image,
+                  ),
+                  Text(
+                    list[indexAtual].name,
+                    style: TextStyles.textRegularNameStories,
+                  )
+                ],
+              ),
+            ),
+          ],
         );
       },
     );

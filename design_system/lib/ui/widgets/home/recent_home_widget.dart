@@ -7,21 +7,14 @@ class RecentHomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 25.0),
-          child: Text(
-            'RECENT',
-            style: TextStyles.textMediumRecent.copyWith(
-              letterSpacing: 0.3,
-            ),
-          ),
+    return Padding(
+      padding: const EdgeInsets.only(left: 10.0),
+      child: Text(
+        'R E C E N T',
+        style: TextStyles.textMediumRecent.copyWith(
+          letterSpacing: 0.3,
         ),
-        SliverToBoxAdapter(
-          child: Container(),
-        ),
-      ],
+      ),
     );
   }
 }
