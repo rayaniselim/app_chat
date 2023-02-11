@@ -15,15 +15,11 @@ class ImageAppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(1000),
-      child: Column(
-        children: [
-          Image.asset(
-            image,
-            fit: BoxFit.cover,
-            height: height,
-            width: width,
-          ),
-        ],
+      child: Image.asset(
+        image,
+        fit: BoxFit.cover,
+        height: height,
+        width: width,
       ),
     );
   }

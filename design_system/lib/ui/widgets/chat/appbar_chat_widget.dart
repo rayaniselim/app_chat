@@ -19,14 +19,13 @@ class AppBarChatWidget extends StatelessWidget {
     );
     return SliverAppBar(
       toolbarHeight: heightAppBar + statusBar,
-      floating: true,
       elevation: 0,
       backgroundColor: ColorsApp.primary,
       centerTitle: false,
       actions: [
         Padding(
           padding: const EdgeInsets.only(
-            left: 25,
+            left: 50,
             top: 10,
           ),
           child: Row(
@@ -56,8 +55,7 @@ class AppBarChatWidget extends StatelessWidget {
         const Spacer(),
         const Padding(
           padding: EdgeInsets.only(
-            right: 25,
-            top: 10,
+            right: 10,
           ),
           child: IconSearchWidget(),
         ),

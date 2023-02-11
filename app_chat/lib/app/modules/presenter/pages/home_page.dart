@@ -3,6 +3,8 @@ import 'package:design_system/ui/styles/colors_app.dart';
 import 'package:design_system/ui/widgets/home/list_images_home_widget.dart';
 import 'package:flutter/material.dart';
 
+import 'chat_page.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -12,15 +14,27 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: ColorsApp.primary, // TODO: CADE O TEMA?
-      body: CustomScrollView(
-        scrollDirection: Axis.vertical,
-        slivers: [
-          const AppBarHomeWidget(),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: size.height * 0.116,
-              child: const ListImagesHomeWidget(),
-            ),
+      body: Stack(
+        children: [
+          CustomScrollView(
+            slivers: [
+              const AppBarHomeWidget(),
+              SliverToBoxAdapter(
+                //// TODO: DEIXAR OS STORIES SEM SCROLL VERTICAL
+                child: SizedBox(
+                  height: size.height * 0.116,
+                  child: const ListImagesHomeWidget(),
+                ),
+              ),
+              CardSliverListWidget(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const ChatPage()),
+                  );
+                },
+              ),
+            ],
           ),
         ],
       ),
