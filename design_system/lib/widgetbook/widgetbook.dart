@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 import '../design_system.dart';
+import '../ui/widgets/home/list_images_home_widget.dart';
 import '../ui/widgets/home/recent_home_widget.dart';
 
 class PageWidgetbook extends StatelessWidget {
@@ -38,6 +39,15 @@ class PageWidgetbook extends StatelessWidget {
                 WidgetbookUseCase(
                   name: 'Recent Home',
                   builder: (context) => const RecentHomeWidget(),
+                ),
+              ],
+            ),
+            WidgetbookComponent(
+              name: 'List Stories Home',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'List Stories Home',
+                  builder: (context) => const ListImagesHomeWidget(),
                 ),
               ],
             ),

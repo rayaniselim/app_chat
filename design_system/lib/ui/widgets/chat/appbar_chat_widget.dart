@@ -1,4 +1,6 @@
+import 'package:app_chat/core/data/list_story_data.dart';
 import 'package:flutter/material.dart';
+import '../../styles/colors_app.dart';
 import '../icon_search_widget.dart';
 import '../image_app_widget.dart';
 import 'name_chat_widget.dart';
@@ -11,27 +13,44 @@ class AppBarChatWidget extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final statusBar = MediaQuery.of(context).viewPadding.top;
     final heightAppBar = AppBar().preferredSize.height;
-    return Padding(
-      padding: const EdgeInsets.all(25.0),
-      child: SizedBox(
-        height: heightAppBar + statusBar,
-        width: size.width,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ImageAppWidget(
-              height: size.height * 1.58,
-              width: size.width * 0.038,
-            ),
-            SizedBox(
-              width: size.width * 0.01, //16,
-            ),
-            const NameChatWidget(),
-            const Spacer(),
-            const IconSearchWidget(),
-          ],
+    final list = ListStoriesData(
+            //  TODO arrumar o tamanho depois
+            )
+        .listStoriesData(
+      height: size.height * 0.05,
+      width: size.width * 0.045,
+      // height: 0,
+      // width: 0,
+    );
+    return SliverAppBar(
+      toolbarHeight: heightAppBar + statusBar,
+      floating: true,
+      elevation: 0,
+      backgroundColor: ColorsApp.primary,
+      centerTitle: false,
+      actions: [
+        Padding(
+          padding: const EdgeInsets.only(left: 25),
+          child: Row(
+            children: [
+              ImageAppWidget(
+                height: size.height * 0.06,
+                width: size.width * 0.12,
+                image: list[0].image,
+              ),
+            ],
+          ),
         ),
-      ),
+        SizedBox(
+          width: size.width * 0.02,
+        ),
+        const Center(child: NameChatWidget()),
+        const Spacer(),
+        const Padding(
+          padding: EdgeInsets.only(right: 25),
+          child: IconSearchWidget(),
+        ),
+      ],
     );
   }
 }

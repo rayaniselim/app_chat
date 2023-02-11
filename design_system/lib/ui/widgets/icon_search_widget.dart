@@ -11,7 +11,7 @@ class IconSearchWidget extends StatelessWidget {
       onPressed: () {},
       icon: Icon(
         Icons.search,
-        size: size.height * 0.02 + size.width * 0.0021, //28,
+        size: size.height * 0.025 + size.width * 0.02, //28,
       ),
     );
   }
