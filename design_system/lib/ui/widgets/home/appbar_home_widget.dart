@@ -16,6 +16,7 @@ class AppBarHomeWidget extends StatelessWidget {
     return SliverAppBar(
       toolbarHeight: heightAppBar + statusBar,
       floating: true,
+      pinned: true,
       elevation: 0,
       backgroundColor: ColorsApp.primary,
       centerTitle: false,

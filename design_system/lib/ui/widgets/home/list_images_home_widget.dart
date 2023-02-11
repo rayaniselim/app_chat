@@ -1,4 +1,5 @@
-import 'package:app_chat/core/data/list_story_data.dart';
+import 'package:app_chat/core/mock/list_story_mock.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../styles/text_styles.dart';
@@ -11,7 +12,7 @@ class ListImagesHomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    final list = ListStoriesData().listStoriesData(
+    final list = const ListStoriesMock().listStoriesMock(
       height: size.height * 0.08,
       width: size.width * 0.18,
     );
@@ -23,20 +24,18 @@ class ListImagesHomeWidget extends StatelessWidget {
         return Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(
-                left: 12,
+              padding: EdgeInsets.only(
+                left: indexAtual == 0 ? 25 : 12,
                 bottom: 9,
                 right: 12,
               ),
               child: Column(
                 children: [
                   ImageAppWidget(
-                    height: list[indexAtual].heigth,
-                    width: list[indexAtual].width,
                     image: list[indexAtual].image,
                   ),
                   Text(
-                    list[indexAtual].name,
+                    list[indexAtual].name.split(' ')[0],
                     style: TextStyles.textRegularNameStories,
                   )
                 ],

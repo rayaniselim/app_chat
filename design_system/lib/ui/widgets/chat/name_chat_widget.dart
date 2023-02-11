@@ -1,4 +1,4 @@
-import 'package:app_chat/core/data/list_story_data.dart';
+import 'package:app_chat/core/mock/list_story_mock.dart';
 import 'package:flutter/material.dart';
 import '../../styles/text_styles.dart';
 
@@ -7,7 +7,7 @@ class NameChatWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final list = ListStoriesData().listStoriesData(
+    final list = const ListStoriesMock().listStoriesMock(
       height: 0,
       width: 0,
     );

@@ -4,7 +4,7 @@ class StoryModel {
   final double heigth;
   final double width;
 
-  StoryModel({
+  const StoryModel({
     required this.heigth,
     required this.width,
     required this.image,

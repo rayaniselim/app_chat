@@ -1,4 +1,4 @@
-import 'package:app_chat/core/data/list_story_data.dart';
+import 'package:app_chat/core/mock/list_story_mock.dart';
 import 'package:flutter/material.dart';
 import '../../styles/colors_app.dart';
 import '../icon_search_widget.dart';
@@ -13,7 +13,7 @@ class AppBarChatWidget extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final statusBar = MediaQuery.of(context).viewPadding.top;
     final heightAppBar = AppBar().preferredSize.height;
-    final list = ListStoriesData().listStoriesData(
+    final list = const ListStoriesMock().listStoriesMock(
       height: size.height * 0.05,
       width: size.width * 0.045,
     );
@@ -32,8 +32,8 @@ class AppBarChatWidget extends StatelessWidget {
             children: [
               FittedBox(
                 child: ImageAppWidget(
-                  height: size.height * 0.062,
-                  width: size.width * 0.13,
+                  // height: size.height * 0.062,
+                  // width: size.width * 0.13,
                   image: list[0]
                       .image, // TODO: COLOCAR O BUILDER PARA O INDEXATUAL
                 ),

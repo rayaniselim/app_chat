@@ -1,6 +1,5 @@
-import 'package:app_chat/core/data/list_story_data.dart';
+import 'package:app_chat/core/mock/list_story_mock.dart';
 import 'package:flutter/material.dart';
-
 import 'components_card_message_home_widget.dart';
 
 class CardSliverListWidget extends StatelessWidget {
@@ -13,7 +12,7 @@ class CardSliverListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    final list = ListStoriesData().listStoriesData(
+    final list = const ListStoriesMock().listStoriesMock(
       height: size.height * 0.08,
       width: size.width * 0.18,
     );

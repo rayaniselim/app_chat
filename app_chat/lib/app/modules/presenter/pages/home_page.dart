@@ -1,5 +1,4 @@
 import 'package:design_system/design_system.dart';
-import 'package:design_system/ui/styles/colors_app.dart';
 import 'package:design_system/ui/widgets/home/list_images_home_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -13,14 +12,14 @@ class HomePage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: ColorsApp.primary, // TODO: CADE O TEMA?
       body: Stack(
         children: [
           CustomScrollView(
+            // physics: const ClampingScrollPhysics(), // fica paradinho
             slivers: [
               const AppBarHomeWidget(),
               SliverToBoxAdapter(
-                //// TODO: DEIXAR OS STORIES SEM SCROLL VERTICAL
+                /// TODO: DEIXAR OS STORIES SEM SCROLL VERTICAL
                 child: SizedBox(
                   height: size.height * 0.116,
                   child: const ListImagesHomeWidget(),

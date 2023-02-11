@@ -1,6 +1,5 @@
-import 'package:app_chat/core/data/list_story_data.dart';
+import 'package:app_chat/core/mock/list_story_mock.dart';
 import 'package:flutter/material.dart';
-
 import '../../styles/text_styles.dart';
 
 class ComponentsCardMessageHomeWidget extends StatelessWidget {
@@ -15,20 +14,13 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    final list = ListStoriesData().listStoriesData(
+    final list = const ListStoriesMock().listStoriesMock(
       height: size.height * 0.08,
       width: size.width * 0.18,
     );
 
     return InkWell(
       onTap: onTap,
-
-      // () {
-      // Navigator.push(
-      //   context,
-      //   MaterialPageRoute(builder: (_) => ChatPage()),
-      // );
-      // },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -48,7 +40,7 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: size.width * 0.024), // 18
+          SizedBox(width: size.width * 0.03),
           Expanded(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -69,7 +61,7 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          width: size.width * 0.5,
+                          width: size.width * 0.47,
                         ),
                         Text(
                           '08:43',
