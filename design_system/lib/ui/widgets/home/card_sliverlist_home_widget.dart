@@ -1,6 +1,7 @@
 import 'package:app_chat/core/mock/list_story_mock.dart';
 import 'package:flutter/material.dart';
-import 'components_card_message_home_widget.dart';
+
+import '../../../design_system.dart';
 
 class CardSliverListWidget extends StatelessWidget {
   final VoidCallback onTap;

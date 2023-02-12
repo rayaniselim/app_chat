@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/text_styles.dart';
+import '../../../design_system.dart';
 
 class RecentHomeWidget extends StatelessWidget {
   const RecentHomeWidget({super.key});

@@ -17,7 +17,7 @@ class AppBarChatWidget extends StatelessWidget {
       height: size.height * 0.05,
       width: size.width * 0.045,
     );
-    return SliverAppBar(
+    return AppBar(
       toolbarHeight: heightAppBar + statusBar,
       elevation: 0,
       backgroundColor: ColorsApp.primary,
@@ -30,12 +30,13 @@ class AppBarChatWidget extends StatelessWidget {
           ),
           child: Row(
             children: [
-              FittedBox(
-                child: ImageAppWidget(
-                  // height: size.height * 0.062,
-                  // width: size.width * 0.13,
-                  image: list[0]
-                      .image, // TODO: COLOCAR O BUILDER PARA O INDEXATUAL
+              SizedBox(
+                height: size.height * 0.07,
+                child: FittedBox(
+                  child: ImageAppWidget(
+                    image: list[0]
+                        .image, // TODO: COLOCAR O BUILDER PARA O INDEXATUAL
+                  ),
                 ),
               ),
             ],

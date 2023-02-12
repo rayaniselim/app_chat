@@ -1,6 +1,7 @@
 import 'package:app_chat/core/mock/list_story_mock.dart';
+
 import 'package:flutter/material.dart';
-import '../../styles/text_styles.dart';
+import '../../../design_system.dart';
 
 class NameChatWidget extends StatelessWidget {
   const NameChatWidget({super.key});

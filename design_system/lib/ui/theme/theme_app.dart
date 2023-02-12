@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import '../styles/colors_app.dart';
-import '../styles/text_styles.dart';
 
 class ThemeApp {
   static final themeDark = ThemeData(
     scaffoldBackgroundColor: ColorsApp.primary,
     appBarTheme: AppBarTheme(
-      backgroundColor: ColorsApp.primary,
-      elevation: 0,
-      centerTitle: true,
-    ),
+        backgroundColor: ColorsApp.primary,
+        elevation: 0,
+        centerTitle: true,
+        iconTheme: IconThemeData(
+          color: ColorsApp.secondary,
+        )),
     iconTheme: IconThemeData(
-      color: ColorsApp.secondary,
+      color: ColorsApp.prefixIconColor,
+    ),
+    primaryIconTheme: IconThemeData(
+      color: ColorsApp.prefixIconColor,
     ),
 
     primaryColor: ColorsApp.primary,

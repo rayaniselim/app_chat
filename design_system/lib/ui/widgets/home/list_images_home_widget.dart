@@ -2,8 +2,7 @@ import 'package:app_chat/core/mock/list_story_mock.dart';
 
 import 'package:flutter/material.dart';
 
-import '../../styles/text_styles.dart';
-import '../image_app_widget.dart';
+import '../../../design_system.dart';
 
 class ListImagesHomeWidget extends StatelessWidget {
   const ListImagesHomeWidget({Key? key}) : super(key: key);

@@ -15,7 +15,7 @@ class PageWidgetbook extends StatelessWidget {
     return Widgetbook.material(
       categories: [
         WidgetbookCategory(
-          name: 'widgets',
+          name: 'widgets Home',
           widgets: [
             WidgetbookComponent(
               name: 'AppBar Home',
@@ -26,15 +26,7 @@ class PageWidgetbook extends StatelessWidget {
                 ),
               ],
             ),
-            WidgetbookComponent(
-              name: 'AppBar Chat',
-              useCases: [
-                WidgetbookUseCase(
-                  name: 'AppBar Chat',
-                  builder: (context) => const AppBarChatWidget(),
-                ),
-              ],
-            ),
+
             WidgetbookComponent(
               name: 'Recent Home',
               useCases: [
@@ -62,12 +54,44 @@ class PageWidgetbook extends StatelessWidget {
                 ),
               ],
             ),
+
+            WidgetbookComponent(
+              name: 'Card SliverList home',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Card SliverList home',
+                  builder: (context) => CardSliverListWidget(
+                    onTap: () {},
+                  ),
+                ),
+              ],
+            ),
+
+            ///// CHAT
+            WidgetbookComponent(
+              name: 'AppBar Chat',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'AppBar Chat',
+                  builder: (context) => const AppBarChatWidget(),
+                ),
+              ],
+            ),
             WidgetbookComponent(
               name: 'Name Chat',
               useCases: [
                 WidgetbookUseCase(
                   name: 'Name Chat',
                   builder: (context) => const NameChatWidget(),
+                ),
+              ],
+            ),
+            WidgetbookComponent(
+              name: 'TextField Chat',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'TextField Chat',
+                  builder: (context) => const TextFieldChatWidget(),
                 ),
               ],
             ),

@@ -28,15 +28,11 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
             padding: const EdgeInsets.only(left: 25),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(100),
-              child: Stack(
-                children: [
-                  Image.asset(
-                    list[0].image,
-                    fit: BoxFit.fitHeight,
-                    height: size.height * 0.07,
-                    width: size.width * 0.15,
-                  ),
-                ],
+              child: Image.asset(
+                list[0].image,
+                fit: BoxFit.fitHeight,
+                height: size.height * 0.07,
+                width: size.width * 0.15,
               ),
             ),
           ),

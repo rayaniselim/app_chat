@@ -6,13 +6,18 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
-    return const Scaffold(
-      body: CustomScrollView(
-        scrollDirection: Axis.vertical,
-        slivers: [
-          AppBarChatWidget(),
+    return Scaffold(
+      appBar: const PreferredSize(
+        preferredSize: Size(0, 100),
+        child: AppBarChatWidget(),
+      ),
+      body: Column(
+        children: const [
+          SizedBox(
+            height: 18, //50
+          ),
+          CardMessagesChat(),
+          TextFieldChatWidget(),
         ],
       ),
     );
