@@ -12,5 +12,5 @@ import '../entities/model.dart';
 ///
 ///
 abstract class SearchByText {
-  Future<List<ResultSearch>> call(String searchText);
+  Future<List<UserModel>> call(String searchText);
 }
