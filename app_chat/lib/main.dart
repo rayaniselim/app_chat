@@ -27,9 +27,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeApp.themeDark,
       // home: const PageWidgetbook(),
-      // home: const HomePage(),
+      home: const HomePage(),
       // home: ChatPage(),
-      home: const LoginPage(),
+      // home: const LoginPage(),
     );
   }
 }

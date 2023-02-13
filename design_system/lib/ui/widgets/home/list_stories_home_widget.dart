@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../../../design_system.dart';
 
-class ListImagesHomeWidget extends StatelessWidget {
-  const ListImagesHomeWidget({Key? key}) : super(key: key);
+class ListStoriesHomeWidget extends StatelessWidget {
+  const ListStoriesHomeWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 import '../../../design_system.dart';
 
-class CardSliverListWidget extends StatelessWidget {
+class SliverListWidget extends StatelessWidget {
   final VoidCallback onTap;
-  CardSliverListWidget({Key? key, required this.onTap}) : super(key: key);
+  SliverListWidget({Key? key, required this.onTap}) : super(key: key);
 
   final rxSelected = ValueNotifier<int>(0);
 

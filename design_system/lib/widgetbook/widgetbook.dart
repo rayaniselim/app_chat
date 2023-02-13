@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 import '../design_system.dart';
@@ -24,7 +23,17 @@ class PageWidgetbook extends StatelessWidget {
                 ),
               ],
             ),
-
+            WidgetbookComponent(
+              name: 'Components Card Message Home',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Components Card Message Home',
+                  builder: (context) => ComponentsCardMessageHomeWidget(
+                    onTap: () {},
+                  ),
+                ),
+              ],
+            ),
             WidgetbookComponent(
               name: 'Recent Home',
               useCases: [
@@ -39,10 +48,11 @@ class PageWidgetbook extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'List Stories Home',
-                  builder: (context) => const ListImagesHomeWidget(),
+                  builder: (context) => const ListStoriesHomeWidget(),
                 ),
               ],
             ),
+
             WidgetbookComponent(
               name: 'Icon Search',
               useCases: [
@@ -58,7 +68,7 @@ class PageWidgetbook extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'Card SliverList home',
-                  builder: (context) => CardSliverListWidget(
+                  builder: (context) => SliverListWidget(
                     onTap: () {},
                   ),
                 ),
@@ -75,12 +85,33 @@ class PageWidgetbook extends StatelessWidget {
                 ),
               ],
             ),
+
+            WidgetbookComponent(
+              name: 'Card Messages Chat',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Card Messages Chat',
+                  builder: (context) => const CardMessagesChat(),
+                ),
+              ],
+            ),
+
             WidgetbookComponent(
               name: 'Name Chat',
               useCases: [
                 WidgetbookUseCase(
                   name: 'Name Chat',
                   builder: (context) => const NameChatWidget(),
+                ),
+              ],
+            ),
+
+            WidgetbookComponent(
+              name: 'Text Data Chat',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Text Data Chat',
+                  builder: (context) => const TextDataChat(),
                 ),
               ],
             ),
@@ -97,10 +128,10 @@ class PageWidgetbook extends StatelessWidget {
             /// LOGIN
 
             WidgetbookComponent(
-              name: 'TextField Chat',
+              name: 'TextField Login',
               useCases: [
                 WidgetbookUseCase(
-                  name: 'TextField Chat',
+                  name: 'TextField Login',
                   builder: (context) => const TextFieldLoginWdiget(
                     hintText: 'Email',
                     icon: Icons.email_outlined,
@@ -113,10 +144,10 @@ class PageWidgetbook extends StatelessWidget {
             ),
 
             WidgetbookComponent(
-              name: 'TextField Chat',
+              name: 'Button Login',
               useCases: [
                 WidgetbookUseCase(
-                  name: 'TextField Chat',
+                  name: 'Button Login',
                   builder: (context) => ButtonLoginWidget(
                     onPressed: () {},
                   ),

@@ -1,5 +1,6 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
+
 import 'chat_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,12 +17,12 @@ class HomePage extends StatelessWidget {
           SliverToBoxAdapter(
             child: SizedBox(
               height: size.height * 0.116,
-              child: const ListImagesHomeWidget(),
+              child: const ListStoriesHomeWidget(),
             ),
           ),
 
           /// TODO: arrumar 2 containers pra fazer o efeito
-          CardSliverListWidget(
+          SliverListWidget(
             onTap: () {
               Navigator.push(
                 context,
