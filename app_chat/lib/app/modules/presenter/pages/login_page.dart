@@ -31,21 +31,9 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const TextFieldLoginWdiget(
-                      keyboardType: TextInputType.emailAddress,
-                      hintText: 'Email',
-                      labelText: 'Email',
-                      icon: (Icons.email_outlined),
-                      obscure: false,
-                    ),
+                    const TextFieldEmailWdiget(),
                     sizedBox,
-                    const TextFieldLoginWdiget(
-                      keyboardType: TextInputType.emailAddress,
-                      hintText: 'Password',
-                      labelText: 'Password',
-                      icon: (Icons.lock_outline),
-                      obscure: true,
-                    ),
+                    const TextFieldPasswordWdiget(),
                     sizedBox,
                     ButtonLoginWidget(
                       onPressed: () {

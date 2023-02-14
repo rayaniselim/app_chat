@@ -16,5 +16,6 @@ export 'ui/widgets/home/components_card_message_home_widget.dart';
 export 'ui/widgets/image_app_widget.dart';
 export 'ui/widgets/icon_search_widget.dart';
 export 'ui/widgets/home/recent_home_widget.dart';
-export 'ui/widgets/login/text_field_widget.dart';
+export 'ui/widgets/login/text_field_email_widget.dart';
 export 'ui/widgets/login/button_login_widget.dart';
+export 'ui/widgets/login/text_field_password_widget.dart';

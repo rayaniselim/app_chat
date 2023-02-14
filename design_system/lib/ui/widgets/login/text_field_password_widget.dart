@@ -2,39 +2,54 @@ import 'package:flutter/material.dart';
 
 import '../../../design_system.dart';
 
-class TextFieldLoginWdiget extends StatelessWidget {
+class TextFieldPasswordWdiget extends StatefulWidget {
   // final TextEditingController controller;
-  final TextInputType keyboardType;
-  final String hintText;
-  final String labelText;
-  final bool obscure;
-  final IconData icon;
 
-  const TextFieldLoginWdiget(
-      {super.key,
-      // required this.controller,
-      required this.keyboardType,
-      required this.hintText,
-      required this.labelText,
-      required this.obscure,
-      required this.icon});
+  const TextFieldPasswordWdiget({
+    super.key,
+    // required this.controller,
+  });
 
   @override
+  State<TextFieldPasswordWdiget> createState() =>
+      _TextFieldPasswordWdigetState();
+}
+
+class _TextFieldPasswordWdigetState extends State<TextFieldPasswordWdiget> {
+  @override
   Widget build(BuildContext context) {
-    return TextField(
+    bool isObscure = true;
+    return TextFormField(
+      initialValue: '123456',
+      style: TextStyles.textMediumRecent,
+
       /// COLOCAR O VALIDATORS - PASTA
-      keyboardType: keyboardType,
+      keyboardType: TextInputType.none,
+      obscureText: isObscure,
       // controller: controller,
-      obscureText: obscure,
       decoration: InputDecoration(
         fillColor: ColorsApp.myMessageContainerColor,
-        hintText: hintText,
+        hintText: 'Password',
         hintStyle: TextStyles.textMediumRecent,
-        labelText: labelText,
+        labelText: 'Password',
         labelStyle: TextStyles.textMediumRecent,
-        suffixIcon: Icon(
-          icon,
-          color: ColorsApp.primary,
+        suffixIcon: GestureDetector(
+          child: isObscure == true
+              ? Icon(
+                  Icons.visibility_off_outlined,
+                  color: ColorsApp.primary,
+                  size: 19,
+                )
+              : Icon(
+                  Icons.visibility_outlined,
+                  color: ColorsApp.primary,
+                  size: 19,
+                ),
+          onTap: () {
+            setState(() {
+              isObscure = !isObscure;
+            });
+          },
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(

@@ -128,17 +128,21 @@ class PageWidgetbook extends StatelessWidget {
             /// LOGIN
 
             WidgetbookComponent(
-              name: 'TextField Login',
+              name: 'TextField Email Login',
               useCases: [
                 WidgetbookUseCase(
-                  name: 'TextField Login',
-                  builder: (context) => const TextFieldLoginWdiget(
-                    hintText: 'Email',
-                    icon: Icons.email_outlined,
-                    keyboardType: TextInputType.emailAddress,
-                    labelText: 'Email',
-                    obscure: false,
-                  ),
+                  name: 'TextField Email Login',
+                  builder: (context) => const TextFieldEmailWdiget(),
+                ),
+              ],
+            ),
+
+            WidgetbookComponent(
+              name: 'TextField Password Login',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'TextField Password Login',
+                  builder: (context) => TextFieldPasswordWdiget(),
                 ),
               ],
             ),
