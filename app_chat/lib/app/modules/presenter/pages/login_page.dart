@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
             child: SingleChildScrollView(
               child: Container(
                 decoration: BoxDecoration(
-                  color: ColorsApp.yourMessageContainerColor,
+                  color: ColorsApp.yourMessageContainerColorDark,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 width: width * 0.8,

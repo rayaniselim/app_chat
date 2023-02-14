@@ -28,21 +28,19 @@ class _TextFieldPasswordWdigetState extends State<TextFieldPasswordWdiget> {
       obscureText: isObscure,
       // controller: controller,
       decoration: InputDecoration(
-        fillColor: ColorsApp.myMessageContainerColor,
+        fillColor: ColorsApp.myMessageContainerColorDark,
         hintText: 'Password',
         hintStyle: TextStyles.textMediumRecent,
         labelText: 'Password',
         labelStyle: TextStyles.textMediumRecent,
         suffixIcon: GestureDetector(
           child: isObscure == true
-              ? Icon(
+              ? const Icon(
                   Icons.visibility_off_outlined,
-                  color: ColorsApp.primary,
                   size: 19,
                 )
-              : Icon(
+              : const Icon(
                   Icons.visibility_outlined,
-                  color: ColorsApp.primary,
                   size: 19,
                 ),
           onTap: () {
@@ -52,16 +50,14 @@ class _TextFieldPasswordWdigetState extends State<TextFieldPasswordWdiget> {
           },
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: ColorsApp.primary,
+          borderSide: const BorderSide(
             width: 0.5,
           ),
           borderRadius: BorderRadius.circular(20.0),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             width: 0.5,
-            color: ColorsApp.primary,
           ),
           borderRadius: BorderRadius.circular(20.0),
         ),

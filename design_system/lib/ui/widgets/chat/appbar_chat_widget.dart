@@ -1,6 +1,5 @@
 import 'package:app_chat/core/mock/list_story_mock.dart';
 import 'package:flutter/material.dart';
-import '../../styles/colors_app.dart';
 import '../icon_search_widget.dart';
 import '../image_app_widget.dart';
 import 'name_chat_widget.dart';
@@ -20,7 +19,6 @@ class AppBarChatWidget extends StatelessWidget {
     return AppBar(
       toolbarHeight: heightAppBar + statusBar,
       elevation: 0,
-      backgroundColor: ColorsApp.primary,
       centerTitle: false,
       actions: [
         Padding(

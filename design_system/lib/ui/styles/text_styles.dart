@@ -9,39 +9,39 @@ class TextStyles {
 
   static TextStyle get textRegularMessageChat => GoogleFonts.poppins(
         fontWeight: FontWeight.normal,
-        color: ColorsApp.secondary,
+        color: ColorsApp.secondaryDark,
         fontSize: 14,
       );
 
   static TextStyle get textRegularMessageCard => GoogleFonts.poppins(
         fontWeight: FontWeight.normal,
-        color: ColorsApp.secondaryTextColor,
+        color: ColorsApp.secondaryDarkTextColorDark,
         fontSize: 14,
       );
   static TextStyle get textRegularDateChat => GoogleFonts.poppins(
         fontWeight: FontWeight.normal,
-        color: ColorsApp.secondary,
+        color: ColorsApp.secondaryDark,
         fontSize: 12,
       );
   static TextStyle get textRegularNameStories => GoogleFonts.poppins(
         fontWeight: FontWeight.normal,
-        color: ColorsApp.secondary,
+        color: ColorsApp.secondaryDark,
         fontSize: 16,
       );
 
   static TextStyle get textMediumRecent => GoogleFonts.poppins(
         fontWeight: FontWeight.w500,
-        color: ColorsApp.secondary.withOpacity(0.58),
+        color: ColorsApp.secondaryDark.withOpacity(0.58),
         fontSize: 13,
       );
   static TextStyle get textRegularCardMessageChat => GoogleFonts.poppins(
         fontWeight: FontWeight.w400,
-        color: ColorsApp.secondary.withOpacity(0.45),
+        color: ColorsApp.secondaryDark.withOpacity(0.45),
         fontSize: 13,
       );
 
   static TextStyle get textSemiBoldTitles => GoogleFonts.poppins(
         fontWeight: FontWeight.w600,
-        color: ColorsApp.secondary,
+        color: ColorsApp.secondaryDark,
       );
 }

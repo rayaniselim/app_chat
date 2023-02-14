@@ -15,7 +15,6 @@ class AppBarHomeWidget extends StatelessWidget {
       floating: true,
       snap: true,
       elevation: 0,
-      backgroundColor: ColorsApp.primary,
       centerTitle: false,
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

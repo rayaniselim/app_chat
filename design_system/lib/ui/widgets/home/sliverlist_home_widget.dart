@@ -31,7 +31,7 @@ class SliverListWidget extends StatelessWidget {
                           topRight: Radius.circular(50),
                         )
                       : BorderRadius.circular(0),
-                  color: ColorsApp.cardChatsColor,
+                  color: ColorsApp.cardChatsColorDark,
                 ),
                 child: Padding(
                   padding: EdgeInsets.only(

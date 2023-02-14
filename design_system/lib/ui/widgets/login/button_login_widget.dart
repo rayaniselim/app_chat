@@ -20,7 +20,7 @@ class ButtonLoginWidget extends StatelessWidget {
         width: 90,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: ColorsApp.myMessageContainerColor,
+          color: ColorsApp.myMessageContainerColorDark,
         ),
         child: Center(
           child: Text(

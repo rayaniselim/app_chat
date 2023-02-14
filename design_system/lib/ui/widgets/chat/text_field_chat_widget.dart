@@ -18,14 +18,14 @@ class TextFieldChatWidget extends StatelessWidget {
         height: 50,
         width: size.width * 0.95,
         decoration: BoxDecoration(
-          color: ColorsApp.writeBoxColor,
+          color: ColorsApp.writeBoxColorDark,
           borderRadius: BorderRadius.circular(1000),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextField(
             decoration: InputDecoration(
-              fillColor: ColorsApp.writeBoxColor,
+              fillColor: ColorsApp.writeBoxColorDark,
               hintText: 'Message',
               hintStyle: TextStyles.textRegularCardMessageChat,
               border: InputBorder.none,
@@ -35,7 +35,7 @@ class TextFieldChatWidget extends StatelessWidget {
                   height: 33,
                   width: 33,
                   decoration: BoxDecoration(
-                    color: ColorsApp.chatButtonBackgroundColor,
+                    color: ColorsApp.iconsButtonChatTextFieldColorDark,
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: Center(

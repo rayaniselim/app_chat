@@ -20,7 +20,6 @@ class CardMessagesChat extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-
             // MENSAGEM RECEBIDA
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -32,7 +31,7 @@ class CardMessagesChat extends StatelessWidget {
                   ),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: ColorsApp.yourMessageContainerColor,
+                      color: ColorsApp.yourMessageContainerColorDark,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Padding(
@@ -65,7 +64,7 @@ class CardMessagesChat extends StatelessWidget {
                   ),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: ColorsApp.myMessageContainerColor,
+                      color: ColorsApp.myMessageContainerColorDark,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Padding(

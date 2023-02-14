@@ -20,26 +20,23 @@ class TextFieldEmailWdiget extends StatelessWidget {
       keyboardType: TextInputType.emailAddress,
       // controller: controller,
       decoration: InputDecoration(
-        fillColor: ColorsApp.myMessageContainerColor,
+        fillColor: ColorsApp.myMessageContainerColorDark,
         hintText: 'Email',
         hintStyle: TextStyles.textMediumRecent,
         labelText: 'Email',
         labelStyle: TextStyles.textMediumRecent,
-        suffixIcon: Icon(
+        suffixIcon: const Icon(
           (Icons.email_outlined),
-          color: ColorsApp.primary,
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: ColorsApp.primary,
+          borderSide: const BorderSide(
             width: 0.5,
           ),
           borderRadius: BorderRadius.circular(20.0),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             width: 0.5,
-            color: ColorsApp.primary,
           ),
           borderRadius: BorderRadius.circular(20.0),
         ),
