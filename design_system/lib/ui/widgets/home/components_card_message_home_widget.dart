@@ -62,6 +62,7 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
                       SizedBox(
                         width: 230,
                         height: 20,
+                        // TODO: Fazer que printe a mensagem recebida
                         child: Text(
                           'adsasnandasiofiosanioasnioasndsiodsadaasadas',
                           style: TextStyles.textRegularMessageCard,
@@ -75,6 +76,7 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
                       left: size.width * 0.07,
                       bottom: 25,
                     ),
+                    // TODO: Fazer que printe o horario recebido
                     child: Text(
                       '08:43',
                       style: TextStyles.textRegularMessageCard,

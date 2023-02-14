@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../design_system.dart';
-import '../icon_search_widget.dart';
 
 class AppBarHomeWidget extends StatelessWidget {
   const AppBarHomeWidget({super.key});
@@ -18,7 +17,6 @@ class AppBarHomeWidget extends StatelessWidget {
       elevation: 0,
       backgroundColor: ColorsApp.primary,
       centerTitle: false,
-
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -33,6 +31,9 @@ class AppBarHomeWidget extends StatelessWidget {
           ),
           Row(
             children: const [
+              SizedBox(
+                height: 8,
+              ),
               RecentHomeWidget(),
             ],
           ),
@@ -42,21 +43,12 @@ class AppBarHomeWidget extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(
             right: 10,
+            top: 0,
+            bottom: 20,
           ),
           child: IconSearchWidget(),
         ),
       ],
-      // flexibleSpace: Container(
-      //   height: 670,
-      //   // width: size.width,
-      //   decoration: BoxDecoration(
-      //     color: ColorsApp.cardChatsColor,
-      //     borderRadius: const BorderRadius.only(
-      //       topLeft: Radius.circular(50),
-      //       topRight: Radius.circular(50),
-      //     ),
-      //   ),
-      // ),
     );
   }
 }

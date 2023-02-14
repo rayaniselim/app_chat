@@ -50,6 +50,20 @@ class TextFieldLoginWdiget extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(20.0),
         ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.0),
+          borderSide: BorderSide(
+            color: Theme.of(context).errorColor,
+            width: 1,
+          ),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.0),
+          borderSide: BorderSide(
+            color: Theme.of(context).errorColor,
+            width: 1.5,
+          ),
+        ),
       ),
     );
   }

@@ -20,8 +20,6 @@ class HomePage extends StatelessWidget {
               child: const ListStoriesHomeWidget(),
             ),
           ),
-
-          /// TODO: arrumar 2 containers pra fazer o efeito
           SliverListWidget(
             onTap: () {
               Navigator.push(
