@@ -19,3 +19,5 @@ export 'ui/widgets/home/recent_home_widget.dart';
 export 'ui/widgets/login/text_field_email_widget.dart';
 export 'ui/widgets/login/button_login_widget.dart';
 export 'ui/widgets/login/text_field_password_widget.dart';
+export 'ui/widgets/login/forgot_my_password_widget.dart';
+export 'ui/widgets/login/button_register_widget.dart';

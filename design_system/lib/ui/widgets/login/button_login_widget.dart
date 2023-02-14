@@ -24,7 +24,7 @@ class ButtonLoginWidget extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            'Cadastro',
+            'Login',
             style: TextStyles.textRegularMessageChat,
           ),
         ),

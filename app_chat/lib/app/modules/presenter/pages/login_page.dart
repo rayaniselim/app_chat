@@ -24,17 +24,31 @@ class _LoginPageState extends State<LoginPage> {
           Center(
             child: SingleChildScrollView(
               child: Container(
-                color: ColorsApp.yourMessageContainerColor,
+                decoration: BoxDecoration(
+                  color: ColorsApp.yourMessageContainerColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 width: width * 0.8,
-                height: height * 0.28,
-                padding: const EdgeInsets.all(30),
+                height: height * 0.30,
+                padding: const EdgeInsets.only(
+                  left: 30,
+                  right: 30,
+                  top: 30,
+                  bottom: 20,
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const TextFieldEmailWdiget(),
                     sizedBox,
                     const TextFieldPasswordWdiget(),
-                    sizedBox,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        ForgotMyPasswordWidget(),
+                        ButtonRegisterWidget(),
+                      ],
+                    ),
                     ButtonLoginWidget(
                       onPressed: () {
                         Navigator.push(

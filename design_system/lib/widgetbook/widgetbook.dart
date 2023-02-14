@@ -142,7 +142,7 @@ class PageWidgetbook extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'TextField Password Login',
-                  builder: (context) => TextFieldPasswordWdiget(),
+                  builder: (context) => const TextFieldPasswordWdiget(),
                 ),
               ],
             ),
@@ -155,6 +155,24 @@ class PageWidgetbook extends StatelessWidget {
                   builder: (context) => ButtonLoginWidget(
                     onPressed: () {},
                   ),
+                ),
+              ],
+            ),
+            WidgetbookComponent(
+              name: 'Button Forgot my password',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Button Forgot my password',
+                  builder: (context) => const ForgotMyPasswordWidget(),
+                ),
+              ],
+            ),
+            WidgetbookComponent(
+              name: 'Button Register',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Button Register',
+                  builder: (context) => const ButtonRegisterWidget(),
                 ),
               ],
             ),
