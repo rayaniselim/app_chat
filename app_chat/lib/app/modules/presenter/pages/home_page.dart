@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
           const AppBarHomeWidget(),
           SliverToBoxAdapter(
             child: SizedBox(
-              height: size.height * 0.116,
+              height: size.height * 0.12,
               child: const ListStoriesHomeWidget(),
             ),
           ),

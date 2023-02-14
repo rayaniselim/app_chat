@@ -30,8 +30,13 @@ class ListStoriesHomeWidget extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  ImageAppWidget(
-                    image: list[indexAtual].image,
+                  FittedBox(
+                    child: SizedBox(
+                      height: 70,
+                      child: ImageAppWidget(
+                        image: list[indexAtual].image,
+                      ),
+                    ),
                   ),
                   Text(
                     list[indexAtual].name.split(' ')[0],

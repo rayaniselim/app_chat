@@ -19,14 +19,17 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
       width: size.width * 0.18,
     );
 
-    return InkWell(
-      onTap: onTap,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 25),
-            child: ClipRRect(
+    return Padding(
+      padding: const EdgeInsets.only(
+        right: 25,
+        left: 25,
+      ),
+      child: InkWell(
+        onTap: onTap,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ClipRRect(
               borderRadius: BorderRadius.circular(100),
               child: Image.asset(
                 list[0].image,
@@ -35,51 +38,54 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
                 width: size.width * 0.15,
               ),
             ),
-          ),
-          SizedBox(width: size.width * 0.03),
-          Expanded(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          list[0].name,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyles.textSemiBoldTitles.copyWith(
-                            fontSize: 15,
+            SizedBox(width: size.width * 0.03),
+            Expanded(
+              child: Row(
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            list[0].name,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyles.textSemiBoldTitles.copyWith(
+                              fontSize: 15,
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          width: size.width * 0.47,
-                        ),
-                        Text(
-                          '08:43',
-                          style: TextStyles.textRegularMessageCard,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: 240,
-                      height: 20,
-                      child: Text(
-                        'adsasnandasiofiosanioasnioasndsiodsadaasadas',
-                        style: TextStyles.textRegularMessageCard,
-                        overflow: TextOverflow.ellipsis,
+                        ],
                       ),
+                      SizedBox(
+                        width: 230,
+                        height: 20,
+                        child: Text(
+                          'adsasnandasiofiosanioasnioasndsiodsadaasadas',
+                          style: TextStyles.textRegularMessageCard,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: size.width * 0.07,
+                      bottom: 25,
                     ),
-                  ],
-                ),
-              ],
+                    child: Text(
+                      '08:43',
+                      style: TextStyles.textRegularMessageCard,
+                      textAlign: TextAlign.end,
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

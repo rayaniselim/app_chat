@@ -23,10 +23,26 @@ class SliverListWidget extends StatelessWidget {
           return ValueListenableBuilder(
             valueListenable: rxSelected,
             builder: (context, value, _) {
-              return SizedBox(
-                height: 90,
-                child: ComponentsCardMessageHomeWidget(
-                  onTap: onTap,
+              return Container(
+                decoration: BoxDecoration(
+                  borderRadius: indexAtual == 0
+                      ? const BorderRadius.only(
+                          topLeft: Radius.circular(50),
+                          topRight: Radius.circular(50),
+                        )
+                      : BorderRadius.circular(0),
+                  color: ColorsApp.cardChatsColor,
+                ),
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    top: indexAtual == 0 ? 25 : 0,
+                  ),
+                  child: SizedBox(
+                    height: 90,
+                    child: ComponentsCardMessageHomeWidget(
+                      onTap: onTap,
+                    ),
+                  ),
                 ),
               );
             },
