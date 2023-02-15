@@ -27,20 +27,25 @@ class HomePage extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(
                 left: 15,
-                bottom: 17,
+                bottom: 10,
               ),
-              child: RecentHomeWidget(),
+              child: RecentHomeWidget(
+                textRecent: 'R E C E N T',
+              ),
             ),
           ),
           SliverToBoxAdapter(
             child: SizedBox(
-              height: size.height * 0.13,
+              height: size.height * 0.14,
               child: ListStoriesHomeWidget(
                 sizeImage: size.aspectRatio * 85,
               ),
             ),
           ),
           SliverListWidget(
+// TODO: Fazer que printe o horario e ultima mensagem recebida
+            messageUser: 'ajustar o print',
+            date: '08:43',
             onTap: () {
               Navigator.push(
                 context,

@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
-import '../styles/colors_app.dart';
+import '../../design_system.dart';
 
 class ThemeApp {
   static final themeDark = ThemeData(
+    extensions: <ThemeExtension<dynamic>>[
+      ColorsExtension(
+        containerLogin: ColorsApp.cardSenderMessageColorDark,
+        cardRecipientMessage: ColorsApp.cardRecipientMessageDark,
+        cardSenderMessage: ColorsApp.cardSenderMessageColorDark,
+        cardSliverListHome: ColorsApp.cardChatsColorDark,
+        containerTextFieldChat: ColorsApp.writeBoxColorDark,
+        circleCamera: ColorsApp.iconsButtonChatTextFieldColorDark,
+      ),
+    ],
     scaffoldBackgroundColor: ColorsApp.primaryDark,
     appBarTheme: AppBarTheme(
         backgroundColor: ColorsApp.primaryDark,
@@ -17,35 +27,52 @@ class ThemeApp {
     primaryIconTheme: IconThemeData(
       color: ColorsApp.prefixIconColorDark,
     ),
-
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        elevation: MaterialStateProperty.all(0),
+        backgroundColor: MaterialStateProperty.all(
+          ColorsApp.cardSenderMessageColorDark,
+        ),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
+      ),
+    ),
     primaryColor: ColorsApp.primaryDark,
     colorScheme: ColorScheme.fromSeed(
-      seedColor: Colors.pink, //ColorsApp.primaryDark,
+      seedColor: ColorsApp.primaryDark,
       primary: ColorsApp.primaryDark,
       secondary: ColorsApp.secondaryDark,
     ),
     cardColor: ColorsApp.cardChatsColorDark,
     backgroundColor: ColorsApp.primaryDark,
     inputDecorationTheme: InputDecorationTheme(
+      fillColor: ColorsApp.writeBoxColorDark,
+      hintStyle: TextStyles.textMediumRecent,
+      labelStyle: TextStyles.textMediumRecent,
       prefixIconColor: ColorsApp.prefixIconColorDark,
       suffixIconColor: ColorsApp.iconsButtonChatTextFieldColorDark,
-      fillColor: Colors.red,
       filled: true,
       isDense: true,
       contentPadding: const EdgeInsets.all(13),
-      // focusedBorder: OutlineInputBorder(
-      //   borderSide: const BorderSide(
-      //     // color: ColorsApp.primaryDark, // TODO: VERIFICAR O TEMA
-      //     width: 0.5,
-      //   ),
-      //   borderRadius: BorderRadius.circular(20.0),
-      // ),
+      errorStyle: TextStyles.textMediumRecent.copyWith(
+        color: ColorsApp.errorColor,
+      ),
+      errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: ColorsApp.errorColor,
+        ),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: ColorsApp.errorColor,
+        ),
+      ),
     ),
-    // errorStyle: TextStyles.textRegular.copyWith(
-    // color: Colors.redAccent,
-    // ),
   );
-
+////////////////////////////////////////////////////////////////
   static final themeLight = ThemeData(
     scaffoldBackgroundColor: ColorsApp.primaryLight,
     appBarTheme: AppBarTheme(
@@ -73,13 +100,25 @@ class ThemeApp {
     inputDecorationTheme: InputDecorationTheme(
       prefixIconColor: ColorsApp.prefixIconColorLight,
       suffixIconColor: ColorsApp.iconsButtonChatTextFieldColorLight,
-      fillColor: Colors.red,
+      fillColor: Colors.red, // cor fundo do textfield
       filled: true,
       isDense: true,
       contentPadding: const EdgeInsets.all(13),
+      errorStyle: TextStyles.textMediumRecent.copyWith(
+        color: ColorsApp.errorColor,
+      ),
+      errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: ColorsApp.errorColor,
+        ),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: ColorsApp.errorColor,
+        ),
+      ),
     ),
-    // errorStyle: TextStyles.textRegular.copyWith(
-    // color: Colors.redAccent,
-    // ),
+
+    // ThemeExtension();
   );
 }

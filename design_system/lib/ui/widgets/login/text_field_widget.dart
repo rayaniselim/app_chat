@@ -33,11 +33,8 @@ class TextFieldWdiget extends StatelessWidget {
       /// COLOCAR O VALIDATORS - PASTA DOMAIN
       // controller: controller,
       decoration: InputDecoration(
-        fillColor: ColorsApp.myMessageContainerColorDark,
         hintText: hintText,
-        hintStyle: TextStyles.textMediumRecent,
         labelText: labelText,
-        labelStyle: TextStyles.textMediumRecent,
         suffixIcon: icon,
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
@@ -53,15 +50,13 @@ class TextFieldWdiget extends StatelessWidget {
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20.0),
-          borderSide: BorderSide(
-            color: Theme.of(context).errorColor,
+          borderSide: const BorderSide(
             width: 1,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20.0),
-          borderSide: BorderSide(
-            color: Theme.of(context).errorColor,
+          borderSide: const BorderSide(
             width: 1.5,
           ),
         ),

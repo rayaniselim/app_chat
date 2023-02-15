@@ -1,3 +1,5 @@
+import 'package:app_chat/app/modules/home_module/list_stories_home_widget.dart';
+import 'package:app_chat/app/modules/home_module/sliverlist_home_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 
@@ -39,7 +41,9 @@ class PageWidgetbook extends StatelessWidget {
                 WidgetbookUseCase(
                   name: 'Components Card Message Home',
                   builder: (context) => ComponentsCardMessageHomeWidget(
+                    messageUser: 'message mock',
                     onTap: () {},
+                    date: '08:43',
                   ),
                 ),
               ],
@@ -49,22 +53,23 @@ class PageWidgetbook extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'Recent Home',
-                  builder: (context) => const RecentHomeWidget(),
+                  builder: (context) => const RecentHomeWidget(
+                    textRecent: 'R E C E N T',
+                  ),
                 ),
               ],
             ),
-            // TODO: IMPORTAR
-            // WidgetbookComponent(
-            //   name: 'List Stories Home',
-            //   useCases: [
-            //     WidgetbookUseCase(
-            //       name: 'List Stories Home',
-            //       builder: (context) => const ListStoriesHomeWidget(
-            //         sizeImage: 37, // valor radius
-            //       ),
-            //     ),
-            //   ],
-            // ),
+            WidgetbookComponent(
+              name: 'List Stories Home',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'List Stories Home',
+                  builder: (context) => const ListStoriesHomeWidget(
+                    sizeImage: 37, // valor radius
+                  ),
+                ),
+              ],
+            ),
 
             WidgetbookComponent(
               name: 'Icon Search',
@@ -82,18 +87,19 @@ class PageWidgetbook extends StatelessWidget {
               ],
             ),
 
-            /// TODO: IMPORTAR
-            // WidgetbookComponent(
-            //   name: 'Card SliverList home',
-            //   useCases: [
-            //     WidgetbookUseCase(
-            //       name: 'Card SliverList home',
-            //       builder: (context) => SliverListWidget(
-            //         onTap: () {},
-            //       ),
-            //     ),
-            //   ],
-            // ),
+            WidgetbookComponent(
+              name: 'Card SliverList home',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Card SliverList home',
+                  builder: (context) => SliverListWidget(
+                    onTap: () {},
+                    date: '08:45',
+                    messageUser: 'message mock',
+                  ),
+                ),
+              ],
+            ),
 
             ///// CHAT
             WidgetbookComponent(
@@ -120,7 +126,11 @@ class PageWidgetbook extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'Card Messages Chat',
-                  builder: (context) => const CardMessagesChat(),
+                  builder: (context) => const CardMessagesChat(
+                    dataChat: 'date mock',
+                    senderMessage: 'mensagem remetente',
+                    recipientMessage: 'mensagem destinatario',
+                  ),
                 ),
               ],
             ),
@@ -142,7 +152,10 @@ class PageWidgetbook extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'Text Data Chat',
-                  builder: (context) => const TextDataChat(),
+                  builder: (context) => const TextDataWidget(
+                    date: 'date mock',
+                    style: TextStyle(),
+                  ),
                 ),
               ],
             ),
@@ -151,7 +164,15 @@ class PageWidgetbook extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'TextField Chat',
-                  builder: (context) => const TextFieldChatWidget(),
+                  builder: (context) => TextFieldChatWidget(
+                    prefixIcon: const Icon(
+                      Icons.camera_alt_outlined,
+                    ),
+                    onPressedPrefixIcon: () {},
+                    suffixIcon: const Icon(Icons.arrow_forward_ios_rounded),
+                    hintText: 'Message',
+                    onPressedSuffixIcon: () {},
+                  ),
                 ),
               ],
             ),

@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/text_styles.dart';
-
-class TextDataChat extends StatelessWidget {
-  const TextDataChat({super.key});
+class TextDataWidget extends StatelessWidget {
+  final String date;
+  final TextStyle style;
+  const TextDataWidget({
+    super.key,
+    required this.date,
+    required this.style,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        'data',
-        style: TextStyles.textRegularDateChat,
+        date,
+        style: style,
       ),
     );
   }

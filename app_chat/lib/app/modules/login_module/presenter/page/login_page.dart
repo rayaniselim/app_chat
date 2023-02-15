@@ -17,7 +17,8 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
+    final ColorsExtension colorsExtension =
+        Theme.of(context).extension<ColorsExtension>()!;
     return Scaffold(
       body: Stack(
         children: [
@@ -25,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
             child: SingleChildScrollView(
               child: Container(
                 decoration: BoxDecoration(
-                  color: ColorsApp.yourMessageContainerColorDark,
+                  color: colorsExtension.containerLogin,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 width: size.width * 0.8,

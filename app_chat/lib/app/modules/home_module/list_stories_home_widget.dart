@@ -46,12 +46,15 @@ class ListStoriesHomeWidget extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: size.height * 0.008,
+                    height: size.height * 0.009,
                   ),
                   Text(
                     list[indexActual].name.split(' ')[0], // PASSAR POR FORA
                     style: TextStyles.textRegularNameStories,
-                  )
+                  ),
+                  SizedBox(
+                    height: size.height * 0.009,
+                  ),
                 ],
               ),
             ),

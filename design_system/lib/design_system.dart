@@ -18,3 +18,4 @@ export 'ui/widgets/login/text_field_widget.dart';
 export 'ui/widgets/login/button_widget.dart';
 
 export 'ui/widgets/login/text_button_widget.dart';
+export 'ui/styles/colors_extension.dart';

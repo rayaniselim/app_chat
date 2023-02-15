@@ -1,13 +1,18 @@
 import 'package:app_chat/core/mock/list_story_mock.dart';
 import 'package:flutter/material.dart';
-import '../../styles/text_styles.dart';
+
+import '../../../design_system.dart';
 
 class ComponentsCardMessageHomeWidget extends StatelessWidget {
   final VoidCallback onTap;
+  final String date;
+  final String messageUser;
 
   const ComponentsCardMessageHomeWidget({
     Key? key,
     required this.onTap,
+    required this.date,
+    required this.messageUser,
   }) : super(key: key);
 
   @override
@@ -62,9 +67,8 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
                       SizedBox(
                         width: 230,
                         height: 20,
-                        // TODO: Fazer que printe a mensagem recebida
                         child: Text(
-                          'adsasnandasiofiosanioasnioasndsiodsadaasadas',
+                          messageUser,
                           style: TextStyles.textRegularMessageCard,
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -76,11 +80,9 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
                       left: size.width * 0.07,
                       bottom: 25,
                     ),
-                    // TODO: Fazer que printe o horario recebido
-                    child: Text(
-                      '08:43',
+                    child: TextDataWidget(
+                      date: date,
                       style: TextStyles.textRegularMessageCard,
-                      textAlign: TextAlign.end,
                     ),
                   ),
                 ],

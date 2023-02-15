@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
@@ -30,8 +29,9 @@ class _ChatPageState extends State<ChatPage> {
           imageMock: list[0].image,
           nameMock: list[0].name,
           sizeImage: size.height * 0.10,
-          icon: const Icon(
+          icon: Icon(
             Icons.search,
+            size: size.width * 0.07,
           ),
         ),
       ),
@@ -40,8 +40,22 @@ class _ChatPageState extends State<ChatPage> {
           SizedBox(
             height: size.height * 0.012,
           ),
-          const CardMessagesChat(),
-          const TextFieldChatWidget(),
+          const CardMessagesChat(
+            dataChat: 'Date',
+// TODO: Fazer que printe o horario recebido
+            senderMessage: 'mensagem remetente',
+            recipientMessage: 'mensagem destinatario',
+          ),
+          TextFieldChatWidget(
+            prefixIcon: const Icon(
+              Icons.camera_alt_outlined,
+              size: 50,
+            ),
+            onPressedPrefixIcon: () {},
+            suffixIcon: const Icon(Icons.arrow_forward_ios_rounded),
+            hintText: 'Message',
+            onPressedSuffixIcon: () {},
+          ),
         ],
       ),
     );

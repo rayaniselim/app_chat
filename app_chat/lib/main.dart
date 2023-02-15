@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'app/modules/chat_module/presenter/page/chat_page.dart';
 import 'app/modules/login_module/presenter/page/login_page.dart';
 import 'firebase_options.dart';
 import 'app/modules/home_module/presenter/page/home_page.dart';

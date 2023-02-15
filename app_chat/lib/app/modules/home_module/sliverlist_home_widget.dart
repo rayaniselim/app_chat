@@ -4,14 +4,23 @@ import 'package:flutter/material.dart';
 
 class SliverListWidget extends StatelessWidget {
   final VoidCallback onTap;
-  SliverListWidget({Key? key, required this.onTap}) : super(key: key);
+  final String date;
+  final String messageUser;
+
+  SliverListWidget({
+    Key? key,
+    required this.onTap,
+    required this.date,
+    required this.messageUser,
+  }) : super(key: key);
 
   final rxSelected = ValueNotifier<int>(0);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
+    final ColorsExtension colorsExtension =
+        Theme.of(context).extension<ColorsExtension>()!;
     final list = const ListStoriesMock().listStoriesMock(
       height: size.height * 0.08,
       width: size.width * 0.18,
@@ -24,22 +33,23 @@ class SliverListWidget extends StatelessWidget {
             builder: (context, value, _) {
               return Container(
                 decoration: BoxDecoration(
-                  borderRadius: indexActual == 0
-                      ? const BorderRadius.only(
-                          topLeft: Radius.circular(50),
-                          topRight: Radius.circular(50),
-                        )
-                      : BorderRadius.circular(0),
-                  color: ColorsApp.cardChatsColorDark, // COR
-                ),
+                    borderRadius: indexActual == 0
+                        ? const BorderRadius.only(
+                            topLeft: Radius.circular(50),
+                            topRight: Radius.circular(50),
+                          )
+                        : BorderRadius.circular(0),
+                    color: colorsExtension.cardSliverListHome),
                 child: Padding(
                   padding: EdgeInsets.only(
-                    top: indexActual == 0 ? 25 : 0, // INGLES
+                    top: indexActual == 0 ? 25 : 0,
                   ),
                   child: SizedBox(
                     height: 90,
                     child: ComponentsCardMessageHomeWidget(
+                      date: date,
                       onTap: onTap,
+                      messageUser: messageUser,
                     ),
                   ),
                 ),

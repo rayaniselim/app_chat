@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 class ColorsApp {
+  static Color get errorColor => const Color(0xffB71c1c);
+
   /// theme dark
 
   static Color get primaryDark => const Color(0xff1B202D);
   static Color get secondaryDark => const Color(0xffFFFFFF);
   static Color get cardChatsColorDark => const Color(0xff292F3F);
-  static Color get myMessageContainerColorDark => const Color(0xff7A8194);
-  static Color get yourMessageContainerColorDark => const Color(0xff373E4E);
+  static Color get cardRecipientMessageDark => const Color(0xff7A8194);
+  static Color get cardSenderMessageColorDark => const Color(0xff373E4E);
   static Color get writeBoxColorDark => const Color(0xff3D4354);
   static Color get iconsButtonChatTextFieldColorDark => const Color(0xff9398A7);
   static Color get secondaryDarkTextColorDark => const Color(0xffB3B9C9);

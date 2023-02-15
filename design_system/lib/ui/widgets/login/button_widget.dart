@@ -20,16 +20,7 @@ class ButtonWidget extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        elevation: MaterialStateProperty.all(0),
-        backgroundColor: MaterialStateProperty.all(
-          ColorsApp.myMessageContainerColorDark, //TODO: cor tema extension
-        ),
         fixedSize: MaterialStateProperty.all(Size(width, height)),
-        shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-        ),
       ),
       child: Center(
         child: Text(
