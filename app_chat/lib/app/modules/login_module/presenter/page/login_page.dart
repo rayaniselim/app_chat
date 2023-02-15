@@ -12,10 +12,10 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final sizedBox = const SizedBox(height: 20);
+  bool isObscure = true;
 
   @override
   Widget build(BuildContext context) {
-    bool isObscure = true;
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -52,9 +52,9 @@ class _LoginPageState extends State<LoginPage> {
                     sizedBox,
                     TextFieldWdiget(
                       hintText: 'Password',
+                      isObscure: isObscure,
+                      initialValue: '123456',
                       icon: GestureDetector(
-                        //// TODO: RESOLVER O CLIQUE DO ICON
-                        /// VERIFICAR O BUILDER DA PAGE
                         child: isObscure == true
                             ? const Icon(
                                 Icons.visibility_off_outlined,
@@ -70,8 +70,6 @@ class _LoginPageState extends State<LoginPage> {
                           });
                         },
                       ),
-                      isObscure: true,
-                      initialValue: '123456',
                       keyboardType: TextInputType.none,
                       labelText: 'Password',
                     ),
