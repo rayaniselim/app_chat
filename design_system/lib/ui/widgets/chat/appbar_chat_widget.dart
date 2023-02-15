@@ -1,23 +1,32 @@
-import 'package:app_chat/core/mock/list_story_mock.dart';
 import 'package:flutter/material.dart';
-import '../icon_search_widget.dart';
+import '../icon_button_widget.dart';
 import '../image_app_widget.dart';
 import 'name_chat_widget.dart';
 
 class AppBarChatWidget extends StatelessWidget {
-  const AppBarChatWidget({super.key});
+  final Icon icon;
+  final String imageMock;
+  final String nameMock;
+  final double sizeImage;
+  final void Function() onPressedIcon;
+
+  const AppBarChatWidget({
+    super.key,
+    required this.icon,
+    required this.imageMock,
+    required this.nameMock,
+    required this.sizeImage,
+    required this.onPressedIcon,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final statusBar = MediaQuery.of(context).viewPadding.top;
-    final heightAppBar = AppBar().preferredSize.height;
-    final list = const ListStoriesMock().listStoriesMock(
-      height: size.height * 0.05,
-      width: size.width * 0.045,
-    );
+    final mediaQuery = MediaQuery.of(context);
+    final size = mediaQuery.size;
+    final statusBar = mediaQuery.viewPadding.top;
+
     return AppBar(
-      toolbarHeight: heightAppBar + statusBar,
+      toolbarHeight: kToolbarHeight + statusBar,
       elevation: 0,
       centerTitle: false,
       actions: [
@@ -32,8 +41,8 @@ class AppBarChatWidget extends StatelessWidget {
                 height: size.height * 0.07,
                 child: FittedBox(
                   child: ImageAppWidget(
-                    image: list[0]
-                        .image, // TODO: COLOCAR O BUILDER PARA O INDEXATUAL
+                    image: imageMock,
+                    sizeImage: sizeImage,
                   ),
                 ),
               ),
@@ -43,20 +52,26 @@ class AppBarChatWidget extends StatelessWidget {
         SizedBox(
           width: size.width * 0.02,
         ),
-        const Center(
+        Center(
           child: Padding(
-              padding: EdgeInsets.only(
-                left: 5,
-                top: 10,
-              ),
-              child: NameChatWidget()),
+            padding: const EdgeInsets.only(
+              left: 5,
+              top: 10,
+            ),
+            child: NameChatWidget(
+              nameMock: nameMock,
+            ),
+          ),
         ),
         const Spacer(),
-        const Padding(
-          padding: EdgeInsets.only(
+        Padding(
+          padding: const EdgeInsets.only(
             right: 10,
           ),
-          child: IconSearchWidget(),
+          child: IconButtonWidget(
+            onPressedIcon: onPressedIcon,
+            icon: icon,
+          ),
         ),
       ],
     );

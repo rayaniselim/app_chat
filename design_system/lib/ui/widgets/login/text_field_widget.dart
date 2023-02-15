@@ -2,53 +2,43 @@ import 'package:flutter/material.dart';
 
 import '../../../design_system.dart';
 
-class TextFieldPasswordWdiget extends StatefulWidget {
+class TextFieldWdiget extends StatelessWidget {
+  final String initialValue;
+  final String hintText;
+  final String labelText;
+  final TextInputType keyboardType;
+  final Widget icon;
+  final bool isObscure;
   // final TextEditingController controller;
 
-  const TextFieldPasswordWdiget({
+  const TextFieldWdiget({
     super.key,
+    required this.initialValue,
+    required this.hintText,
+    required this.labelText,
+    required this.keyboardType,
+    required this.icon,
+    required this.isObscure,
     // required this.controller,
   });
 
   @override
-  State<TextFieldPasswordWdiget> createState() =>
-      _TextFieldPasswordWdigetState();
-}
-
-class _TextFieldPasswordWdigetState extends State<TextFieldPasswordWdiget> {
-  @override
   Widget build(BuildContext context) {
-    bool isObscure = true;
     return TextFormField(
-      initialValue: '123456',
+      initialValue: initialValue,
       style: TextStyles.textMediumRecent,
-
-      /// COLOCAR O VALIDATORS - PASTA
-      keyboardType: TextInputType.none,
       obscureText: isObscure,
+      keyboardType: keyboardType,
+
+      /// COLOCAR O VALIDATORS - PASTA DOMAIN
       // controller: controller,
       decoration: InputDecoration(
         fillColor: ColorsApp.myMessageContainerColorDark,
-        hintText: 'Password',
+        hintText: hintText,
         hintStyle: TextStyles.textMediumRecent,
-        labelText: 'Password',
+        labelText: labelText,
         labelStyle: TextStyles.textMediumRecent,
-        suffixIcon: GestureDetector(
-          child: isObscure == true
-              ? const Icon(
-                  Icons.visibility_off_outlined,
-                  size: 19,
-                )
-              : const Icon(
-                  Icons.visibility_outlined,
-                  size: 19,
-                ),
-          onTap: () {
-            setState(() {
-              isObscure = !isObscure;
-            });
-          },
-        ),
+        suffixIcon: icon,
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             width: 0.5,

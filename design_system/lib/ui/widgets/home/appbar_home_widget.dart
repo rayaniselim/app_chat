@@ -3,49 +3,44 @@ import 'package:flutter/material.dart';
 import '../../../design_system.dart';
 
 class AppBarHomeWidget extends StatelessWidget {
-  const AppBarHomeWidget({super.key});
+  final String titleAppBar;
+  final Icon icon;
+  final void Function() onPressedIcon;
+
+  const AppBarHomeWidget({
+    super.key,
+    required this.titleAppBar,
+    required this.icon,
+    required this.onPressedIcon,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final statusBar = MediaQuery.of(context).viewPadding.top;
-    final heightAppBar = AppBar().preferredSize.height;
+    final mediaQuery = MediaQuery.of(context);
+    final statusBar = mediaQuery.viewPadding.top;
 
     return SliverAppBar(
-      toolbarHeight: heightAppBar + statusBar,
+      toolbarHeight: kToolbarHeight + statusBar,
       floating: true,
       snap: true,
       elevation: 0,
       centerTitle: false,
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Text(
-              'Messages',
-              style: TextStyles.textSemiBoldTitles.copyWith(
-                fontSize: 28,
-              ),
-            ),
-          ),
-          Row(
-            children: const [
-              SizedBox(
-                height: 8,
-              ),
-              RecentHomeWidget(),
-            ],
-          ),
-        ],
+      title: Text(
+        titleAppBar,
+        style: TextStyles.textSemiBoldTitles.copyWith(
+          fontSize: 28,
+        ),
       ),
-      actions: const [
+      actions: [
         Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             right: 10,
-            top: 0,
             bottom: 20,
           ),
-          child: IconSearchWidget(),
+          child: IconButtonWidget(
+            onPressedIcon: onPressedIcon,
+            icon: icon,
+          ),
         ),
       ],
     );

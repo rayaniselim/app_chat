@@ -9,6 +9,9 @@ class PageWidgetbook extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    bool isObscure = true;
+
     return Widgetbook.material(
       categories: [
         WidgetbookCategory(
@@ -19,7 +22,14 @@ class PageWidgetbook extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'AppBar Home',
-                  builder: (context) => const AppBarHomeWidget(),
+                  builder: (context) => AppBarHomeWidget(
+                    onPressedIcon: () {},
+                    titleAppBar: 'Messages',
+                    icon: Icon(
+                      Icons.search,
+                      size: MediaQuery.of(context).size.width * 0.07,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -43,37 +53,47 @@ class PageWidgetbook extends StatelessWidget {
                 ),
               ],
             ),
-            WidgetbookComponent(
-              name: 'List Stories Home',
-              useCases: [
-                WidgetbookUseCase(
-                  name: 'List Stories Home',
-                  builder: (context) => const ListStoriesHomeWidget(),
-                ),
-              ],
-            ),
+            // TODO: IMPORTAR
+            // WidgetbookComponent(
+            //   name: 'List Stories Home',
+            //   useCases: [
+            //     WidgetbookUseCase(
+            //       name: 'List Stories Home',
+            //       builder: (context) => const ListStoriesHomeWidget(
+            //         sizeImage: 37, // valor radius
+            //       ),
+            //     ),
+            //   ],
+            // ),
 
             WidgetbookComponent(
               name: 'Icon Search',
               useCases: [
                 WidgetbookUseCase(
                   name: 'Icon Search',
-                  builder: (context) => const IconSearchWidget(),
-                ),
-              ],
-            ),
-
-            WidgetbookComponent(
-              name: 'Card SliverList home',
-              useCases: [
-                WidgetbookUseCase(
-                  name: 'Card SliverList home',
-                  builder: (context) => SliverListWidget(
-                    onTap: () {},
+                  builder: (context) => IconButtonWidget(
+                    onPressedIcon: () {},
+                    icon: Icon(
+                      Icons.search,
+                      size: MediaQuery.of(context).size.width * 0.07,
+                    ),
                   ),
                 ),
               ],
             ),
+
+            /// TODO: IMPORTAR
+            // WidgetbookComponent(
+            //   name: 'Card SliverList home',
+            //   useCases: [
+            //     WidgetbookUseCase(
+            //       name: 'Card SliverList home',
+            //       builder: (context) => SliverListWidget(
+            //         onTap: () {},
+            //       ),
+            //     ),
+            //   ],
+            // ),
 
             ///// CHAT
             WidgetbookComponent(
@@ -81,7 +101,16 @@ class PageWidgetbook extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'AppBar Chat',
-                  builder: (context) => const AppBarChatWidget(),
+                  builder: (context) => AppBarChatWidget(
+                    onPressedIcon: () {},
+                    icon: Icon(
+                      Icons.search,
+                      size: MediaQuery.of(context).size.width * 0.07,
+                    ),
+                    imageMock: 'assets/image/Jeon Yeo-been.jpeg',
+                    nameMock: 'Name Widgetbook',
+                    sizeImage: size.height * 0.10, // 37,
+                  ),
                 ),
               ],
             ),
@@ -101,7 +130,9 @@ class PageWidgetbook extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'Name Chat',
-                  builder: (context) => const NameChatWidget(),
+                  builder: (context) => const NameChatWidget(
+                    nameMock: 'Name Widgetbook',
+                  ),
                 ),
               ],
             ),
@@ -132,7 +163,19 @@ class PageWidgetbook extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'TextField Email Login',
-                  builder: (context) => const TextFieldEmailWdiget(),
+                  builder: (context) => const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.0),
+                    child: TextFieldWdiget(
+                      hintText: 'Email',
+                      icon: Icon(
+                        (Icons.email_outlined),
+                      ),
+                      isObscure: false,
+                      initialValue: 'rayani@user.com',
+                      keyboardType: TextInputType.emailAddress,
+                      labelText: '',
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -142,7 +185,28 @@ class PageWidgetbook extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'TextField Password Login',
-                  builder: (context) => const TextFieldPasswordWdiget(),
+                  builder: (context) => TextFieldWdiget(
+                    isObscure: true,
+                    hintText: 'Password',
+                    icon: GestureDetector(
+                      child: isObscure == true
+                          ? const Icon(
+                              Icons.visibility_off_outlined,
+                              size: 19,
+                            )
+                          : const Icon(
+                              Icons.visibility_outlined,
+                              size: 19,
+                            ),
+                      onTap: () {
+                        // setState(() {
+                        //   isObscure = !isObscure;
+                      },
+                    ),
+                    initialValue: '123456',
+                    keyboardType: TextInputType.none,
+                    labelText: 'Password',
+                  ),
                 ),
               ],
             ),
@@ -152,27 +216,25 @@ class PageWidgetbook extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'Button Login',
-                  builder: (context) => ButtonLoginWidget(
+                  builder: (context) => ButtonWidget(
+                    width: size.width * 0.20,
+                    height: size.height * 0.03,
                     onPressed: () {},
+                    title: 'Login',
                   ),
                 ),
               ],
             ),
-            WidgetbookComponent(
-              name: 'Button Forgot my password',
-              useCases: [
-                WidgetbookUseCase(
-                  name: 'Button Forgot my password',
-                  builder: (context) => const ForgotMyPasswordWidget(),
-                ),
-              ],
-            ),
+
             WidgetbookComponent(
               name: 'Button Register',
               useCases: [
                 WidgetbookUseCase(
                   name: 'Button Register',
-                  builder: (context) => const ButtonRegisterWidget(),
+                  builder: (context) => TextButtonWidget(
+                    onTap: () {},
+                    title: 'Register',
+                  ),
                 ),
               ],
             ),

@@ -15,6 +15,7 @@ class CardMessagesChat extends StatelessWidget {
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
+          // TIRAR A COLUNA
           children: [
             const TextDataChat(),
             const SizedBox(

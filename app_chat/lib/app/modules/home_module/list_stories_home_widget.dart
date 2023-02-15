@@ -1,11 +1,14 @@
 import 'package:app_chat/core/mock/list_story_mock.dart';
-
+import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
-import '../../../design_system.dart';
-
 class ListStoriesHomeWidget extends StatelessWidget {
-  const ListStoriesHomeWidget({Key? key}) : super(key: key);
+  final double sizeImage;
+
+  const ListStoriesHomeWidget({
+    Key? key,
+    required this.sizeImage,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +20,17 @@ class ListStoriesHomeWidget extends StatelessWidget {
     );
 
     return ListView.builder(
+      // LISTVIEW SEPARATEDE
       scrollDirection: Axis.horizontal,
       itemCount: list.length,
-      itemBuilder: (context, indexAtual) {
+      itemBuilder: (context, indexActual) {
         return Column(
+          /// COMPONENTIZAR DAQUI PRA BAIXO
           children: [
             Padding(
               padding: EdgeInsets.only(
-                left: indexAtual == 0 ? 25 : 12,
+                // TIRAR O PADDING,
+                left: indexActual == 0 ? 25 : 12,
                 bottom: 9,
                 right: 12,
               ),
@@ -32,14 +38,18 @@ class ListStoriesHomeWidget extends StatelessWidget {
                 children: [
                   FittedBox(
                     child: SizedBox(
-                      height: 70,
+                      height: size.height * 0.08,
                       child: ImageAppWidget(
-                        image: list[indexAtual].image,
+                        image: list[indexActual].image,
+                        sizeImage: sizeImage,
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: size.height * 0.008,
+                  ),
                   Text(
-                    list[indexAtual].name.split(' ')[0],
+                    list[indexActual].name.split(' ')[0], // PASSAR POR FORA
                     style: TextStyles.textRegularNameStories,
                   )
                 ],

@@ -1,7 +1,6 @@
 import 'package:app_chat/core/mock/list_story_mock.dart';
+import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-
-import '../../../design_system.dart';
 
 class SliverListWidget extends StatelessWidget {
   final VoidCallback onTap;
@@ -19,23 +18,23 @@ class SliverListWidget extends StatelessWidget {
     );
     return SliverList(
       delegate: SliverChildBuilderDelegate(
-        (BuildContext context, int indexAtual) {
+        (BuildContext context, int indexActual) {
           return ValueListenableBuilder(
             valueListenable: rxSelected,
             builder: (context, value, _) {
               return Container(
                 decoration: BoxDecoration(
-                  borderRadius: indexAtual == 0
+                  borderRadius: indexActual == 0
                       ? const BorderRadius.only(
                           topLeft: Radius.circular(50),
                           topRight: Radius.circular(50),
                         )
                       : BorderRadius.circular(0),
-                  color: ColorsApp.cardChatsColorDark,
+                  color: ColorsApp.cardChatsColorDark, // COR
                 ),
                 child: Padding(
                   padding: EdgeInsets.only(
-                    top: indexAtual == 0 ? 25 : 0,
+                    top: indexActual == 0 ? 25 : 0, // INGLES
                   ),
                   child: SizedBox(
                     height: 90,

@@ -1,16 +1,21 @@
 import 'package:design_system/ui/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 
-class ForgotMyPasswordWidget extends StatelessWidget {
-  final void Function()? onTap;
-  const ForgotMyPasswordWidget({super.key, this.onTap});
+class TextButtonWidget extends StatelessWidget {
+  final String title;
+  final void Function() onTap;
+  const TextButtonWidget({
+    super.key,
+    required this.onTap,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: onTap,
       child: Text(
-        'forgot my password',
+        title,
         style: TextStyles.textMediumRecent,
       ),
     );
