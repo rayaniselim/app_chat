@@ -1,10 +1,17 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:app_chat/app/modules/home_module/presenter/page/home_page.dart';
-import 'package:design_system/design_system.dart';
-
 import 'package:flutter/material.dart';
 
+import 'package:design_system/design_system.dart';
+
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  final bool isLightTheme;
+  final void Function() toggleTheme;
+  const LoginPage({
+    Key? key,
+    required this.isLightTheme,
+    required this.toggleTheme,
+  }) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -19,6 +26,7 @@ class _LoginPageState extends State<LoginPage> {
     final size = MediaQuery.of(context).size;
     final ColorsExtension colorsExtension =
         Theme.of(context).extension<ColorsExtension>()!;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -92,7 +100,11 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (_) => const HomePage()),
+                          MaterialPageRoute(
+                              builder: (_) => HomePage(
+                                    toggleTheme: widget.toggleTheme,
+                                    isLightTheme: widget.isLightTheme,
+                                  )),
                         );
                       },
                       width: size.width * 0.20,

@@ -25,12 +25,14 @@ class PageWidgetbook extends StatelessWidget {
                 WidgetbookUseCase(
                   name: 'AppBar Home',
                   builder: (context) => AppBarHomeWidget(
-                    onPressedIcon: () {},
+                    onPressedIconSearch: () {},
                     titleAppBar: 'Messages',
-                    icon: Icon(
+                    iconSearch: Icon(
                       Icons.search,
                       size: MediaQuery.of(context).size.width * 0.07,
                     ),
+                    iconTheme: const Icon(Icons.nightlight),
+                    onPressedIconTheme: () {},
                   ),
                 ),
               ],

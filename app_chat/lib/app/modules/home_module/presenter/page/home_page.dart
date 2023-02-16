@@ -5,9 +5,21 @@ import '../../../chat_module/presenter/page/chat_page.dart';
 import '../../list_stories_home_widget.dart';
 import '../../sliverlist_home_widget.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  final bool isLightTheme;
+  final void Function() toggleTheme;
 
+  const HomePage({
+    super.key,
+    required this.isLightTheme,
+    required this.toggleTheme,
+  });
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -16,12 +28,16 @@ class HomePage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           AppBarHomeWidget(
-            onPressedIcon: () {},
             titleAppBar: 'Messages',
-            icon: Icon(
+            iconTheme: Icon(
+              widget.isLightTheme ? Icons.nightlight : Icons.wb_sunny,
+            ),
+            onPressedIconTheme: widget.toggleTheme,
+            iconSearch: Icon(
               Icons.search,
               size: size.width * 0.07,
             ),
+            onPressedIconSearch: (() {}),
           ),
           const SliverToBoxAdapter(
             child: Padding(

@@ -55,8 +55,6 @@ class ThemeDarkApp {
     inputDecorationTheme: InputDecorationTheme(
       hintStyle: TextStyles.textMediumRecent,
       labelStyle: TextStyles.textMediumRecent,
-      //////
-
       fillColor: ColorsAppDark.writeBoxColor,
       prefixIconColor: ColorsAppDark.prefixIconColor,
       suffixIconColor: ColorsAppDark.iconsButtonChatTextFieldColor,
