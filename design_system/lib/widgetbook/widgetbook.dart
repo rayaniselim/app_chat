@@ -56,7 +56,9 @@ class PageWidgetbook extends StatelessWidget {
                 WidgetbookUseCase(
                   name: 'Recent Home',
                   builder: (context) => const RecentHomeWidget(
+                    // TODO
                     textRecent: 'R E C E N T',
+                    color: Colors.black,
                   ),
                 ),
               ],

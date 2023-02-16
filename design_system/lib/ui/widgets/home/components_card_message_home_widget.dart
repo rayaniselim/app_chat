@@ -25,9 +25,9 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
     );
 
     return Padding(
-      padding: const EdgeInsets.only(
-        right: 25,
-        left: 25,
+      padding: EdgeInsets.only(
+        right: size.width * 0.06,
+        left: size.width * 0.06,
       ),
       child: InkWell(
         onTap: onTap,
@@ -65,8 +65,8 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        width: 230,
-                        height: 20,
+                        width: size.width * 0.54,
+                        height: size.height * 0.03,
                         child: Text(
                           messageUser,
                           style: TextStyles.textRegularMessageCard,
@@ -77,8 +77,8 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.only(
-                      left: size.width * 0.07,
-                      bottom: 25,
+                      left: size.width * 0.06,
+                      bottom: size.height * 0.03,
                     ),
                     child: TextDataWidget(
                       date: date,

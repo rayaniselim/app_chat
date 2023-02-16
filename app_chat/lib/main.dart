@@ -39,6 +39,9 @@ class _MyAppState extends State<MyApp> {
       home: LoginPage(
         isLightTheme: isLightTheme,
         toggleTheme: toggleTheme,
+        colorRecent: isLightTheme
+            ? ColorsAppLight.secondary
+            : ColorsAppDark.secondary.withOpacity(0.58),
       ),
       // home: const PageColors(),
     );

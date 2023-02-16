@@ -25,9 +25,9 @@ class TextFieldChatWidget extends StatelessWidget {
         Theme.of(context).extension<ColorsExtension>()!;
 
     return Padding(
-      padding: const EdgeInsets.only(
-        left: 25,
-        right: 25,
+      padding: EdgeInsets.only(
+        left: size.width * 0.06,
+        right: size.width * 0.06,
       ),
       child: Container(
         height: size.height * 0.055,
@@ -43,9 +43,9 @@ class TextFieldChatWidget extends StatelessWidget {
               hintText: hintText,
               hintStyle: TextStyles.textRegularCardMessageChat,
               border: InputBorder.none,
-              contentPadding: const EdgeInsets.only(
-                top: 10,
-                bottom: 10,
+              contentPadding: EdgeInsets.only(
+                top: size.height * 0.2,
+                bottom: size.height * 0.01,
               ),
               prefixIcon: FittedBox(
                 child: Container(
@@ -62,14 +62,9 @@ class TextFieldChatWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              suffixIcon: Padding(
-                padding: const EdgeInsets.only(
-                  bottom: 10,
-                ),
-                child: IconButtonWidget(
-                  icon: suffixIcon,
-                  onPressedIcon: onPressedSuffixIcon,
-                ),
+              suffixIcon: IconButtonWidget(
+                icon: suffixIcon,
+                onPressedIcon: onPressedSuffixIcon,
               ),
             ),
           ),

@@ -36,7 +36,7 @@ class ColorsAppLight {
   static Color get cardSenderMessageColor => const Color(0xff292F3F);
   static Color get writeBoxColor => const Color(0xff3D4354);
   static Color get iconsButtonChatTextFieldColor => const Color(0xff9398A7);
-  static Color get secondaryTextColor => Colors.pink; //Color(0xffFFFFFF);
+  // static Color get secondaryTextColor => Colors.pink; //Color(0xffFFFFFF);
 
   static Color get prefixIconColor => const Color(0xff000000);
 }

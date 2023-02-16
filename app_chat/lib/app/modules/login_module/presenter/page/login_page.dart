@@ -7,10 +7,12 @@ import 'package:design_system/design_system.dart';
 class LoginPage extends StatefulWidget {
   final bool isLightTheme;
   final void Function() toggleTheme;
+  final Color colorRecent;
   const LoginPage({
     Key? key,
     required this.isLightTheme,
     required this.toggleTheme,
+    required this.colorRecent,
   }) : super(key: key);
 
   @override
@@ -38,20 +40,21 @@ class _LoginPageState extends State<LoginPage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 width: size.width * 0.8,
-                height: size.height * 0.30,
-                padding: const EdgeInsets.only(
-                  left: 30,
-                  right: 30,
-                  top: 30,
-                  bottom: 20,
+                height: size.height * 0.35,
+                padding: EdgeInsets.only(
+                  left: size.width * 0.07, //30,
+                  right: size.width * 0.07, //30,
+                  top: size.width * 0.07, //30,
+                  bottom: size.width * 0.05, //20,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const TextFieldWdiget(
+                    TextFieldWdiget(
                       hintText: 'Email',
                       icon: Icon(
                         (Icons.email_outlined),
+                        size: size.height * 0.024,
                       ),
                       isObscure: false,
                       initialValue: 'rayani@user.com',
@@ -65,13 +68,13 @@ class _LoginPageState extends State<LoginPage> {
                       initialValue: '123456',
                       icon: GestureDetector(
                         child: isObscure == true
-                            ? const Icon(
+                            ? Icon(
                                 Icons.visibility_off_outlined,
-                                size: 19,
+                                size: size.height * 0.024,
                               )
-                            : const Icon(
+                            : Icon(
                                 Icons.visibility_outlined,
-                                size: 19,
+                                size: size.height * 0.024,
                               ),
                         onTap: () {
                           setState(() {
@@ -101,10 +104,12 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (_) => HomePage(
-                                    toggleTheme: widget.toggleTheme,
-                                    isLightTheme: widget.isLightTheme,
-                                  )),
+                            builder: (_) => HomePage(
+                              toggleTheme: widget.toggleTheme,
+                              isLightTheme: widget.isLightTheme,
+                              colorRecent: widget.colorRecent,
+                            ),
+                          ),
                         );
                       },
                       width: size.width * 0.20,

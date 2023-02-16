@@ -30,9 +30,8 @@ class ListStoriesHomeWidget extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(
                 // TIRAR O PADDING,
-                left: indexActual == 0 ? 25 : 12,
-                bottom: 9,
-                right: 12,
+                left: indexActual == 0 ? size.width * 0.06 : size.width * 0.03,
+                right: size.width * 0.03,
               ),
               child: Column(
                 children: [
@@ -53,7 +52,7 @@ class ListStoriesHomeWidget extends StatelessWidget {
                     style: TextStyles.textRegularNameStories,
                   ),
                   SizedBox(
-                    height: size.height * 0.009,
+                    height: size.height * 0.008,
                   ),
                 ],
               ),

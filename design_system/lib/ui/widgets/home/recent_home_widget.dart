@@ -4,7 +4,13 @@ import '../../../design_system.dart';
 
 class RecentHomeWidget extends StatelessWidget {
   final String textRecent;
-  const RecentHomeWidget({super.key, required this.textRecent});
+  final Color color;
+
+  const RecentHomeWidget({
+    super.key,
+    required this.textRecent,
+    required this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +20,7 @@ class RecentHomeWidget extends StatelessWidget {
         textRecent,
         style: TextStyles.textMediumRecent.copyWith(
           letterSpacing: 0.3,
+          color: color,
         ),
       ),
     );

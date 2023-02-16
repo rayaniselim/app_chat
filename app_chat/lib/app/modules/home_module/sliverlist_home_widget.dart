@@ -42,7 +42,7 @@ class SliverListWidget extends StatelessWidget {
                     color: colorsExtension.cardSliverListHome),
                 child: Padding(
                   padding: EdgeInsets.only(
-                    top: indexActual == 0 ? 25 : 0,
+                    top: indexActual == 0 ? size.width * 0.06 : 0,
                   ),
                   child: SizedBox(
                     height: 90,

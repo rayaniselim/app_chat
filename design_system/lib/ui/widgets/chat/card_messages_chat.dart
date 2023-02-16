@@ -26,23 +26,23 @@ class CardMessagesChat extends StatelessWidget {
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
-          // TIRAR A COLUNA
+          // TODO: TIRAR A COLUNA
           children: [
             TextDataWidget(
               date: dataChat,
               style: TextStyles.textRegularDateChat,
             ),
-            const SizedBox(
-              height: 15,
+            SizedBox(
+              height: size.height * 0.015,
             ),
             // MENSAGEM RECEBIDA
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 30,
-                    bottom: 7,
+                  padding: EdgeInsets.only(
+                    left: size.width * 0.065,
+                    bottom: size.height * 0.01,
                   ),
                   child: Container(
                     decoration: BoxDecoration(
@@ -50,11 +50,11 @@ class CardMessagesChat extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                        left: 15.0,
-                        right: 24,
-                        bottom: 5,
-                        top: 5,
+                      padding: EdgeInsets.only(
+                        left: size.width * 0.05,
+                        right: size.width * 0.03,
+                        bottom: size.height * 0.008,
+                        top: size.height * 0.008,
                       ),
                       child: Text(
                         senderMessage,
@@ -74,9 +74,9 @@ class CardMessagesChat extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
-                    right: 30,
-                    bottom: 7,
+                  padding: EdgeInsets.only(
+                    right: size.width * 0.065,
+                    bottom: size.height * 0.01,
                   ),
                   child: Container(
                     decoration: BoxDecoration(
@@ -84,11 +84,11 @@ class CardMessagesChat extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                        left: 15.0,
-                        right: 24,
-                        bottom: 5,
-                        top: 5,
+                      padding: EdgeInsets.only(
+                        left: size.width * 0.03,
+                        right: size.width * 0.05,
+                        bottom: size.height * 0.008,
+                        top: size.height * 0.008,
                       ),
                       child: Text(
                         recipientMessage,
