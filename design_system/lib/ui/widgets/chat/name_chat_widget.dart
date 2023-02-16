@@ -12,7 +12,7 @@ class NameChatWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       nameMock,
-      style: TextStyles.textSemiBoldTitles.copyWith(
+      style: TextStyles.textSemiBoldTitleAppBar.copyWith(
         fontSize: 20,
       ),
       textAlign: TextAlign.left,

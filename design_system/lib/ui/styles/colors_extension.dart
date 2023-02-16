@@ -20,7 +20,7 @@ class ColorsExtension extends ThemeExtension<ColorsExtension> {
   @override
   ThemeExtension<ColorsExtension> copyWith({Color? container}) {
     return ColorsExtension(
-      containerLogin: container ?? this.containerLogin,
+      containerLogin: container ?? containerLogin,
       cardRecipientMessage: cardRecipientMessage ?? cardRecipientMessage,
       cardSenderMessage: cardSenderMessage ?? cardSenderMessage,
       cardSliverListHome: cardSenderMessage ?? cardSenderMessage,

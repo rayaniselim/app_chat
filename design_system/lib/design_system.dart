@@ -19,3 +19,6 @@ export 'ui/widgets/login/button_widget.dart';
 
 export 'ui/widgets/login/text_button_widget.dart';
 export 'ui/styles/colors_extension.dart';
+
+export 'package:design_system/ui/theme/theme_dark.dart';
+export 'package:design_system/ui/theme/theme_light.dart';

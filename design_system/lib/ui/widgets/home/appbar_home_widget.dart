@@ -27,7 +27,7 @@ class AppBarHomeWidget extends StatelessWidget {
       centerTitle: false,
       title: Text(
         titleAppBar,
-        style: TextStyles.textSemiBoldTitles.copyWith(
+        style: TextStyles.textSemiBoldTitleAppBar.copyWith(
           fontSize: 28,
         ),
       ),

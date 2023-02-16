@@ -60,6 +60,8 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: TextStyles.textSemiBoldTitles.copyWith(
                               fontSize: 15,
+                              //  TODO:: COLOR SEMIBOLD TITLE
+                              // color: ColorsAppDark.secondary,
                             ),
                           ),
                         ],

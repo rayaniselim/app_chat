@@ -29,48 +29,37 @@ class AppBarChatWidget extends StatelessWidget {
       toolbarHeight: kToolbarHeight + statusBar,
       elevation: 0,
       centerTitle: false,
+      title: Row(children: [
+        SizedBox(
+          height: size.height * 0.07,
+          child: FittedBox(
+            child: ImageAppWidget(
+              image: imageMock,
+              sizeImage: sizeImage,
+            ),
+          ),
+        ),
+        SizedBox(
+          width: size.width * 0.02,
+        ),
+        NameChatWidget(
+          nameMock: nameMock,
+        ),
+      ]),
       actions: [
         Padding(
           padding: const EdgeInsets.only(
             left: 50,
             top: 10,
           ),
-          child: Row(
-            children: [
-              SizedBox(
-                height: size.height * 0.07,
-                child: FittedBox(
-                  child: ImageAppWidget(
-                    image: imageMock,
-                    sizeImage: sizeImage,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(
-          width: size.width * 0.02,
-        ),
-        Center(
           child: Padding(
             padding: const EdgeInsets.only(
-              left: 5,
-              top: 10,
+              right: 10,
             ),
-            child: NameChatWidget(
-              nameMock: nameMock,
+            child: IconButtonWidget(
+              onPressedIcon: onPressedIcon,
+              icon: icon,
             ),
-          ),
-        ),
-        const Spacer(),
-        Padding(
-          padding: const EdgeInsets.only(
-            right: 10,
-          ),
-          child: IconButtonWidget(
-            onPressedIcon: onPressedIcon,
-            icon: icon,
           ),
         ),
       ],
