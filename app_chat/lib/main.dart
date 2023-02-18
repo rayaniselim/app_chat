@@ -36,14 +36,14 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeApp.themeLight,
       darkTheme: ThemeApp.themeDark,
       themeMode: isLightTheme ? ThemeMode.light : ThemeMode.dark,
-      home: LoginPage(
-        isLightTheme: isLightTheme,
-        toggleTheme: toggleTheme,
-        colorRecent: isLightTheme
-            ? ColorsAppLight.secondary
-            : ColorsAppDark.secondary.withOpacity(0.58),
-      ),
-      // home: const PageColors(),
+      // home: LoginPage(
+      //   isLightTheme: isLightTheme,
+      //   toggleTheme: toggleTheme,
+      //   colorRecent: isLightTheme
+      //       ? ColorsAppLight.secondary
+      //       : ColorsAppDark.secondary.withOpacity(0.58),
+      // ),
+      home: const PageWidgetbook(),
     );
   }
 }
