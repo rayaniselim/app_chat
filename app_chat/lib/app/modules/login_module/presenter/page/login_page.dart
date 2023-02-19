@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:app_chat/app/modules/home_module/presenter/page/home_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:design_system/design_system.dart';
 
@@ -105,6 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                           context,
                           MaterialPageRoute(
                             builder: (_) => HomePage(
+                              // user: listUserMock[index],
                               toggleTheme: widget.toggleTheme,
                               isLightTheme: widget.isLightTheme,
                               colorRecent: widget.colorRecent,

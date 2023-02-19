@@ -30,14 +30,18 @@ class AppBarChatWidget extends StatelessWidget {
       elevation: 0,
       centerTitle: false,
       title: Row(children: [
-        SizedBox(
-          height: size.height * 0.07,
-          child: FittedBox(
-            child: ImageAppWidget(
-              image: imageMock,
-              sizeImage: sizeImage,
-            ),
-          ),
+        LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            return SizedBox(
+              height: size.height * 0.07,
+              child: FittedBox(
+                child: ImageAppWidget(
+                  image: imageMock,
+                  sizeImage: sizeImage,
+                ),
+              ),
+            );
+          },
         ),
         SizedBox(
           width: size.width * 0.02,

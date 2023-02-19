@@ -2,19 +2,26 @@ import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/mock/list_user_mock.dart';
+import '../chat_module/presenter/page/chat_page.dart';
 
-class SliverListWidget extends StatelessWidget {
-  final VoidCallback onTap;
+class SliverListWidget extends StatefulWidget {
+  // final VoidCallback onTap;
   final String date;
   final String messageUser;
 
-  SliverListWidget({
+  const SliverListWidget({
     Key? key,
-    required this.onTap,
+    // required this.onTap,
     required this.date,
     required this.messageUser,
   }) : super(key: key);
 
+  @override
+  State<SliverListWidget> createState() => _SliverListWidgetState();
+}
+
+class _SliverListWidgetState extends State<SliverListWidget> {
+  /// rx = reativo, valor dinamico q altera o estado da tela
   final rxSelected = ValueNotifier<int>(0);
 
   @override
@@ -22,19 +29,17 @@ class SliverListWidget extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final ColorsExtension colorsExtension =
         Theme.of(context).extension<ColorsExtension>()!;
-    final list = const ListUserMock().listUserMock(
-      height: size.height * 0.08,
-      width: size.width * 0.18,
-    );
+    final list = listUserMock;
+
     return SliverList(
       delegate: SliverChildBuilderDelegate(
-        (BuildContext context, int indexActual) {
+        (BuildContext context, int index) {
           return ValueListenableBuilder(
             valueListenable: rxSelected,
             builder: (context, value, _) {
               return Container(
                 decoration: BoxDecoration(
-                    borderRadius: indexActual == 0
+                    borderRadius: index == 0
                         ? const BorderRadius.only(
                             topLeft: Radius.circular(50),
                             topRight: Radius.circular(50),
@@ -43,14 +48,30 @@ class SliverListWidget extends StatelessWidget {
                     color: colorsExtension.cardSliverListHome),
                 child: Padding(
                   padding: EdgeInsets.only(
-                    top: indexActual == 0 ? size.width * 0.06 : 0,
+                    top: index == 0 ? size.width * 0.06 : 0,
                   ),
                   child: SizedBox(
                     height: 90,
                     child: ComponentsCardMessageHomeWidget(
-                      date: date,
-                      onTap: onTap,
-                      messageUser: messageUser,
+                      date: widget.date,
+                      user: listUserMock[index],
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => ChatPage(
+                              user: listUserMock[index],
+                            ),
+                          ),
+                        );
+                      },
+                      // widget.onTap,
+
+                      // () => rxSelected.value = index,
+                      selectedItem: rxSelected.value == index,
+
+                      /// PASSAR POR FORA DEPOIS
+                      // user: widget.user,
                     ),
                   ),
                 ),

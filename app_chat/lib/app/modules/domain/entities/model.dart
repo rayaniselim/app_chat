@@ -3,12 +3,10 @@ class UserModel {
   final String email;
 
   final String image;
-  final String? message;
 
   // this.imageUser,
   const UserModel({
     required this.image,
-    this.message,
     required this.name,
     required this.email,
   });

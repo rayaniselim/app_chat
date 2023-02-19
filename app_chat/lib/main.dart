@@ -1,7 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'app/modules/domain/entities/model.dart';
 import 'app/modules/login_module/presenter/page/login_page.dart';
 import 'firebase_options.dart';
 import 'package:design_system/design_system.dart';
