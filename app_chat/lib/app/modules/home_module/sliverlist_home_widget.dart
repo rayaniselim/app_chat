@@ -1,6 +1,7 @@
-import 'package:app_chat/core/mock/list_story_mock.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
+
+import '../../../core/mock/list_user_mock.dart';
 
 class SliverListWidget extends StatelessWidget {
   final VoidCallback onTap;
@@ -21,7 +22,7 @@ class SliverListWidget extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final ColorsExtension colorsExtension =
         Theme.of(context).extension<ColorsExtension>()!;
-    final list = const ListStoriesMock().listStoriesMock(
+    final list = const ListUserMock().listUserMock(
       height: size.height * 0.08,
       width: size.width * 0.18,
     );

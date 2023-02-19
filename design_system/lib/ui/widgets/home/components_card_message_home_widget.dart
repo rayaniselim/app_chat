@@ -1,4 +1,4 @@
-import 'package:app_chat/core/mock/list_story_mock.dart';
+import 'package:app_chat/core/mock/list_user_mock.dart';
 import 'package:flutter/material.dart';
 
 import '../../../design_system.dart';
@@ -19,7 +19,7 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    final list = const ListStoriesMock().listStoriesMock(
+    final list = const ListUserMock().listUserMock(
       height: size.height * 0.08,
       width: size.width * 0.18,
     );
@@ -77,11 +77,11 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.only(
-                      left: size.width * 0.06,
+                      left: size.width * 0.05,
                       bottom: size.height * 0.03,
                     ),
-                    child: TextDataWidget(
-                      date: date,
+                    child: TextWidget(
+                      text: date,
                       style: TextStyles.textRegularMessageCard,
                     ),
                   ),

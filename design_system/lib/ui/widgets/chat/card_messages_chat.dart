@@ -28,8 +28,8 @@ class CardMessagesChat extends StatelessWidget {
         child: Column(
           // TODO: TIRAR A COLUNA
           children: [
-            TextDataWidget(
-              date: dataChat,
+            TextWidget(
+              text: dataChat,
               style: TextStyles.textRegularDateChat,
             ),
             SizedBox(

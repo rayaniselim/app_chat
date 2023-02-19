@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class TextDataWidget extends StatelessWidget {
-  final String date;
+class TextWidget extends StatelessWidget {
+  final String text;
   final TextStyle style;
-  const TextDataWidget({
+  const TextWidget({
     super.key,
-    required this.date,
+    required this.text,
     required this.style,
   });
 
@@ -13,7 +13,7 @@ class TextDataWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        date,
+        text,
         style: style,
       ),
     );

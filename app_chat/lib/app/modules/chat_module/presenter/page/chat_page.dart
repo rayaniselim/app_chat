@@ -1,10 +1,11 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../core/mock/list_story_mock.dart';
+import '../../../../../core/mock/list_user_mock.dart';
 
 class ChatPage extends StatefulWidget {
-  const ChatPage({super.key});
+  const ChatPage({
+    super.key,
+  });
 
   @override
   State<ChatPage> createState() => _ChatPageState();
@@ -15,7 +16,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final size = mediaQuery.size;
-    final list = const ListStoriesMock().listStoriesMock(
+    final list = const ListUserMock().listUserMock(
       height: size.height * 0.05,
       width: size.width * 0.045,
     );

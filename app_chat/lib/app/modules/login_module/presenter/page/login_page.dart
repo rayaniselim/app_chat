@@ -1,13 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:app_chat/app/modules/home_module/presenter/page/home_page.dart';
 import 'package:flutter/material.dart';
-
 import 'package:design_system/design_system.dart';
 
 class LoginPage extends StatefulWidget {
   final bool isLightTheme;
   final void Function() toggleTheme;
   final Color colorRecent;
+
   const LoginPage({
     Key? key,
     required this.isLightTheme,

@@ -1,5 +1,7 @@
+import 'package:app_chat/app/modules/domain/entities/model.dart';
 import 'package:app_chat/app/modules/home_module/list_stories_home_widget.dart';
 import 'package:app_chat/app/modules/home_module/sliverlist_home_widget.dart';
+import 'package:app_chat/core/mock/list_user_mock.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 
@@ -13,6 +15,12 @@ class PageWidgetbook extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     bool isObscure = true;
+    final list = const ListUserMock().listUserMock(
+      height: size.height * 0.08,
+      width: size.width * 0.18,
+    );
+    final index = list.length;
+    final UserModel user;
 
     return Widgetbook.material(
         categories: [
@@ -45,11 +53,13 @@ class PageWidgetbook extends StatelessWidget {
                     builder: (context) => SizedBox(
                       height: 200,
                       width: size.width,
-                      child: ComponentsCardMessageHomeWidget(
-                        messageUser: 'message mock',
-                        onTap: () {},
-                        date: '08:43',
-                      ),
+
+                      /// TODO
+                      // child: ComponentsCardMessageHomeWidget(
+                      //   messageUser: 'message mock',
+                      //   onTap: () {},
+                      //   date: '08:43',
+                      // ),
                     ),
                   ),
                 ],
@@ -78,7 +88,11 @@ class PageWidgetbook extends StatelessWidget {
                     builder: (context) => const Padding(
                       padding: EdgeInsets.only(top: 100.0),
                       child: ListStoriesHomeWidget(
+                        // textName: list[index].name.split(' ')[0],
+                        // childImage: ImageAppWidget(
+                        //   image: list[index].image,
                         sizeImage: 37, // valor radius
+                        // ),
                       ),
                     ),
                   ),
@@ -104,19 +118,21 @@ class PageWidgetbook extends StatelessWidget {
                 ],
               ),
 
-              WidgetbookComponent(
-                name: 'Card SliverList home',
-                useCases: [
-                  WidgetbookUseCase(
-                    name: 'Card SliverList home',
-                    builder: (context) => SliverListWidget(
-                      onTap: () {},
-                      date: '08:45',
-                      messageUser: 'message mock',
-                    ),
-                  ),
-                ],
-              ),
+              // TODO
+              // WidgetbookComponent(
+              //   name: 'Card SliverList home',
+              //   useCases: [
+              //     WidgetbookUseCase(
+              //       name: 'Card SliverList home',
+              //       builder: (context) => SliverListWidget(
+              //         onTap: () {},
+              //         date: '08:45',
+              //         user: user,
+              //         messageUser: '',
+              //       ),
+              //     ),
+              //   ],
+              // ),
 
               ///// CHAT
               WidgetbookComponent(
@@ -146,7 +162,7 @@ class PageWidgetbook extends StatelessWidget {
                 useCases: [
                   WidgetbookUseCase(
                     name: 'Card Messages Chat',
-                    builder: (context) => Container(
+                    builder: (context) => SizedBox(
                       height: 200,
                       width: size.width,
                       child: const Padding(
@@ -182,8 +198,8 @@ class PageWidgetbook extends StatelessWidget {
                 useCases: [
                   WidgetbookUseCase(
                     name: 'Text Data Chat',
-                    builder: (context) => const TextDataWidget(
-                      date: 'date mock',
+                    builder: (context) => const TextWidget(
+                      text: 'date mock',
                       style: TextStyle(),
                     ),
                   ),

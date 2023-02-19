@@ -10,7 +10,10 @@ import '../entities/model.dart';
 /// que vai possuir um contrato do que deve ter nas classes que implementarem ela
 /// posso criar funçoes e métodos, sabendo o que vai retornar
 ///
-///
-abstract class SearchByText {
-  Future<List<UserModel>> call(String searchText);
+
+//  FirebaseAuth _auth = FirebaseAuth.instance;
+// UserModel userModel = ListStoriesMock[index];
+
+abstract class MessageSubmissions {
+  Future<List<UserModel>> call(String messageSubmissions);
 }
