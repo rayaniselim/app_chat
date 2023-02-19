@@ -1,8 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'app/modules/domain/entities/model.dart';
+import 'app/modules/login_module/presenter/page/login_page.dart';
 import 'firebase_options.dart';
-import 'app/modules/presenter/pages/home_page.dart';
+import 'package:design_system/design_system.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,21 +12,40 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  FirebaseFirestore.instance
-      .collection('User')
-      .doc()
-      .set({'id': '01', 'name': 'rayani'});
+//   FirebaseFirestore.instance
+//       .collection('User')
+//       .doc()
+//       .set({'id': '01', 'name': 'rayani'});
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool isLightTheme = true;
+  void toggleTheme() {
+    setState(() => isLightTheme = !isLightTheme);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      debugShowCheckedModeBanner: false,
+      theme: ThemeApp.themeLight,
+      darkTheme: ThemeApp.themeDark,
+      themeMode: isLightTheme ? ThemeMode.light : ThemeMode.dark,
+      home: LoginPage(
+        isLightTheme: isLightTheme,
+        toggleTheme: toggleTheme,
+        colorRecent: isLightTheme
+            ? ColorsAppLight.secondary
+            : ColorsAppDark.secondary.withOpacity(0.58),
       ),
-      home: const HomePage(),
+      // home: const PageWidgetbook(),
     );
   }
 }
