@@ -1,8 +1,8 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/mock/list_user_mock.dart';
-import '../chat_module/presenter/page/chat_page.dart';
+import '../../../../../../../../core/mock/list_user_mock.dart';
+import '../../../../chat_page.dart';
 
 class SliverListWidget extends StatefulWidget {
   // final VoidCallback onTap;
@@ -55,23 +55,19 @@ class _SliverListWidgetState extends State<SliverListWidget> {
                     child: ComponentsCardMessageHomeWidget(
                       date: widget.date,
                       user: listUserMock[index],
+                      selectedItem: rxSelected.value == index,
+                      message: widget.messageUser,
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (_) => ChatPage(
-                              user: listUserMock[index],
+                              userModel: listUserMock[index],
                             ),
                           ),
                         );
                       },
                       // widget.onTap,
-
-                      // () => rxSelected.value = index,
-                      selectedItem: rxSelected.value == index,
-
-                      /// PASSAR POR FORA DEPOIS
-                      // user: widget.user,
                     ),
                   ),
                 ),

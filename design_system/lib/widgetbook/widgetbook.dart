@@ -1,6 +1,3 @@
-import 'package:app_chat/app/modules/home_module/list_stories_home_widget.dart';
-import 'package:app_chat/app/modules/home_module/sliverlist_home_widget.dart';
-
 import 'package:app_chat/core/mock/list_user_mock.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -15,6 +12,7 @@ class PageWidgetbook extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     bool isObscure = true;
+    TextEditingController controllerMessage = TextEditingController();
 
     return Widgetbook.material(
         categories: [
@@ -52,6 +50,7 @@ class PageWidgetbook extends StatelessWidget {
                         date: '08:43',
                         user: listUserMock[0],
                         selectedItem: false,
+                        message: 'message user',
                       ),
                     ),
                   ),
@@ -79,9 +78,9 @@ class PageWidgetbook extends StatelessWidget {
                     name: 'List Stories Home',
                     builder: (context) => const Padding(
                       padding: EdgeInsets.only(top: 100.0),
-                      child: ListStoriesHomeWidget(
-                        sizeImage: 37, // valor radius
-                      ),
+                      // child: ListStoriesHomeWidget(
+                      //   sizeImage: 37, // valor radius
+                      // ),
                     ),
                   ),
                 ],
@@ -106,18 +105,18 @@ class PageWidgetbook extends StatelessWidget {
                 ],
               ),
 
-              WidgetbookComponent(
-                name: 'Card SliverList home',
-                useCases: [
-                  WidgetbookUseCase(
-                    name: 'Card SliverList home',
-                    builder: (context) => const SliverListWidget(
-                      date: '08:45',
-                      messageUser: '',
-                    ),
-                  ),
-                ],
-              ),
+              // WidgetbookComponent(
+              //   name: 'Card SliverList home',
+              //   useCases: [
+              //     WidgetbookUseCase(
+              //       name: 'Card SliverList home',
+              //       builder: (context) => const SliverListWidget(
+              //         date: '08:45',
+              //         messageUser: '',
+              //       ),
+              //     ),
+              //   ],
+              // ),
 
               ///// CHAT
               WidgetbookComponent(
@@ -142,26 +141,26 @@ class PageWidgetbook extends StatelessWidget {
                 ],
               ),
 
-              WidgetbookComponent(
-                name: 'Card Messages Chat',
-                useCases: [
-                  WidgetbookUseCase(
-                    name: 'Card Messages Chat',
-                    builder: (context) => SizedBox(
-                      height: 200,
-                      width: size.width,
-                      child: const Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: CardMessagesChat(
-                          dataChat: 'date mock',
-                          senderMessage: 'mensagem remetente',
-                          recipientMessage: 'mensagem destinatario',
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              // WidgetbookComponent(
+              //   name: 'Card Messages Chat',
+              //   useCases: [
+              //     WidgetbookUseCase(
+              //       name: 'Card Messages Chat',
+              //       builder: (context) => SizedBox(
+              //         height: 200,
+              //         width: size.width,
+              //         child: const Padding(
+              //           padding: EdgeInsets.all(10.0),
+              //           child: CardMessagesChat(
+              //             dataChat: 'date mock',
+              //             senderMessage: 'mensagem remetente',
+              //             recipientMessage: 'mensagem destinatario', child: null,
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
 
               WidgetbookComponent(
                 name: 'Name Chat',
@@ -205,6 +204,8 @@ class PageWidgetbook extends StatelessWidget {
                         suffixIcon: const Icon(Icons.arrow_forward_ios_rounded),
                         hintText: 'Message',
                         onPressedSuffixIcon: () {},
+                        controller: controllerMessage,
+                        onChanged: (string) {},
                       ),
                     ),
                   ),

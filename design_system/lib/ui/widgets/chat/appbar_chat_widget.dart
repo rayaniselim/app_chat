@@ -33,7 +33,7 @@ class AppBarChatWidget extends StatelessWidget {
         LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
             return SizedBox(
-              height: size.height * 0.07,
+              height: size.height * 0.062,
               child: FittedBox(
                 child: ImageAppWidget(
                   image: imageMock,

@@ -5,9 +5,12 @@ import '../../../design_system.dart';
 class TextFieldChatWidget extends StatelessWidget {
   final String hintText;
   final Icon prefixIcon;
-  final void Function() onPressedPrefixIcon;
+  final void Function()? onPressedPrefixIcon;
   final Icon suffixIcon;
-  final void Function() onPressedSuffixIcon;
+  final void Function()? onPressedSuffixIcon;
+  final void Function(String)? onChanged;
+  final void Function(String)? onSubmitted;
+  final TextEditingController controller;
 
   const TextFieldChatWidget({
     super.key,
@@ -16,6 +19,9 @@ class TextFieldChatWidget extends StatelessWidget {
     required this.onPressedPrefixIcon,
     required this.suffixIcon,
     required this.onPressedSuffixIcon,
+    required this.controller,
+    required this.onChanged,
+    this.onSubmitted,
   });
 
   @override
@@ -36,9 +42,15 @@ class TextFieldChatWidget extends StatelessWidget {
           color: colorsExtension.containerTextFieldChat,
           borderRadius: BorderRadius.circular(1000),
         ),
+        constraints: BoxConstraints(
+          maxHeight: size.width * 0.95,
+        ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextField(
+            controller: controller,
+            onChanged: onChanged,
+            onSubmitted: onSubmitted,
             decoration: InputDecoration(
               hintText: hintText,
               hintStyle: TextStyles.textRegularCardMessageChat,

@@ -1,4 +1,4 @@
-import 'package:app_chat/app/modules/domain/entities/model.dart';
+import 'package:app_chat/app/modules/domain/entities/user_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../design_system.dart';
@@ -6,9 +6,9 @@ import '../../../design_system.dart';
 class ComponentsCardMessageHomeWidget extends StatelessWidget {
   final VoidCallback onTap;
   final String date;
-
   final bool selectedItem;
   final UserModel user;
+  final String message;
 
   const ComponentsCardMessageHomeWidget({
     Key? key,
@@ -16,6 +16,7 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
     required this.date,
     required this.selectedItem,
     required this.user,
+    required this.message,
   }) : super(key: key);
 
   @override
@@ -66,8 +67,7 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
                         width: size.width * 0.54,
                         height: size.height * 0.03,
                         child: Text(
-                          // TODO:  arrumar mensagem aqui
-                          'dasas',
+                          message,
                           style: TextStyles.textRegularMessageCard,
                           overflow: TextOverflow.ellipsis,
                         ),

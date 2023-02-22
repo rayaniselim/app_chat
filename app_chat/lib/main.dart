@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'app/modules/login_module/presenter/page/login_page.dart';
+import 'app/modules/presenter/page/login_page.dart';
 import 'firebase_options.dart';
 import 'package:design_system/design_system.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  // User? userFirebase = FirebaseAuth.instance.currentUser;
 //   FirebaseFirestore.instance
 //       .collection('User')
 //       .doc()
@@ -43,7 +46,6 @@ class _MyAppState extends State<MyApp> {
             ? ColorsAppLight.secondary
             : ColorsAppDark.secondary.withOpacity(0.58),
       ),
-      // home: const PageWidgetbook(),
     );
   }
 }
