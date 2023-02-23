@@ -19,7 +19,7 @@ class CardMessagesChat extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return SizedBox(
-      // height: size.height * 0.73,
+      height: size.height * 0.73,
       width: size.width,
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,

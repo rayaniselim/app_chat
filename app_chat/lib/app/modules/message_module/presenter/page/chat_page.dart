@@ -1,9 +1,9 @@
 import 'package:app_chat/app/modules/domain/entities/user_model.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../../message_module/components/list_view_messagens.dart';
-import '../../message_module/infra/service/auth/auth_service.dart';
-import '../../message_module/infra/service/chat/chat_service.dart';
+import '../components/list_view_messagens.dart';
+import '../../../login_module/infra/auth/auth_service.dart';
+import '../../infra/service/chat/chat_service.dart';
 
 class ChatPage extends StatefulWidget {
   final UserModel userModel;
@@ -25,7 +25,7 @@ class _ChatPageState extends State<ChatPage> {
     final userModel = AuthService().currentUser;
 
     if (userModel != null) {
-      await ChatService().save(_message, userModel);
+      await ChatService().save('_message', userModel);
       _messageController.clear();
     }
   }
@@ -71,15 +71,14 @@ class _ChatPageState extends State<ChatPage> {
               }
             },
             child: IconButtonWidget(
-                icon: const Icon(
-                  Icons.arrow_forward_ios_rounded,
-                ),
-                onPressedIcon: () {
-                  _message.isEmpty ? null : _sendMessage;
-                }
-                // TODO: VER PQ NAO FUNCIONA O BOTAO
-                // onPressedSuffixIcon: _message.isEmpty ? null : _sendMessage,
-                ),
+              icon: const Icon(
+                Icons.arrow_forward_ios_rounded,
+              ),
+              onPressedIcon: _sendMessage,
+
+              // TODO: VER PQ NAO FUNCIONA O BOTAO
+              // onPressedSuffixIcon: _message.isEmpty ? null : _sendMessage,
+            ),
           ),
         ],
       ),

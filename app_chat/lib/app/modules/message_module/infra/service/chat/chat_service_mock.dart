@@ -36,7 +36,7 @@ class ChatServiceMock implements ChatService {
       userName: user.name,
     );
     _msgs.add(newMessage);
-    _controller?.add(_msgs.reversed.toList());
+    _controller?.add(_msgs.toList());
     return newMessage;
   }
 }
