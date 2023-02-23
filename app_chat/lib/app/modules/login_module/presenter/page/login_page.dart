@@ -29,6 +29,7 @@ class _LoginPageState extends State<LoginPage> {
     final size = MediaQuery.of(context).size;
     final ColorsExtension colorsExtension =
         Theme.of(context).extension<ColorsExtension>()!;
+    // TODO: FUNÇAO LOGIN
 
     return Scaffold(
       body: Stack(

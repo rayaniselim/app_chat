@@ -24,9 +24,9 @@ class PageWidgetbook extends StatelessWidget {
                   WidgetbookUseCase(
                     name: 'AppBar Home',
                     builder: (context) => AppBarHomeWidget(
-                      onPressedIconSearch: () {},
+                      onPressedIconLogout: () {},
                       titleAppBar: 'Messages',
-                      iconSearch: Icon(
+                      iconLogout: Icon(
                         Icons.search,
                         size: MediaQuery.of(context).size.width * 0.07,
                       ),

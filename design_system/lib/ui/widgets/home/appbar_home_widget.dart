@@ -4,18 +4,18 @@ import '../../../design_system.dart';
 
 class AppBarHomeWidget extends StatelessWidget {
   final String titleAppBar;
-  final Icon iconSearch;
+  final Icon iconLogout;
   final Icon iconTheme;
-  final void Function() onPressedIconSearch;
+  final void Function() onPressedIconLogout;
   final void Function() onPressedIconTheme;
 
   const AppBarHomeWidget({
     super.key,
     required this.titleAppBar,
-    required this.iconSearch,
+    required this.iconLogout,
     required this.onPressedIconTheme,
     required this.iconTheme,
-    required this.onPressedIconSearch,
+    required this.onPressedIconLogout,
   });
 
   @override
@@ -44,8 +44,8 @@ class AppBarHomeWidget extends StatelessWidget {
           child: Row(
             children: [
               IconButtonWidget(
-                onPressedIcon: onPressedIconSearch,
-                icon: iconSearch,
+                onPressedIcon: onPressedIconLogout,
+                icon: iconLogout,
               ),
               IconButtonWidget(
                 icon: iconTheme,

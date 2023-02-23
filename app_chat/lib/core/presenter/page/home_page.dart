@@ -31,11 +31,13 @@ class HomePage extends StatelessWidget {
               isLightTheme ? Icons.nightlight : Icons.wb_sunny,
             ),
             onPressedIconTheme: toggleTheme,
-            iconSearch: Icon(
-              Icons.search,
+            iconLogout: Icon(
+              Icons.logout_outlined,
               size: size.width * 0.07,
             ),
-            onPressedIconSearch: (() {}),
+            onPressedIconLogout: (() {
+              // TODO: FUNÇAO SAIR
+            }),
           ),
           SliverToBoxAdapter(
             child: Padding(
