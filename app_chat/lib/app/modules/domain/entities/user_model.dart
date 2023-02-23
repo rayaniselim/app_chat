@@ -1,14 +1,12 @@
 class UserModel {
+  final String id;
   final String name;
   final String email;
-
   final String image;
-  final String? message;
 
-  // this.imageUser,
   const UserModel({
+    required this.id,
     required this.image,
-    this.message,
     required this.name,
     required this.email,
   });

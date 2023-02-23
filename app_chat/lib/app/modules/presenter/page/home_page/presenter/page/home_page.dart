@@ -1,14 +1,13 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 import 'package:design_system/design_system.dart';
 
-import '../../../chat_module/presenter/page/chat_page.dart';
-import '../../list_stories_home_widget.dart';
-import '../../sliverlist_home_widget.dart';
+import 'components/list_stories_home_widget.dart';
+import 'components/sliverlist_home_widget.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   final bool isLightTheme;
+
   final void Function() toggleTheme;
   final Color colorRecent;
 
@@ -20,11 +19,6 @@ class HomePage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
@@ -34,9 +28,9 @@ class _HomePageState extends State<HomePage> {
           AppBarHomeWidget(
             titleAppBar: 'Messages',
             iconTheme: Icon(
-              widget.isLightTheme ? Icons.nightlight : Icons.wb_sunny,
+              isLightTheme ? Icons.nightlight : Icons.wb_sunny,
             ),
-            onPressedIconTheme: widget.toggleTheme,
+            onPressedIconTheme: toggleTheme,
             iconSearch: Icon(
               Icons.search,
               size: size.width * 0.07,
@@ -51,7 +45,7 @@ class _HomePageState extends State<HomePage> {
               ),
               child: RecentHomeWidget(
                 textRecent: 'R E C E N T',
-                color: widget.colorRecent,
+                color: colorRecent,
               ),
             ),
           ),
@@ -64,17 +58,8 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           SliverListWidget(
-// TODO: Fazer que printe o horario e ultima mensagem recebida
-            messageUser: 'ajustar o print',
-            date: '08:43',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => const ChatPage(),
-                ),
-              );
-            },
+            messageUser: 'ARRUMAR AQUI',
+            date: ('${DateTime.now().hour}:${DateTime.now().minute}'),
           ),
         ],
       ),
