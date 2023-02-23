@@ -35,7 +35,7 @@ class ListViewMessage extends StatelessWidget {
             itemCount: msgs.length,
             itemBuilder: (context, index) => CardMessagesChat(
               key: ValueKey(msgs[index].id),
-              message: msgs[index].toString(),
+              message: msgs[index],
               currentUser: currentUser?.id == msgs[index].userId,
               dataChat: dataChat,
             ),

@@ -19,7 +19,6 @@ class ChatPage extends StatefulWidget {
 class _ChatPageState extends State<ChatPage> {
   String _message = '';
   final _messageController = TextEditingController();
-  final currentUser = AuthService().currentUser;
 
 // uma variavel pra receber as mensagens
   Future<void> _sendMessage() async {
@@ -52,9 +51,9 @@ class _ChatPageState extends State<ChatPage> {
       ),
       body: Column(
         children: [
-          SizedBox(
-            height: size.height * 0.012,
-          ),
+          // SizedBox(
+          //   height: size.height * 0.012,
+          // ),
           const ListViewMessage(),
           SizedBox(height: size.height * 0.7),
           TextFieldChatWidget(
@@ -71,11 +70,16 @@ class _ChatPageState extends State<ChatPage> {
                 _sendMessage();
               }
             },
-            suffixIcon: const Icon(
-              Icons.arrow_forward_ios_rounded,
-            ),
-            // TODO: VER PQ NAO FUNCIONA O BOTAO
-            onPressedSuffixIcon: _message.isEmpty ? null : _sendMessage,
+            child: IconButtonWidget(
+                icon: const Icon(
+                  Icons.arrow_forward_ios_rounded,
+                ),
+                onPressedIcon: () {
+                  _message.isEmpty ? null : _sendMessage;
+                }
+                // TODO: VER PQ NAO FUNCIONA O BOTAO
+                // onPressedSuffixIcon: _message.isEmpty ? null : _sendMessage,
+                ),
           ),
         ],
       ),

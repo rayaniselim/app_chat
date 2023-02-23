@@ -5,6 +5,7 @@ import 'chat_service_mock.dart';
 
 abstract class ChatService {
   Stream<List<MessageModel>> messagesStream();
+  // stream -> faz receber o  valor(mensagem) de forma automatica
   Future<MessageModel> save(String texto, UserModel user);
 
   factory ChatService() {

@@ -5,7 +5,15 @@ import 'package:app_chat/app/modules/message_module/domain/entities/message_mode
 import 'chat_service.dart';
 
 class ChatServiceMock implements ChatService {
-  static final List<MessageModel> _msgs = [];
+  static final List<MessageModel> _msgs = [
+    // MessageModel(
+    //   id: '8',
+    //   message: 'Mensagem Mock',
+    //   date: DateTime.now(),
+    //   userId: '123',
+    //   userName: 'rayani',
+    // ),
+  ];
 
   static MultiStreamController<List<MessageModel>>? _controller;
   static final _msgsStream = Stream<List<MessageModel>>.multi((controller) {

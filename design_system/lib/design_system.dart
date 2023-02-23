@@ -24,5 +24,5 @@ export 'package:design_system/ui/theme/theme_dark.dart';
 export 'package:design_system/ui/theme/theme_light.dart';
 export 'ui/widgets/home/image_stories_home_widget.dart';
 
-export 'ui/widgets/chat/message_current_user_widget.dart';
+export 'ui/widgets/chat/message_user_widget.dart';
 export 'ui/widgets/text_data_widget.dart';
