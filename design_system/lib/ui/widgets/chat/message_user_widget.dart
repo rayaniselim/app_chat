@@ -1,9 +1,9 @@
-import 'package:app_chat/app/modules/message_module/domain/entities/message_model.dart';
+import 'package:app_chat/app/modules/get_message_module/domain/entities/message_entity.dart';
 import 'package:flutter/material.dart';
 import '../../../design_system.dart';
 
 class MessageUserWidget extends StatelessWidget {
-  final MessageModel messageText;
+  final MessageEntity messageText;
   final bool currentUser;
 
   const MessageUserWidget({
