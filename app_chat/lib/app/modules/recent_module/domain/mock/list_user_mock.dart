@@ -1,43 +1,43 @@
-import 'package:app_chat/app/modules/domain/entities/user_model.dart';
+import 'package:app_chat/core/domain/entities/user_entity.dart';
 
-List<UserModel> listUserMock = [
-  const UserModel(
+List<UserEntity> listUserMock = [
+  const UserEntity(
     image: 'assets/image/hyun-bin.webp',
     name: 'Hyun Bin',
     email: '',
     id: '1',
   ),
-  const UserModel(
+  const UserEntity(
     name: 'Seo Ji-hye',
     image: 'assets/image/Seo-Ji-hye .png',
     email: '',
     id: '2',
   ),
-  const UserModel(
+  const UserEntity(
     name: 'Son Ye-jin',
     image: 'assets/image/Son Ye-jin.webp',
     email: '',
     id: '3',
   ),
-  const UserModel(
+  const UserEntity(
     name: 'Kim Seon-ho',
     image: 'assets/image/kim-seon-ho.jpeg',
     email: '',
     id: '4',
   ),
-  const UserModel(
+  const UserEntity(
     name: 'Shin Min-a',
     image: 'assets/image/Shin Min-a .jpeg',
     email: '',
     id: '5',
   ),
-  const UserModel(
+  const UserEntity(
     name: 'Song Joong-ki',
     image: 'assets/image/vincenzo.png',
     email: '',
     id: '6',
   ),
-  const UserModel(
+  const UserEntity(
     name: 'Jeon Yeo-been',
     image: 'assets/image/Jeon Yeo-been.jpeg',
     email: '',

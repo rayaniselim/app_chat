@@ -1,4 +1,4 @@
-class MessageModel {
+class MessageEntity {
   final String id;
   final String message;
   final DateTime date;
@@ -6,7 +6,7 @@ class MessageModel {
   final String userId;
   final String userName;
 
-  MessageModel({
+  MessageEntity({
     required this.id,
     required this.message,
     required this.date,

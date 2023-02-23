@@ -1,7 +1,7 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
-import 'modules/login_module/presenter/page/login_page.dart';
+import 'app/modules/login_module/presenter/page/login_page.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});

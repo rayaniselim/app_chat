@@ -1,5 +1,5 @@
-import 'package:app_chat/app/modules/message_module/presenter/page/chat_page.dart';
-import 'package:app_chat/app/modules/presenter/pages/home_page/presenter/page/home_page.dart';
+import 'package:app_chat/app/modules/get_message_module/presenter/page/chat_page.dart';
+import 'package:app_chat/core/presenter/page/home_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'login_module/presenter/page/login_page.dart';

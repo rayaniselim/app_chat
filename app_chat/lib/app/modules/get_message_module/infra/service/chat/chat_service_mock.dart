@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'dart:math';
-import 'package:app_chat/app/modules/domain/entities/user_model.dart';
-import 'package:app_chat/app/modules/message_module/domain/entities/message_model.dart';
+import 'package:app_chat/core/domain/entities/user_entity.dart';
+import 'package:app_chat/app/modules/get_message_module/domain/entities/message_entity.dart';
 import 'chat_service.dart';
 
 class ChatServiceMock implements ChatService {
-  static final List<MessageModel> _msgs = [
-    // MessageModel(
+  static final List<MessageEntity> _msgs = [
+    // MessageEntity(
     //   id: '8',
     //   message: 'Mensagem Mock',
     //   date: DateTime.now(),
@@ -15,20 +15,20 @@ class ChatServiceMock implements ChatService {
     // ),
   ];
 
-  static MultiStreamController<List<MessageModel>>? _controller;
-  static final _msgsStream = Stream<List<MessageModel>>.multi((controller) {
+  static MultiStreamController<List<MessageEntity>>? _controller;
+  static final _msgsStream = Stream<List<MessageEntity>>.multi((controller) {
     _controller = controller;
     controller.add(_msgs);
   });
 
   @override
-  Stream<List<MessageModel>> messagesStream() {
+  Stream<List<MessageEntity>> messagesStream() {
     return _msgsStream;
   }
 
   @override
-  Future<MessageModel> save(String message, UserModel user) async {
-    final newMessage = MessageModel(
+  Future<MessageEntity> save(String message, UserEntity user) async {
+    final newMessage = MessageEntity(
       id: Random().nextDouble().toString(),
       message: message,
       date: DateTime.now(),

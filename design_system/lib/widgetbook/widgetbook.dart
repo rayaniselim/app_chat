@@ -1,4 +1,3 @@
-import 'package:app_chat/core/mock/list_user_mock.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 
@@ -37,25 +36,25 @@ class PageWidgetbook extends StatelessWidget {
                   ),
                 ],
               ),
-              WidgetbookComponent(
-                name: 'Components Card Message Home',
-                useCases: [
-                  WidgetbookUseCase(
-                    name: 'Components Card Message Home',
-                    builder: (context) => SizedBox(
-                      height: 200,
-                      width: size.width,
-                      child: ComponentsCardMessageHomeWidget(
-                        onTap: () {},
-                        date: '08:43',
-                        user: listUserMock[0],
-                        selectedItem: false,
-                        message: 'message user',
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              // WidgetbookComponent(
+              //   name: 'Components Card Message Home',
+              //   useCases: [
+              //     WidgetbookUseCase(
+              //       name: 'Components Card Message Home',
+              //       builder: (context) => SizedBox(
+              //         height: 200,
+              //         width: size.width,
+              //         child: ComponentsCardMessageHomeWidget(
+              //           onTap: () {},
+              //           date: '08:43',
+              //           user: listUserMock[0],
+              //           selectedItem: false,
+              //           message: 'message user',
+              //         ),
+              //       ),
+              //     ),
+              // ],
+              // ),
               WidgetbookComponent(
                 name: 'Recent Home',
                 useCases: [
@@ -323,7 +322,7 @@ class PageWidgetbook extends StatelessWidget {
         ],
         devices: [
           Apple.iPhone13ProMax,
-          Apple.iPhone12,
+          Apple.iPhone8,
         ]);
   }
 }

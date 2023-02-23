@@ -1,4 +1,4 @@
-import 'package:app_chat/app/modules/domain/entities/user_model.dart';
+import 'package:app_chat/core/domain/entities/user_entity.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import '../components/list_view_messagens.dart';
@@ -6,10 +6,10 @@ import '../../../login_module/infra/auth/auth_service.dart';
 import '../../infra/service/chat/chat_service.dart';
 
 class ChatPage extends StatefulWidget {
-  final UserModel userModel;
+  final UserEntity userEntity;
   const ChatPage({
     super.key,
-    required this.userModel,
+    required this.userEntity,
   });
 
   @override
@@ -22,10 +22,10 @@ class _ChatPageState extends State<ChatPage> {
 
 // uma variavel pra receber as mensagens
   Future<void> _sendMessage() async {
-    final userModel = AuthService().currentUser;
+    final userEntity = AuthService().currentUser;
 
-    if (userModel != null) {
-      await ChatService().save('_message', userModel);
+    if (userEntity != null) {
+      await ChatService().save(_message, userEntity);
       _messageController.clear();
     }
   }
@@ -40,8 +40,8 @@ class _ChatPageState extends State<ChatPage> {
         preferredSize: const Size(0, 100),
         child: AppBarChatWidget(
           onPressedIcon: () {},
-          imageMock: widget.userModel.image,
-          nameMock: widget.userModel.name,
+          imageMock: widget.userEntity.image,
+          nameMock: widget.userEntity.name,
           sizeImage: size.height * 0.10,
           icon: Icon(
             Icons.search,

@@ -1,10 +1,10 @@
-import 'package:app_chat/app/modules/message_module/domain/entities/message_model.dart';
+import 'package:app_chat/app/modules/get_message_module/domain/entities/message_entity.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
 class CardMessagesChat extends StatelessWidget {
   final String dataChat;
-  final MessageModel message;
+  final MessageEntity message;
   final bool currentUser;
 
   const CardMessagesChat({

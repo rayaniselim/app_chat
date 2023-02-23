@@ -1,4 +1,4 @@
-import 'package:app_chat/app/modules/domain/entities/user_model.dart';
+import 'package:app_chat/core/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 
 import '../../../design_system.dart';
@@ -7,7 +7,7 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
   final VoidCallback onTap;
   final String date;
   final bool selectedItem;
-  final UserModel user;
+  final UserEntity user;
   final String message;
 
   const ComponentsCardMessageHomeWidget({

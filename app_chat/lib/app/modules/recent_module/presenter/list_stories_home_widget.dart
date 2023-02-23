@@ -1,4 +1,4 @@
-import 'package:app_chat/core/mock/list_user_mock.dart';
+import 'package:app_chat/app/modules/recent_module/domain/mock/list_user_mock.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 

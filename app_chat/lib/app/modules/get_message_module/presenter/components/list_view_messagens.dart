@@ -1,4 +1,4 @@
-import 'package:app_chat/app/modules/message_module/domain/entities/message_model.dart';
+import 'package:app_chat/app/modules/get_message_module/domain/entities/message_entity.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +16,7 @@ class ListViewMessage extends StatelessWidget {
     final dataChat = data + hora;
     final currentUser = AuthService().currentUser;
 
-    return StreamBuilder<List<MessageModel>>(
+    return StreamBuilder<List<MessageEntity>>(
       stream: ChatService().messagesStream(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {

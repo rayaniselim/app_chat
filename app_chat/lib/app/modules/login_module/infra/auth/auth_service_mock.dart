@@ -1,34 +1,34 @@
 import 'dart:async';
 import 'dart:math';
-import 'package:app_chat/app/modules/domain/entities/user_model.dart';
+import 'package:app_chat/core/domain/entities/user_entity.dart';
 
 import 'auth_service.dart';
 
 class AuthMockService implements AuthService {
-  static const _defaultUser = UserModel(
+  static const _defaultUser = UserEntity(
     id: '8',
     name: 'rayani',
     email: 'rayani@user.com',
     image: '',
   );
 
-  static final Map<String, UserModel> _users = {
+  static final Map<String, UserEntity> _users = {
     _defaultUser.email: _defaultUser,
   };
-  static UserModel? _currentUser;
-  static MultiStreamController<UserModel?>? _controller;
-  static final _userStream = Stream<UserModel?>.multi((controller) {
+  static UserEntity? _currentUser;
+  static MultiStreamController<UserEntity?>? _controller;
+  static final _userStream = Stream<UserEntity?>.multi((controller) {
     _controller = controller;
     _updateUser(_defaultUser);
   });
 
   @override
-  UserModel? get currentUser {
+  UserEntity? get currentUser {
     return _currentUser;
   }
 
   @override
-  Stream<UserModel?> get userChanges {
+  Stream<UserEntity?> get userChanges {
     return _userStream;
   }
 
@@ -38,7 +38,7 @@ class AuthMockService implements AuthService {
     String email,
     String password,
   ) async {
-    final newUser = UserModel(
+    final newUser = UserEntity(
       id: Random().nextDouble().toString(),
       name: name,
       email: email,
@@ -59,7 +59,7 @@ class AuthMockService implements AuthService {
     _updateUser(null);
   }
 
-  static void _updateUser(UserModel? user) {
+  static void _updateUser(UserEntity? user) {
     _currentUser = user;
     _controller?.add(_currentUser);
   }
