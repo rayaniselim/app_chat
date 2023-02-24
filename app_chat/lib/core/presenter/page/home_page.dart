@@ -5,7 +5,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../../app/modules/recent_module/presenter/list_stories_home_widget.dart';
 
 import '../components/sliverlist_home_widget.dart';
-import '../stores/theme_store.dart';
+
+import '../theme_store.dart';
 
 class HomePage extends StatelessWidget {
   final ThemeStore themeStore;
@@ -33,9 +34,7 @@ class HomePage extends StatelessWidget {
               Icons.logout_outlined,
               size: size.width * 0.07,
             ),
-            onPressedIconLogout: (() {
-              // TODO: FUNÇAO SAIR
-            }),
+            onPressedIconLogout: () => Modular.to.navigate('/login/loginPage'),
           ),
           SliverToBoxAdapter(
             child: Padding(

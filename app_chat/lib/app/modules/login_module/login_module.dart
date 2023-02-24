@@ -1,7 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../core/presenter/stores/theme_store.dart';
-
+import '../../../core/presenter/theme_store.dart';
 import 'presenter/page/login_page.dart';
 
 class LoginModule extends Module {
@@ -15,7 +14,7 @@ class LoginModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute('/loginPage/',
+        ChildRoute('/loginPage',
             child: ((_, __) =>
                 LoginPage(themeStore: Modular.get<ThemeStore>()))),
       ];

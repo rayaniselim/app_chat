@@ -2,7 +2,7 @@ import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'core/presenter/stores/theme_store.dart';
+import 'core/presenter/theme_store.dart';
 
 class AppWidget extends StatefulWidget {
   const AppWidget({super.key});
@@ -16,7 +16,7 @@ class _AppWidgetState extends State<AppWidget> {
   Widget build(BuildContext context) {
     final themeStore = Modular.get<ThemeStore>();
 
-    Modular.setInitialRoute('/login/');
+    Modular.setInitialRoute('/login/loginPage');
     return ValueListenableBuilder(
       valueListenable: themeStore, // ele observa o themeApp
       builder: (context, state, child) {

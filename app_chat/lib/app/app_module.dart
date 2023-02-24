@@ -1,7 +1,8 @@
 import 'package:app_chat/app/page_test.dart';
+import 'package:app_chat/core/presenter/page/home_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../../core/presenter/stores/theme_store.dart';
 
+import '../core/presenter/theme_store.dart';
 import 'modules/login_module/login_module.dart';
 
 /* ESTE MODULO É GLOBAL(é a RAIZ) para todo o app
@@ -20,8 +21,9 @@ class AppModule extends Module {
   //     ];
   @override
   final List<ModularRoute> routes = [
-    ModuleRoute('/login/', module: LoginModule()),
-    ChildRoute('/test/', child: ((_, __) => const PageTest())),
+    ModuleRoute('/login', module: LoginModule()),
+    ChildRoute('/home/',
+        child: ((_, __) => HomePage(themeStore: Modular.get<ThemeStore>()))),
 
     // ModuleRoute('home', module: HomePage()),
     // ModuleRoute('chat', module: ChatPage()),

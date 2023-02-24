@@ -2,8 +2,9 @@ import 'package:app_chat/core/presenter/page/home_page.dart';
 
 import 'package:flutter/material.dart';
 import 'package:design_system/design_system.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../../../core/presenter/stores/theme_store.dart';
+import '../../../../../core/presenter/theme_store.dart';
 
 class LoginPage extends StatefulWidget {
   final ThemeStore themeStore;
@@ -107,19 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     ButtonWidget(
                       title: 'Login',
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => HomePage(
-                              themeStore: widget.themeStore,
-                              // toggleTheme: widget.toggleTheme,
-                              // isLightTheme: widget.isLightTheme,
-                              // colorRecent: widget.colorRecent,
-                            ),
-                          ),
-                        );
-                      },
+                      onPressed: () => Modular.to.navigate('/home/'),
                       width: size.width * 0.20,
                       height: size.height * 0.03,
                     ),
