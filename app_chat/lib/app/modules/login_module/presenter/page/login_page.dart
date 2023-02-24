@@ -1,19 +1,24 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:app_chat/core/presenter/page/home_page.dart';
 
 import 'package:flutter/material.dart';
 import 'package:design_system/design_system.dart';
 
+import '../../../../../core/presenter/stores/theme_store.dart';
+
 class LoginPage extends StatefulWidget {
-  final bool isLightTheme;
-  final void Function() toggleTheme;
-  final Color colorRecent;
+  final ThemeStore themeStore;
+
+  // final bool isLightTheme;
+  // final void Function() toggleTheme;
+  // final Color colorRecent;
 
   const LoginPage({
     Key? key,
-    required this.isLightTheme,
-    required this.toggleTheme,
-    required this.colorRecent,
+    required this.themeStore,
+
+    // required this.isLightTheme,
+    // required this.toggleTheme,
+    // required this.colorRecent,
   }) : super(key: key);
 
   @override
@@ -107,9 +112,10 @@ class _LoginPageState extends State<LoginPage> {
                           context,
                           MaterialPageRoute(
                             builder: (_) => HomePage(
-                              toggleTheme: widget.toggleTheme,
-                              isLightTheme: widget.isLightTheme,
-                              colorRecent: widget.colorRecent,
+                              themeStore: widget.themeStore,
+                              // toggleTheme: widget.toggleTheme,
+                              // isLightTheme: widget.isLightTheme,
+                              // colorRecent: widget.colorRecent,
                             ),
                           ),
                         );

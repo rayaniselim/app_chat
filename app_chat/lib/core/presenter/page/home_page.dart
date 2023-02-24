@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
-
 import 'package:design_system/design_system.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../app/modules/recent_module/presenter/list_stories_home_widget.dart';
+
 import '../components/sliverlist_home_widget.dart';
+import '../stores/theme_store.dart';
 
 class HomePage extends StatelessWidget {
-  final bool isLightTheme;
-
-  final void Function() toggleTheme;
-  final Color colorRecent;
+  final ThemeStore themeStore;
 
   const HomePage({
     Key? key,
-    required this.isLightTheme,
-    required this.toggleTheme,
-    required this.colorRecent,
+    required this.themeStore,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final themeStore = Modular.get<ThemeStore>();
 
     return Scaffold(
       body: CustomScrollView(
@@ -28,9 +26,9 @@ class HomePage extends StatelessWidget {
           AppBarHomeWidget(
             titleAppBar: 'Messages',
             iconTheme: Icon(
-              isLightTheme ? Icons.nightlight : Icons.wb_sunny,
+              themeStore.isLightTheme ? Icons.nightlight : Icons.wb_sunny,
             ),
-            onPressedIconTheme: toggleTheme,
+            onPressedIconTheme: themeStore.toggleTheme,
             iconLogout: Icon(
               Icons.logout_outlined,
               size: size.width * 0.07,
@@ -47,7 +45,9 @@ class HomePage extends StatelessWidget {
               ),
               child: RecentHomeWidget(
                 textRecent: 'R E C E N T',
-                color: colorRecent,
+                color: themeStore.isLightTheme
+                    ? ColorsAppLight.secondary
+                    : ColorsAppDark.secondary.withOpacity(0.58),
               ),
             ),
           ),
