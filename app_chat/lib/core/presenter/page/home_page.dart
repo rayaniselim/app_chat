@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../app/modules/recent_module/presenter/list_stories_home_widget.dart';
+import '../components/list_stories_home_widget.dart';
 
 import '../components/sliverlist_home_widget.dart';
 

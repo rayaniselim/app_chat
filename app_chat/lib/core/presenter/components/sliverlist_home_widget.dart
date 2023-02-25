@@ -1,8 +1,8 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../app/modules/recent_module/domain/mock/list_user_mock.dart';
-import '../../../app/modules/messages_module/presenter/page/chat_page.dart';
+import '../../domain/mock/list_user_mock.dart';
 
 class SliverListWidget extends StatefulWidget {
   // final VoidCallback onTap;
@@ -57,17 +57,10 @@ class _SliverListWidgetState extends State<SliverListWidget> {
                       user: listUserMock[index],
                       selectedItem: rxSelected.value == index,
                       message: widget.messageUser,
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => ChatPage(
-                              userEntity: listUserMock[index],
-                            ),
-                          ),
-                        );
-                      },
-                      // widget.onTap,
+                      onTap: () => Modular.to.pushNamed(
+                        '/chat/chat',
+                        arguments: listUserMock[index],
+                      ),
                     ),
                   ),
                 ),

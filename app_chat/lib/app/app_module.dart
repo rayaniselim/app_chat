@@ -1,4 +1,4 @@
-import 'package:app_chat/app/page_test.dart';
+import 'package:app_chat/app/modules/messages_module/message_module.dart';
 import 'package:app_chat/core/presenter/page/home_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -13,26 +13,26 @@ que é um padrao q obriga vc a desacoplar as coisas,
 class AppModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.singleton((i) => ThemeStore()) //, export: true),
+    Bind.singleton((i) => ThemeStore()),
   ];
-  // @override
-  // List<Module> get imports => [
-  //       ThemeStore(),
-  //     ];
+
+  @override
+  List<Module> get imports => [];
+
   @override
   final List<ModularRoute> routes = [
     ModuleRoute('/login', module: LoginModule()),
-    ChildRoute('/home/',
-        child: ((_, __) => HomePage(themeStore: Modular.get<ThemeStore>()))),
-
-    // ModuleRoute('home', module: HomePage()),
-    // ModuleRoute('chat', module: ChatPage()),
+    ChildRoute(
+      '/home/',
+      child: ((_, __) => HomePage(themeStore: Modular.get<ThemeStore>())),
+    ),
+    ModuleRoute('/chat/', module: MessageModule()),
   ];
 }
 
-
-/// TODO: CHAMAR A ROTA NO MODULAR 
-// Modular.to.navigate('/login/');
+/// TODO: CHAMAR A ROTA NO MODULAR
+// () => Modular.to.navigate('/login/');
+// () => Modular.to.pushNamed('/login/');
 // ao inves de usar assim
 // Modular.to.navigate('/product/list/');
 /// subistitua por ./list/
