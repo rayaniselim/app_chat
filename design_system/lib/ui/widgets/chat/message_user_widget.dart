@@ -30,8 +30,8 @@ class MessageUserWidget extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               color: currentUser
-                  ? colorsExtension.cardSenderMessage
-                  : colorsExtension.cardRecipientMessage,
+                  ? colorsExtension.cardRecipientMessage
+                  : colorsExtension.cardSenderMessage,
               borderRadius: BorderRadius.circular(20),
             ),
             constraints: BoxConstraints(

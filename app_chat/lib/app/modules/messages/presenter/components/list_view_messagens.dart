@@ -10,9 +10,9 @@ class ListViewMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = '${DateTime.now().day}/${DateTime.now().month}';
+    final data = '${DateTime.now().day}/0${DateTime.now().month}  ';
     final hora = '${DateTime.now().hour}:${DateTime.now().minute}';
-    final dataChat = data + hora;
+    final dataChatTop = data + hora;
     const currentUser = UserEntity(
       id: '1',
       image: '',
@@ -44,7 +44,8 @@ class ListViewMessage extends StatelessWidget {
                 key: ValueKey(msgs[index].id),
                 message: msgs[index],
                 currentUser: currentUser.id == msgs[index].userId,
-                dataChat: dataChat,
+                dataChat: hora,
+                dataChatTop: dataChatTop,
               ),
             ),
           );

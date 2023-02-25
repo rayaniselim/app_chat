@@ -3,7 +3,9 @@ import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
 class CardMessagesChat extends StatelessWidget {
+  final String dataChatTop;
   final String dataChat;
+
   final MessageEntity message;
   final bool currentUser;
 
@@ -12,6 +14,7 @@ class CardMessagesChat extends StatelessWidget {
     required this.dataChat,
     required this.currentUser,
     required this.message,
+    required this.dataChatTop,
   });
 
   @override
@@ -26,7 +29,7 @@ class CardMessagesChat extends StatelessWidget {
         child: Column(
           children: [
             TextDataWidget(
-              text: dataChat,
+              text: dataChatTop,
               style: TextStyles.textRegularDateChat,
             ),
             SizedBox(
@@ -35,6 +38,10 @@ class CardMessagesChat extends StatelessWidget {
             MessageUserWidget(
               messageText: message,
               currentUser: currentUser,
+            ),
+            TextDataWidget(
+              text: dataChat,
+              style: TextStyles.textRegularDateChat,
             ),
           ],
         ),
