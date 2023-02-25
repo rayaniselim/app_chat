@@ -1,5 +1,3 @@
-import 'package:app_chat/core/presenter/page/home_page.dart';
-
 import 'package:flutter/material.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -50,10 +48,10 @@ class _LoginPageState extends State<LoginPage> {
                 width: size.width * 0.8,
                 height: size.height * 0.35,
                 padding: EdgeInsets.only(
-                  left: size.width * 0.07, //30,
-                  right: size.width * 0.07, //30,
-                  top: size.width * 0.07, //30,
-                  bottom: size.width * 0.05, //20,
+                  left: size.width * 0.07,
+                  right: size.width * 0.07,
+                  top: size.width * 0.07,
+                  bottom: size.width * 0.05,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

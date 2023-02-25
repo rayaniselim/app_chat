@@ -2,7 +2,7 @@ import 'package:app_chat/core/domain/entities/user_entity.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import '../components/list_view_messagens.dart';
-import '../../infra/service/chat/chat_service.dart';
+import '../../infra/service/chat_service.dart';
 
 class ChatPage extends StatefulWidget {
   final UserEntity userEntity;
@@ -82,7 +82,7 @@ class _ChatPageState extends State<ChatPage> {
                     await _sendMessage();
                   }
 
-                  // TODO: VER PQ NAO FUNCIONA O BOTAO
+                  // TODO: VER PQ NAO A ORDEM DAS MENSAGENS
                   // onPressedSuffixIcon: _message.isEmpty ? null : _sendMessage,
                   ),
             ),

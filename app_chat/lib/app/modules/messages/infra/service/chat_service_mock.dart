@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:app_chat/core/domain/entities/user_entity.dart';
-import 'package:app_chat/app/modules/messages_module/domain/entities/message_entity.dart';
+import 'package:app_chat/app/modules/messages/domain/entities/message_entity.dart';
 import 'chat_service.dart';
 
 class ChatServiceMock implements ChatService {
