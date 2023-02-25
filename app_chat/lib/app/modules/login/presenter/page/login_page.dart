@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../../../core/presenter/theme_store.dart';
+import '../../../../../core/presenter/stores/theme_store.dart';
 
 class LoginPage extends StatefulWidget {
   final ThemeStore themeStore;

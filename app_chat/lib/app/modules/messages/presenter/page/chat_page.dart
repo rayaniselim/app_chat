@@ -2,7 +2,6 @@ import 'package:app_chat/core/domain/entities/user_entity.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import '../components/list_view_messagens.dart';
-import '../../../login_module/infra/auth/auth_service.dart';
 import '../../infra/service/chat/chat_service.dart';
 
 class ChatPage extends StatefulWidget {
@@ -17,17 +16,20 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  String _message = '';
+  late String _message;
   final _messageController = TextEditingController();
 
 // uma variavel pra receber as mensagens
   Future<void> _sendMessage() async {
-    final userEntity = AuthService().currentUser;
+    const userEntity = UserEntity(
+      id: '1',
+      image: '',
+      name: 'ray',
+      email: 'rayani@user.com',
+    );
 
-    if (userEntity != null) {
-      await ChatService().save(_message, userEntity);
-      _messageController.clear();
-    }
+    await ChatService().save(_messageController.text, userEntity);
+    _messageController.clear();
   }
 
   @override
@@ -50,34 +52,39 @@ class _ChatPageState extends State<ChatPage> {
         ),
       ),
       body: Column(
+        // crossAxisAlignment: Cr,
         children: [
-          // SizedBox(
-          //   height: size.height * 0.012,
-          // ),
+          SizedBox(
+            height: size.height * 0.012,
+          ),
           const ListViewMessage(),
-          SizedBox(height: size.height * 0.7),
-          TextFieldChatWidget(
-            prefixIcon: const Icon(
-              Icons.camera_alt_outlined,
-              size: 50,
-            ),
-            onPressedPrefixIcon: () {},
-            hintText: 'Message',
-            controller: _messageController,
-            onChanged: (msg) => setState(() => _message = msg),
-            onSubmitted: (_) {
-              if (_message.isNotEmpty) {
-                _sendMessage();
-              }
-            },
-            child: IconButtonWidget(
-              icon: const Icon(
-                Icons.arrow_forward_ios_rounded,
+          SizedBox(height: size.height * 0.07),
+          SafeArea(
+            child: TextFieldChatWidget(
+              prefixIcon: const Icon(
+                Icons.camera_alt_outlined,
+                size: 50,
               ),
-              onPressedIcon: _sendMessage,
+              onPressedPrefixIcon: () {},
+              hintText: 'Message',
+              controller: _messageController,
+              onChanged: (msg) => setState(() => _message = msg),
+              onSubmitted: (_) {
+                if (_message.isNotEmpty) {
+                  _sendMessage();
+                }
+              },
+              child: IconButtonWidget(
+                  icon: const Icon(
+                    Icons.arrow_forward_ios_rounded,
+                  ),
+                  onPressedIcon: () async {
+                    await _sendMessage();
+                  }
 
-              // TODO: VER PQ NAO FUNCIONA O BOTAO
-              // onPressedSuffixIcon: _message.isEmpty ? null : _sendMessage,
+                  // TODO: VER PQ NAO FUNCIONA O BOTAO
+                  // onPressedSuffixIcon: _message.isEmpty ? null : _sendMessage,
+                  ),
             ),
           ),
         ],
