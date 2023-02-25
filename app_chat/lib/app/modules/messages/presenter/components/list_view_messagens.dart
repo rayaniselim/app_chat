@@ -2,7 +2,7 @@ import 'package:app_chat/app/modules/messages/domain/entities/message_entity.dar
 import 'package:app_chat/core/domain/entities/user_entity.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../../infra/service/chat/chat_service.dart';
+import '../../infra/service/chat_service.dart';
 import 'card_messages_chat.dart';
 
 class ListViewMessage extends StatelessWidget {

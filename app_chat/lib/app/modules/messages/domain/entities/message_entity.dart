@@ -14,3 +14,11 @@ class MessageEntity {
     required this.userName,
   });
 }
+
+
+// String idRemetente;
+//   String idDestinatario;
+//   String ultimaMensagem;
+//   String nomeDestinatario;
+//   String emailDestinatario;
+//   String urlImagemDestinatario;

@@ -1,14 +1,13 @@
-import 'package:app_chat/core/domain/entities/user_entity.dart';
+import 'package:app_chat/app/modules/login/domain/entities/login_entity.dart';
 
 import 'auth_service_mock.dart';
 
 abstract class AuthService {
-  UserEntity? get currentUser;
+  LoginEntity? get currentUser;
 
-  Stream<UserEntity?> get userChanges;
+  Stream<LoginEntity?> get userChanges;
 
   Future<void> signup(
-    String name,
     String email,
     String password,
   );
