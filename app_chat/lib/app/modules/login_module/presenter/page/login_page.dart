@@ -1,19 +1,25 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:app_chat/core/presenter/page/home_page.dart';
 
 import 'package:flutter/material.dart';
 import 'package:design_system/design_system.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
+import '../../../../../core/presenter/theme_store.dart';
 
 class LoginPage extends StatefulWidget {
-  final bool isLightTheme;
-  final void Function() toggleTheme;
-  final Color colorRecent;
+  final ThemeStore themeStore;
+
+  // final bool isLightTheme;
+  // final void Function() toggleTheme;
+  // final Color colorRecent;
 
   const LoginPage({
     Key? key,
-    required this.isLightTheme,
-    required this.toggleTheme,
-    required this.colorRecent,
+    required this.themeStore,
+
+    // required this.isLightTheme,
+    // required this.toggleTheme,
+    // required this.colorRecent,
   }) : super(key: key);
 
   @override
@@ -102,18 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     ButtonWidget(
                       title: 'Login',
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => HomePage(
-                              toggleTheme: widget.toggleTheme,
-                              isLightTheme: widget.isLightTheme,
-                              colorRecent: widget.colorRecent,
-                            ),
-                          ),
-                        );
-                      },
+                      onPressed: () => Modular.to.navigate('/home/'),
                       width: size.width * 0.20,
                       height: size.height * 0.03,
                     ),
