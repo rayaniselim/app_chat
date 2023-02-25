@@ -6,13 +6,13 @@ import 'chat_service.dart';
 
 class ChatServiceMock implements ChatService {
   static final List<MessageEntity> _msgs = [
-    // MessageEntity(
-    //   id: '8',
-    //   message: 'Mensagem Mock',
-    //   date: DateTime.now(),
-    //   userId: '123',
-    //   userName: 'rayani',
-    // ),
+    MessageEntity(
+      id: '8',
+      message: 'Mensagem Mock',
+      date: DateTime.now(),
+      userId: '123',
+      userName: 'rayani',
+    ),
   ];
 
   static MultiStreamController<List<MessageEntity>>? _controller;
@@ -36,7 +36,7 @@ class ChatServiceMock implements ChatService {
       userName: user.name,
     );
     _msgs.add(newMessage);
-    _controller?.add(_msgs.toList());
+    _controller?.add(_msgs.reversed.toList());
     return newMessage;
   }
 }

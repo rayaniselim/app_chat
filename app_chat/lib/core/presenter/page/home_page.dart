@@ -6,7 +6,7 @@ import '../components/list_stories_home_widget.dart';
 
 import '../components/sliverlist_home_widget.dart';
 
-import '../theme_store.dart';
+import '../stores/theme_store.dart';
 
 class HomePage extends StatelessWidget {
   final ThemeStore themeStore;

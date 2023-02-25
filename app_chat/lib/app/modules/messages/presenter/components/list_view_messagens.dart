@@ -1,8 +1,7 @@
-import 'package:app_chat/app/modules/messages_module/domain/entities/message_entity.dart';
+import 'package:app_chat/app/modules/messages/domain/entities/message_entity.dart';
+import 'package:app_chat/core/domain/entities/user_entity.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-
-import '../../../login_module/infra/auth/auth_service.dart';
 import '../../infra/service/chat/chat_service.dart';
 import 'card_messages_chat.dart';
 
@@ -14,7 +13,12 @@ class ListViewMessage extends StatelessWidget {
     final data = '${DateTime.now().day}/${DateTime.now().month}';
     final hora = '${DateTime.now().hour}:${DateTime.now().minute}';
     final dataChat = data + hora;
-    final currentUser = AuthService().currentUser;
+    const currentUser = UserEntity(
+      id: '1',
+      image: '',
+      name: 'ray',
+      email: 'rayani@user.com',
+    );
 
     return StreamBuilder<List<MessageEntity>>(
       stream: ChatService().messagesStream(),
@@ -30,14 +34,18 @@ class ListViewMessage extends StatelessWidget {
           );
         } else {
           final msgs = snapshot.data!;
-          return ListView.builder(
-            reverse: true, // FAZ A MENSAGEM IR NA ORDEM
-            itemCount: msgs.length,
-            itemBuilder: (context, index) => CardMessagesChat(
-              key: ValueKey(msgs[index].id),
-              message: msgs[index],
-              currentUser: currentUser?.id == msgs[index].userId,
-              dataChat: dataChat,
+          return SizedBox(
+            height: MediaQuery.of(context).size.height * 0.6,
+            width: MediaQuery.of(context).size.width,
+            child: ListView.builder(
+              // reverse: true, // FAZ A MENSAGEM IR NA ORDEM
+              itemCount: msgs.length,
+              itemBuilder: (context, index) => CardMessagesChat(
+                key: ValueKey(msgs[index].id),
+                message: msgs[index],
+                currentUser: currentUser.id == msgs[index].userId,
+                dataChat: dataChat,
+              ),
             ),
           );
         }

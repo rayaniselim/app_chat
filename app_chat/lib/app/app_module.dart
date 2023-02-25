@@ -1,9 +1,9 @@
-import 'package:app_chat/app/modules/messages_module/message_module.dart';
+import 'package:app_chat/app/modules/messages/message_module.dart';
 import 'package:app_chat/core/presenter/page/home_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../core/presenter/theme_store.dart';
-import 'modules/login_module/login_module.dart';
+import '../core/presenter/stores/theme_store.dart';
+import 'modules/login/login_module.dart';
 
 /* ESTE MODULO É GLOBAL(é a RAIZ) para todo o app
 essa classe  existe APENAS para instanciar injecao de dependencia,
