@@ -35,7 +35,7 @@ class ListStoriesHomeWidget extends StatelessWidget {
           child: Column(
             children: [
               ImageStoriesWidget(
-                image: list[index].image, // PASSAR POR FORA
+                image: list[index].image!, // PASSAR POR FORA
                 sizeImage: sizeImage,
               ),
               height,

@@ -1,12 +1,12 @@
 class UserEntity {
-  final String id;
+  final String idUser;
   final String name;
   final String email;
-  final String image;
+  final String? image;
 
   const UserEntity({
-    required this.id,
-    required this.image,
+    required this.idUser,
+    this.image,
     required this.name,
     required this.email,
   });

@@ -1,4 +1,4 @@
-import 'package:app_chat/app/modules/messages/message_module.dart';
+import 'package:app_chat/app/modules/chat/chat_module.dart';
 import 'package:app_chat/core/presenter/page/home_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -26,7 +26,7 @@ class AppModule extends Module {
       '/home/',
       child: ((_, __) => HomePage(themeStore: Modular.get<ThemeStore>())),
     ),
-    ModuleRoute('/chat/', module: MessageModule()),
+    ModuleRoute('/chat/', module: ChatModule()),
   ];
 }
 

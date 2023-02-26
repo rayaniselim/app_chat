@@ -22,7 +22,7 @@ class _ChatPageState extends State<ChatPage> {
 // uma variavel pra receber as mensagens
   Future<void> _sendMessage() async {
     const userEntity = UserEntity(
-      id: '1',
+      idUser: '1',
       image: '',
       name: 'ray',
       email: 'rayani@user.com',
@@ -42,7 +42,7 @@ class _ChatPageState extends State<ChatPage> {
         preferredSize: const Size(0, 100),
         child: AppBarChatWidget(
           onPressedIcon: () {},
-          imageMock: widget.userEntity.image,
+          imageMock: widget.userEntity.image!,
           nameMock: widget.userEntity.name,
           sizeImage: size.height * 0.10,
           icon: Icon(

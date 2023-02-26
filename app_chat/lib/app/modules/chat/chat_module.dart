@@ -1,8 +1,8 @@
-import 'package:app_chat/app/modules/messages/presenter/page/chat_page.dart';
+import 'package:app_chat/app/modules/chat/presenter/page/chat_page.dart';
 
 import 'package:flutter_modular/flutter_modular.dart';
 
-class MessageModule extends Module {
+class ChatModule extends Module {
   @override
   final List<Bind> binds = [];
 

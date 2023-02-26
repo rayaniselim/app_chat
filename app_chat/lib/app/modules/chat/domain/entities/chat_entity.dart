@@ -1,4 +1,4 @@
-class MessageEntity {
+class ChatEntity {
   final String id;
   final String message;
   final DateTime date;
@@ -6,7 +6,7 @@ class MessageEntity {
   final String userId;
   final String userName;
 
-  MessageEntity({
+  ChatEntity({
     required this.id,
     required this.message,
     required this.date,
