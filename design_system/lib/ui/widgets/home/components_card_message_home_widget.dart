@@ -36,7 +36,7 @@ class ComponentsCardMessageHomeWidget extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(100),
               child: Image.asset(
-                user.image,
+                user.image!,
                 fit: BoxFit.fitHeight,
                 height: size.height * 0.07,
                 width: size.width * 0.15,

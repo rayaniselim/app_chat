@@ -1,4 +1,4 @@
-import 'package:app_chat/app/modules/messages/domain/entities/message_entity.dart';
+import 'package:app_chat/app/modules/chat/domain/entities/chat_entity.dart';
 import 'package:app_chat/core/domain/entities/user_entity.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
@@ -14,13 +14,13 @@ class ListViewMessage extends StatelessWidget {
     final hora = '${DateTime.now().hour}:${DateTime.now().minute}';
     final dataChatTop = data + hora;
     const currentUser = UserEntity(
-      id: '1',
+      idUser: '1',
       image: '',
       name: 'ray',
       email: 'rayani@user.com',
     );
 
-    return StreamBuilder<List<MessageEntity>>(
+    return StreamBuilder<List<ChatEntity>>(
       stream: ChatService().messagesStream(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -43,7 +43,7 @@ class ListViewMessage extends StatelessWidget {
               itemBuilder: (context, index) => CardMessagesChat(
                 key: ValueKey(msgs[index].id),
                 message: msgs[index],
-                currentUser: currentUser.id == msgs[index].userId,
+                currentUser: currentUser.idUser == msgs[index].userId,
                 dataChat: hora,
                 dataChatTop: dataChatTop,
               ),
