@@ -1,24 +1,17 @@
 class ChatEntity {
-  final String id;
-  final String message;
-  final DateTime date;
-
-  final String userId;
-  final String userName;
+  final String idSender;
+  final String idRecipient;
+  final String lastMessage;
+  final String nameRecipient;
+  final String emailRecipient;
+  final String imageRecipient;
 
   ChatEntity({
-    required this.id,
-    required this.message,
-    required this.date,
-    required this.userId,
-    required this.userName,
+    required this.idSender,
+    required this.idRecipient,
+    required this.lastMessage,
+    required this.nameRecipient,
+    required this.emailRecipient,
+    required this.imageRecipient,
   });
 }
-
-
-// String idRemetente;
-//   String idDestinatario;
-//   String ultimaMensagem;
-//   String nomeDestinatario;
-//   String emailDestinatario;
-//   String urlImagemDestinatario;

@@ -1,8 +1,8 @@
 import 'package:app_chat/app/modules/chat/domain/entities/chat_entity.dart';
+
 import 'package:app_chat/core/domain/entities/user_entity.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../../infra/service/chat_service.dart';
 import 'card_messages_chat.dart';
 
 class ListViewMessage extends StatelessWidget {
@@ -10,9 +10,9 @@ class ListViewMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = '${DateTime.now().day}/0${DateTime.now().month}  ';
+    final date = '${DateTime.now().day}/0${DateTime.now().month}  ';
     final hora = '${DateTime.now().hour}:${DateTime.now().minute}';
-    final dataChatTop = data + hora;
+    final dateChatTop = date + hora;
     const currentUser = UserEntity(
       idUser: '1',
       image: '',
@@ -21,14 +21,14 @@ class ListViewMessage extends StatelessWidget {
     );
 
     return StreamBuilder<List<ChatEntity>>(
-      stream: ChatService().messagesStream(),
+      // stream: ChatService().messagesStream(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
           return Center(
             child: TextDataWidget(
-              text: '$data \n Não possui mensagens',
+              text: '$date \n Não possui mensagens',
               style: TextStyles.textRegularDateChat,
             ),
           );
@@ -38,14 +38,14 @@ class ListViewMessage extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.6,
             width: MediaQuery.of(context).size.width,
             child: ListView.builder(
-              // reverse: true, // FAZ A MENSAGEM IR NA ORDEM
+              // reverse: true, // FAZ A MEssage IR NA ORDEM
               itemCount: msgs.length,
               itemBuilder: (context, index) => CardMessagesChat(
-                key: ValueKey(msgs[index].id),
+                key: ValueKey(msgs[index]),
                 message: msgs[index],
-                currentUser: currentUser.idUser == msgs[index].userId,
+                currentUser: currentUser.idUser == msgs[index].idSender,
                 dataChat: hora,
-                dataChatTop: dataChatTop,
+                dataChatTop: dateChatTop,
               ),
             ),
           );

@@ -1,11 +1,12 @@
 import 'package:app_chat/core/domain/entities/user_entity.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../components/list_view_messagens.dart';
 import '../../infra/service/chat_service.dart';
+import '../components/list_view_messagens.dart';
 
 class ChatPage extends StatefulWidget {
   final UserEntity userEntity;
+
   const ChatPage({
     super.key,
     required this.userEntity,
@@ -21,14 +22,13 @@ class _ChatPageState extends State<ChatPage> {
 
 // uma variavel pra receber as mensagens
   Future<void> _sendMessage() async {
-    const userEntity = UserEntity(
-      idUser: '1',
-      image: '',
-      name: 'ray',
-      email: 'rayani@user.com',
-    );
-
-    await ChatService().save(_messageController.text, userEntity);
+    // const userEntity = UserEntity(
+    //   idUser: '1',
+    //   image: '',
+    //   name: 'ray',
+    //   email: 'rayani@user.com',
+    // );
+    // await ChatService().save(_messageController.text, userEntity);
     _messageController.clear();
   }
 
@@ -52,7 +52,6 @@ class _ChatPageState extends State<ChatPage> {
         ),
       ),
       body: Column(
-        // crossAxisAlignment: Cr,
         children: [
           SizedBox(
             height: size.height * 0.012,
