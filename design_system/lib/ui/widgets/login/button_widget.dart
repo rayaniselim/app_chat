@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../design_system.dart';
 
 class ButtonWidget extends StatelessWidget {
-  final void Function() onPressed;
+  final void Function()? onPressed;
   final String title;
   final double height;
   final double width;

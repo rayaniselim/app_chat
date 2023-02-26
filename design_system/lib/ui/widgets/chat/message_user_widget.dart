@@ -47,7 +47,7 @@ class MessageUserWidget extends StatelessWidget {
               bottom: size.height * 0.01,
             ),
             child: Text(
-              messageText.message,
+              messageText.lastMessage,
               textAlign: currentUser ? TextAlign.right : TextAlign.left,
               style: TextStyles.textRegularMessageChat,
             ),

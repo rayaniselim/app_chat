@@ -4,16 +4,15 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'app/app_module.dart';
 import 'app_widget.dart';
 
-import 'firebase_options.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // runApp(const MyApp());
+  await Firebase.initializeApp();
+
   runApp(
-    ModularApp(module: AppModule(), child: const AppWidget()),
-  );
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+    ModularApp(
+      module: AppModule(),
+      child: const AppWidget(),
+    ),
   );
 
   // User? userFirebase = FirebaseAuth.instance.currentUser;

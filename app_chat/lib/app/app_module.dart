@@ -1,5 +1,6 @@
 import 'package:app_chat/app/modules/chat/chat_module.dart';
 import 'package:app_chat/core/presenter/page/home_page.dart';
+
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../core/presenter/stores/theme_store.dart';

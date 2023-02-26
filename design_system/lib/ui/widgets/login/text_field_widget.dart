@@ -3,35 +3,32 @@ import 'package:flutter/material.dart';
 import '../../../design_system.dart';
 
 class TextFieldWdiget extends StatelessWidget {
-  final String initialValue;
   final String hintText;
   final String labelText;
   final TextInputType keyboardType;
   final Widget icon;
   final bool isObscure;
-  // final TextEditingController controller;
+  final TextEditingController? controller;
 
   const TextFieldWdiget({
     super.key,
-    required this.initialValue,
     required this.hintText,
     required this.labelText,
     required this.keyboardType,
     required this.icon,
     required this.isObscure,
-    // required this.controller,
+    required this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      initialValue: initialValue,
       style: TextStyles.textMediumRecent,
       obscureText: isObscure,
       keyboardType: keyboardType,
 
       /// COLOCAR O VALIDATORS - PASTA DOMAIN
-      // controller: controller,
+      controller: controller,
       decoration: InputDecoration(
         hintText: hintText,
         labelText: labelText,

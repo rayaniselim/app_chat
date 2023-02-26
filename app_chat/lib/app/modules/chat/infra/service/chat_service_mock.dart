@@ -1,8 +1,8 @@
-import 'dart:async';
-import 'dart:math';
-import 'package:app_chat/core/domain/entities/user_entity.dart';
-import 'package:app_chat/app/modules/chat/domain/entities/chat_entity.dart';
-import 'chat_service.dart';
+// import 'dart:async';
+// import 'dart:math';
+// import 'package:app_chat/core/domain/entities/user_entity.dart';
+// import 'package:app_chat/app/modules/chat/domain/entities/chat_entity.dart';
+// import 'chat_service.dart';
 
 // class ChatServiceMock implements ChatService {
 //   static final List<ChatEntity> _msgs = [];
