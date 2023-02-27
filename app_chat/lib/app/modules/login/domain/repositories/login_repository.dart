@@ -1,7 +1,8 @@
-import '../entities/login_entity.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class LoginRepository {
-  Future<LoginEntity> loginEmail(String email, String password);
-  Future<LoginEntity> loggedUser();
-  Future<LoginEntity> logout();
+  Future<UserCredential> loginWithEmailAndPassword({
+    required String email,
+    required String password,
+  });
 }

@@ -1,32 +1,21 @@
-import 'package:app_chat/app/modules/login/domain/entities/login_entity.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../domain/repositories/login_repository.dart';
 import '../datasources/login_datasource.dart';
 
 class LoginRepositoryImpl implements LoginRepository {
-  final LoginDataSource dataSource;
+  final LoginDataSource loginDataSource;
 
-  LoginRepositoryImpl(this.dataSource);
-
-  @override
-  Future<LoginEntity> loggedUser() async {
-    // TODO: implement loginEmail
-    throw UnimplementedError();
-
-    // message: "Error when trying to retrieve current logged in user"
-  }
+  LoginRepositoryImpl({
+    required this.loginDataSource,
+  });
 
   @override
-  Future<LoginEntity> loginEmail(String email, String password) {
-    // TODO: implement loginEmail
-    throw UnimplementedError();
-    // 'Error when logging in'
-  }
-
-  @override
-  Future<LoginEntity> logout() {
-    // TODO: implement logout
-    throw UnimplementedError();
-    // 'Error when trying to exit' -  erro ao tentar sair
+  Future<UserCredential> loginWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) {
+    return loginDataSource.loginWithEmailAndPassword(
+        email: email, password: password);
   }
 }

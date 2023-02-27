@@ -1,11 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:app_chat/app/modules/login/presenter/controllers/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/presenter/stores/theme_store.dart';
-import '../../domain/entities/login_entity.dart';
 
 class LoginPage extends StatefulWidget {
   final ThemeStore themeStore;
@@ -22,38 +20,12 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final sizedBox = const SizedBox(height: 20);
   bool isObscure = true;
+  late LoginController loginController;
 
-  final TextEditingController controllerName =
-      TextEditingController(text: 'rayani');
-  final TextEditingController controllerEmail =
-      TextEditingController(text: 'rayani@user.com');
-  final TextEditingController controllerPassword =
-      TextEditingController(text: '1234567');
-  FirebaseAuth auth = Modular.get<FirebaseAuth>();
-  FirebaseFirestore firestore = Modular.get<FirebaseFirestore>();
-
-  _validarCampos() {
-    String email = controllerEmail.text;
-    String password = controllerPassword.text;
-
-    if (email.isNotEmpty && email.contains('@')) {
-      if (password.isNotEmpty && password.length > 6) {
-        final userCredentials = LoginEntity(
-          email: email,
-          password: password,
-          name: '',
-        );
-        if (userCredentials == null) {
-          // TODO: SHOW ERROR
-          return const Text('Usuario null');
-        }
-        Modular.to.navigate('/home/');
-      } else {
-        print('Senha inválida');
-      }
-    } else {
-      print('Email inválido');
-    }
+  @override
+  void initState() {
+    super.initState();
+    loginController = Modular.get<LoginController>();
   }
 
   @override
@@ -84,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextFieldWdiget(
-                      controller: controllerEmail,
+                      controller: loginController.controllerEmail,
                       hintText: 'Email',
                       icon: Icon(
                         (Icons.email_outlined),
@@ -96,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     sizedBox,
                     TextFieldWdiget(
-                      controller: controllerPassword,
+                      controller: loginController.controllerPassword,
                       hintText: 'Password',
                       isObscure: isObscure,
                       icon: GestureDetector(
@@ -134,12 +106,10 @@ class _LoginPageState extends State<LoginPage> {
                     ButtonWidget(
                       title: 'Login',
                       onPressed: () {
-                        _validarCampos;
+                        loginController.validarCampos();
                       },
-                      // () => Modular.to.navigate('/home/'),
                       width: size.width * 0.20,
                       height: size.height * 0.03,
-                      // TODO: ARRUMAR BOTAO
                     ),
                   ],
                 ),
