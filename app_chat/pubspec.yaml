@@ -43,6 +43,7 @@ dependencies:
   flutter_modular: ^5.0.3
   triple: ^1.5.0+1
   firebase_auth_mocks: ^0.9.3
+  either_dart: ^0.3.0
     
 dev_dependencies:
   flutter_test:

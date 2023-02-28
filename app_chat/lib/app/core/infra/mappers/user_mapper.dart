@@ -1,5 +1,4 @@
 import '../../../modules/submodules/login/domain/entities/login_entity.dart';
-import '../../domain/entities/user_entity.dart';
 import '../../exceptions/app_exceptions.dart';
 
 class UserMapper {
@@ -24,15 +23,6 @@ class UserMapper {
     };
 
     return map;
-  }
-
-  UserEntity toEntity() {
-    return UserEntity(
-      idUser: idUser,
-      name: name,
-      email: email,
-      image: image,
-    );
   }
 
   static LoginEntity fromEntity(Map<String, dynamic> map) {

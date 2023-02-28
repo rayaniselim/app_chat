@@ -20,8 +20,7 @@ class LoginController {
     String email = controllerEmail.text;
     String password = controllerPassword.text;
 
-    final userCredentials =
-        await remoteLoginWithEmailAndPassword.call(email, password);
+    await remoteLoginWithEmailAndPassword.call(email, password);
 
     Modular.to.navigate('/home/');
   }
