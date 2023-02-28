@@ -1,5 +1,5 @@
-import 'package:app_chat/core/domain/entities/user_entity.dart';
-import 'package:app_chat/core/infra/models/user_model.dart';
+import 'package:app_chat/app/core/domain/entities/user_entity.dart';
+import 'package:app_chat/app/core/infra/models/user_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

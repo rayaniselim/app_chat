@@ -1,4 +1,4 @@
-import 'package:app_chat/app/modules/chat/domain/entities/chat_entity.dart';
+import 'package:app_chat/app/modules/submodules/chat/domain/entities/chat_entity.dart';
 import 'package:flutter/material.dart';
 import '../../../design_system.dart';
 
