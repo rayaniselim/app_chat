@@ -106,8 +106,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     ButtonWidget(
                       title: 'Login',
-                      onPressed: () {
-                        loginController.validarCampos();
+                      onPressed: () async {
+                        await loginController.validarCampos();
 // TODO: SE TIVER TEMPO, PASSAR UMA MENSAGEM DE ERRO NA TELA SE CASO DER ERRO
                       },
                       width: size.width * 0.20,

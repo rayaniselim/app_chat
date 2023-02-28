@@ -1,9 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:app_chat/app/modules/submodules/login/domain/entities/login_entity.dart';
 
 abstract class LoginRepository {
-  Future<UserCredential> loginWithEmailAndPassword({
-    /// TODO: TROCAR O USER CREDENTIAL
-    required String email,
-    required String password,
-  });
+  Future<LoginEntity> loginWithEmailAndPassword(String email, String password);
 }

@@ -1,3 +1,4 @@
+import 'package:app_chat/app/modules/submodules/login/infra/services/auth_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -5,6 +6,7 @@ import '../../../core/presenter/stores/theme_store.dart';
 import 'domain/usecase/remote_login_with_email_and_password_usecase_impl.dart';
 import 'external/datasources/login_datasources_impl.dart';
 import 'infra/repositories/login_repository_impl.dart';
+import 'infra/services/auth/firebase_auth_service.dart';
 import 'presenter/controllers/login_controller.dart';
 import 'presenter/page/login_page.dart';
 
@@ -14,10 +16,10 @@ class LoginModule extends Module {
         Bind.singleton((i) => ThemeStore()),
         Bind.factory((i) => FirebaseAuth.instance),
         Bind.factory((i) => FirebaseFirestore.instance),
-        Bind.singleton((i) => LoginDatasourceImpl(auth: i())),
-        Bind.singleton((i) => LoginRepositoryImpl(loginDataSource: i())),
-        Bind.singleton((i) => RemoteLoginWithEmailAndPasswordUseCaseImpl(
-            loginRepository: Modular.get<LoginRepositoryImpl>())),
+        Bind.singleton((i) => FirebaseAuthService(i())),
+        Bind.singleton((i) => LoginDatasourceImpl(i())),
+        Bind.singleton((i) => LoginRepositoryImpl(i())),
+        Bind.singleton((i) => RemoteLoginWithEmailAndPasswordUseCaseImpl(i())),
         Bind.singleton((i) => LoginController(i())),
       ];
 

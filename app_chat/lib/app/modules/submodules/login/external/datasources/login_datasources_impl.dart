@@ -1,20 +1,15 @@
-import 'package:firebase_auth/firebase_auth.dart';
-
 import '../../infra/datasources/login_datasource.dart';
+import '../../infra/services/auth_service.dart';
 
 class LoginDatasourceImpl implements LoginDataSource {
-  final FirebaseAuth auth;
+  final AuthService _authService;
 
-  LoginDatasourceImpl({required this.auth});
-
+  const LoginDatasourceImpl(this._authService);
   @override
-  Future<UserCredential> loginWithEmailAndPassword({
-    required String email,
-    required String password,
-  }) async {
-    return await auth.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
+  Future<Map<String, dynamic>> loginWithEmailandPassword(
+    String email,
+    String password,
+  ) {
+    return _authService.loginWithEmailandPassword(email, password);
   }
 }

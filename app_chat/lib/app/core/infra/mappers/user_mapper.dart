@@ -1,12 +1,14 @@
+import '../../../modules/submodules/login/domain/entities/login_entity.dart';
 import '../../domain/entities/user_entity.dart';
+import '../../exceptions/app_exceptions.dart';
 
-class UserModel {
+class UserMapper {
   String idUser;
   String name;
   String email;
   String image;
 
-  UserModel({
+  UserMapper({
     required this.idUser,
     required this.name,
     required this.email,
@@ -33,12 +35,17 @@ class UserModel {
     );
   }
 
-  factory UserModel.fromEntity(UserEntity entity) {
-    return UserModel(
-      idUser: entity.idUser,
-      name: entity.name,
-      email: entity.email,
-      image: entity.image!,
-    );
+  static LoginEntity fromEntity(Map<String, dynamic> map) {
+    try {
+      return LoginEntity(
+        email: map['email'],
+        id: map['id'],
+      );
+    } catch (e, s) {
+      throw MapperException(
+        message: 'UserMapper - Erro na conversão',
+        stackTrace: s,
+      );
+    }
   }
 }

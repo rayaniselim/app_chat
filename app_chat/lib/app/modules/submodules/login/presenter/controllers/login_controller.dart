@@ -16,26 +16,13 @@ class LoginController {
   FirebaseAuth auth = Modular.get<FirebaseAuth>();
 
   /// botao login
-  validarCampos() async {
+  Future<void> validarCampos() async {
     String email = controllerEmail.text;
     String password = controllerPassword.text;
 
-    if (email.isNotEmpty && email.contains('@')) {
-      if (password.isNotEmpty && password.length < 6) {
-        final userCredentials = await remoteLoginWithEmailAndPassword.call(
-            email: email, password: password);
+    final userCredentials =
+        await remoteLoginWithEmailAndPassword.call(email, password);
 
-        if (userCredentials == null) {
-          // TODO: ERROR
-          return;
-        }
-
-        Modular.to.navigate('/home/');
-      } else {
-        const Text('Senha inválida');
-      }
-    } else {
-      const Text('Email inválido');
-    }
+    Modular.to.navigate('/home/');
   }
 }

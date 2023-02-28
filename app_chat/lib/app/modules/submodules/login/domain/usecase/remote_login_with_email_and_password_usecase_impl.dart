@@ -1,29 +1,34 @@
-import 'dart:developer';
-
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:app_chat/app/modules/submodules/login/domain/entities/login_entity.dart';
+import '../../../../../core/exceptions/app_exceptions.dart';
 import '../repositories/login_repository.dart';
 
 //Caso de uso: login remoto(nuvem, firebase..) com e-mail e senha
 class RemoteLoginWithEmailAndPasswordUseCaseImpl {
-  final LoginRepository loginRepository; //propriedade
+  final LoginRepository _loginRepository; //propriedade
 
-  RemoteLoginWithEmailAndPasswordUseCaseImpl({required this.loginRepository});
+  RemoteLoginWithEmailAndPasswordUseCaseImpl(this._loginRepository);
 
-  Future<UserCredential?> call({
-    required String email,
-    required String password,
-  }) async {
-    // try {
-    final userCredentials = await loginRepository.loginWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
+  Future<LoginEntity> call(
+    String email,
+    String password,
+  ) async {
+    final emailRegex = RegExp(r'^.+@.+$');
+    if (!emailRegex.hasMatch(email)) {
+      throw ValidationException(
+        message: 'Email inválido',
+        stackTrace: StackTrace.current,
+      );
+    }
 
-    return userCredentials;
-    // } // colocar o ON
-    // catch (error) {
-    // log('[ERROR ON: RemoteLoginWithEmailAndPasswordUseCaseImpl]$error');
-    // }
-    // return Future.value(null);
+    if (password.length < 6) {
+      throw ValidationException(
+        message: 'Senha não pode ter menos que 6 caracteres',
+        stackTrace: StackTrace.current,
+      );
+    }
+
+    final user =
+        await _loginRepository.loginWithEmailAndPassword(email, password);
+    return user;
   }
 }

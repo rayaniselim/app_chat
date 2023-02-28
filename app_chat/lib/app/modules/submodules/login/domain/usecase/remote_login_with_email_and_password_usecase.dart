@@ -1,9 +1,7 @@
 //Caso de uso: login remoto(nuvem, firebase..) com e-mail e senha
-import 'package:firebase_auth/firebase_auth.dart';
+
+import '../../../../../core/domain/entities/user_entity.dart';
 
 abstract class RemoteLoginWithEmailAndPasswordUseCase {
-  Future<UserCredential>? call({
-    required String email,
-    required String password,
-  });
+  Future<UserEntity> call(String email, String password);
 }

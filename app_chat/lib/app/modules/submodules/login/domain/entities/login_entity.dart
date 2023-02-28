@@ -1,16 +1,9 @@
 class LoginEntity {
-  final String name;
+  final String id;
   final String email;
-  final String password;
-
-  /// TODO: nao pode a senha
 
   const LoginEntity({
-    required this.name,
     required this.email,
-    required this.password,
+    required this.id,
   });
-
-  // deve ter um id
-
 }
