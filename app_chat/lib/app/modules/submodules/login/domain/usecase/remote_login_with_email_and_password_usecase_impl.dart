@@ -1,5 +1,7 @@
 import 'package:app_chat/app/modules/submodules/login/domain/entities/login_entity.dart';
+import 'package:dartz/dartz.dart';
 import '../../../../../core/exceptions/app_exceptions.dart';
+
 import '../repositories/login_repository.dart';
 
 //Caso de uso: login remoto(nuvem, firebase..) com e-mail e senha
@@ -8,7 +10,7 @@ class RemoteLoginWithEmailAndPasswordUseCaseImpl {
 
   RemoteLoginWithEmailAndPasswordUseCaseImpl(this._loginRepository);
 
-  Future<LoginEntity> call(
+  Future<Either<AppException, LoginEntity>> call(
     String email,
     String password,
   ) async {

@@ -2,6 +2,7 @@ import 'package:app_chat/app/core/exceptions/app_exceptions.dart';
 import 'package:app_chat/app/modules/submodules/login/domain/entities/login_entity.dart';
 import 'package:app_chat/app/modules/submodules/login/domain/repositories/login_repository.dart';
 import 'package:app_chat/app/modules/submodules/login/domain/usecase/remote_login_with_email_and_password_usecase_impl.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -24,13 +25,15 @@ void main() {
       const email = 'rayani@user.com';
       const password = '123456';
       when(() => repository.loginWithEmailAndPassword(email, password))
-          .thenAnswer((_) async => userLogin);
+          .thenAnswer(
+        (_) async => const Right(userLogin),
+      );
 
       // Act
       final userResponse = await usecase(email, password);
 
       // Assert
-      expect(userResponse, isA<LoginEntity>());
+      expect(userResponse, const Right<AppException, LoginEntity>(userLogin));
     },
   );
 

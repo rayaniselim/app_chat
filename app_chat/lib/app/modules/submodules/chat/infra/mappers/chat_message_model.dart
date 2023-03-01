@@ -1,12 +1,12 @@
 import '../../domain/entities/chat_message_entity.dart';
 
 /// Mensagens q aparecem dentro do chat na page home
-class ChatMessageModel {
+class ChatMessageMapper {
   String idUser;
   String text;
   String date;
 
-  ChatMessageModel({
+  ChatMessageMapper({
     required this.idUser,
     required this.text,
     required this.date,
@@ -30,8 +30,8 @@ class ChatMessageModel {
     );
   }
 
-  factory ChatMessageModel.fromEntity(ChatMessageEntity entity) {
-    return ChatMessageModel(
+  factory ChatMessageMapper.fromEntity(ChatMessageEntity entity) {
+    return ChatMessageMapper(
       date: entity.date,
       idUser: entity.idUser,
       text: entity.text,
