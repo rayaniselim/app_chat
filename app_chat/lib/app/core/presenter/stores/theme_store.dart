@@ -7,6 +7,5 @@ class ThemeStore extends ValueNotifier<ThemeApp> {
 
   void toggleTheme() {
     value = ThemeApp(isLightTheme: !value.isLightTheme);
-    //setState(() => isLightTheme = !isLightTheme);
   }
 }

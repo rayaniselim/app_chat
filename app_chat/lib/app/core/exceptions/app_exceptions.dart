@@ -21,3 +21,17 @@ class MapperException extends AppException {
     required super.stackTrace,
   });
 }
+
+class RemoteStreamMessagesException extends AppException {
+  const RemoteStreamMessagesException({
+    required super.message,
+    required super.stackTrace,
+  });
+}
+
+class RemoteSaveMessageUseCaseException extends AppException {
+  const RemoteSaveMessageUseCaseException({
+    required super.message,
+    required super.stackTrace,
+  });
+}
