@@ -10,6 +10,7 @@ class LoginDatasourceImpl implements LoginDataSource {
     String email,
     String password,
   ) {
-    return _authService.loginWithEmailandPassword(email, password);
+    final result = _authService.loginWithEmailandPassword(email, password);
+    return result;
   }
 }
