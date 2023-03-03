@@ -35,7 +35,7 @@ class AppModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ModuleRoute('/login/', module: LoginModule()),
+    ModuleRoute('/login', module: LoginModule()),
     ChildRoute('/home',
         child: ((_, __) => HomePage(themeStore: Modular.get<ThemeStore>()))),
     ModuleRoute('/chat', module: ChatModule()),

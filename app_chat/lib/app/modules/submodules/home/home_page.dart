@@ -1,10 +1,8 @@
 import 'package:app_chat/app/modules/submodules/home/presenter/components/chats_list_tab.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
 import 'presenter/components/list_stories_home_widget.dart';
 import '../../../core/presenter/stores/theme_store.dart';
 import 'presenter/components/contacts_list_tab.dart';

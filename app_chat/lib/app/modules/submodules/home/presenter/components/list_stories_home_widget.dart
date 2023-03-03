@@ -24,28 +24,27 @@ class ListStoriesHomeWidget extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemCount: list.length,
       itemBuilder: (context, index) {
-        return Row();
-      },
-      separatorBuilder: (BuildContext context, int index) {
         return Padding(
           padding: EdgeInsets.only(
-            left: index == 0 ? size.width * 0.06 : size.width * 0.03,
+            left: index == 0 ? size.width * 0.025 : size.width * 0.025,
             right: size.width * 0.03,
           ),
-          child: Column(
-            children: [
-              ImageStoriesWidget(
-                image: list[index].imageUrl, // PASSAR POR FORA
-                sizeImage: sizeImage,
-              ),
-              height,
-              TextWidget(
-                style: TextStyles.textRegularNameStories,
-                text: list[index].name.split(' ')[0], // PASSAR POR FORA
-              ),
-              height,
-            ],
-          ),
+        );
+      },
+      separatorBuilder: (BuildContext context, int index) {
+        return Column(
+          children: [
+            ImageStoriesWidget(
+              image: list[index].imageUrl,
+              sizeImage: sizeImage,
+            ),
+            height,
+            TextWidget(
+              style: TextStyles.textRegularNameStories,
+              text: list[index].name.split(' ')[0],
+            ),
+            height,
+          ],
         );
       },
     );

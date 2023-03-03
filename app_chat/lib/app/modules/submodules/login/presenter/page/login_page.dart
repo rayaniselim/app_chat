@@ -108,7 +108,6 @@ class _LoginPageState extends State<LoginPage> {
                       title: 'Login',
                       onPressed: () async {
                         await loginController.validarCampos();
-// TODO: SE TIVER TEMPO, PASSAR UMA MENSAGEM DE ERRO NA TELA SE CASO DER ERRO
                       },
                       width: size.width * 0.20,
                       height: size.height * 0.03,

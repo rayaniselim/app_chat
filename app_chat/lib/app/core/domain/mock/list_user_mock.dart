@@ -1,6 +1,5 @@
 import 'package:app_chat/app/core/domain/entities/user_entity.dart';
 
-/// TODO: PASSAR ESSE MOCK PARA O FIREBASE: CRIAR  O LOGIN.....
 List<UserEntity> listUserMock = [
   const UserEntity(
     imageUrl: 'assets/image/hyun-bin.webp',

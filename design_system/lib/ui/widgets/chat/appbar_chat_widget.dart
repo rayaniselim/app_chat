@@ -53,17 +53,11 @@ class AppBarChatWidget extends StatelessWidget {
       actions: [
         Padding(
           padding: const EdgeInsets.only(
-            left: 50,
-            top: 10,
+            right: 10,
           ),
-          child: Padding(
-            padding: const EdgeInsets.only(
-              right: 10,
-            ),
-            child: IconButtonWidget(
-              onPressedIcon: onPressedIcon,
-              icon: icon,
-            ),
+          child: IconButtonWidget(
+            onPressedIcon: onPressedIcon,
+            icon: icon,
           ),
         ),
       ],

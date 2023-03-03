@@ -16,6 +16,7 @@ class NameChatWidget extends StatelessWidget {
         fontSize: 20,
       ),
       textAlign: TextAlign.left,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }

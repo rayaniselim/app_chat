@@ -49,97 +49,94 @@ class _MessageListComponentState extends State<MessageListComponent> {
                 '${DateTime.now().day} MAR ${DateTime.now().hour}:${DateTime.now().minute}',
             style: TextStyles.textRegularDateChat,
           ),
-          //Listagem de mensagens
           StreamBuilder(
-              stream: chatController.streamController.stream,
-              builder: (context, snapshot) {
-                switch (snapshot.connectionState) {
-                  case ConnectionState.none:
-                  case ConnectionState.waiting:
+            stream: chatController.streamController.stream,
+            builder: (context, snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.none:
+                case ConnectionState.waiting:
+                  return Expanded(
+                    child: Center(
+                      child: Column(
+                        children: const [
+                          Text('Carregando dados'),
+                          CircularProgressIndicator()
+                        ],
+                      ),
+                    ),
+                  );
+                case ConnectionState.active:
+                case ConnectionState.done:
+                  if (snapshot.hasError) {
+                    return const Center(
+                        child: Text('Erro ao carregar os dados!'));
+                  } else {
+                    QuerySnapshot querySnapshot =
+                        snapshot.data as QuerySnapshot;
+                    List<DocumentSnapshot> listMessage =
+                        querySnapshot.docs.toList();
+
                     return Expanded(
-                      child: Center(
-                        child: Column(
-                          children: const [
-                            Text('Carregando dados'),
-                            CircularProgressIndicator()
-                          ],
-                        ),
+                      child: ListView.builder(
+                        reverse: true,
+                        controller: chatController.scrollController,
+                        itemCount: listMessage.length,
+                        itemBuilder: (context, index) {
+                          DocumentSnapshot message = listMessage[index];
+
+                          Alignment align = Alignment.topLeft;
+                          var color = colorsExtension.cardSenderMessage;
+
+                          if (chatController.loggedUser.userId ==
+                              message['idUsuario']) {
+                            align = Alignment.topRight;
+                            color = colorsExtension.cardRecipientMessage;
+                          }
+
+                          return Column(
+                            children: [
+                              Align(
+                                alignment: align,
+                                child: Container(
+                                  constraints: BoxConstraints(
+                                    maxWidth: size.width * 0.8,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: color,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  padding: const EdgeInsets.all(16),
+                                  margin: const EdgeInsets.all(6),
+                                  child: Text(
+                                    message['texto'],
+                                    style: TextStyles.textRegularMessageChat,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 18.0),
+                                child: Align(
+                                  alignment: chatController.loggedUser.userId ==
+                                          message['idUsuario']
+                                      ? Alignment.topRight
+                                      : Alignment.topLeft,
+                                  child: TextDataWidget(
+                                    text:
+                                        '${DateTime.now().hour}:${DateTime.now().minute}',
+                                    style: TextStyles.textRegularDateChat,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
                       ),
                     );
-                  case ConnectionState.active:
-                  case ConnectionState.done:
-                    if (snapshot.hasError) {
-                      return const Center(
-                          child: Text('Erro ao carregar os dados!'));
-                    } else {
-                      QuerySnapshot querySnapshot =
-                          snapshot.data as QuerySnapshot;
-                      List<DocumentSnapshot> listaMensagens =
-                          querySnapshot.docs.toList();
-
-                      return Expanded(
-                        child: ListView.builder(
-                          physics: const BouncingScrollPhysics(),
-                          reverse: true,
-                          controller: chatController.scrollController,
-                          itemCount: listaMensagens.length,
-                          itemBuilder: (context, index) {
-                            DocumentSnapshot mensagem = listaMensagens[index];
-
-                            Alignment alinhamento = Alignment.topLeft;
-                            var color = colorsExtension.cardSenderMessage;
-
-                            if (chatController.loggedUser.userId ==
-                                mensagem['idUsuario']) {
-                              alinhamento = Alignment.topRight;
-                              color = colorsExtension.cardRecipientMessage;
-                            }
-
-                            return Column(
-                              children: [
-                                Align(
-                                  alignment: alinhamento,
-                                  child: Container(
-                                    constraints: BoxConstraints(
-                                      maxWidth: size.width * 0.8,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: color,
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    padding: const EdgeInsets.all(16),
-                                    margin: const EdgeInsets.all(6),
-                                    child: Text(
-                                      mensagem['texto'],
-                                      style: TextStyles.textRegularMessageChat,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 18.0),
-                                  child: Align(
-                                    alignment:
-                                        chatController.loggedUser.userId ==
-                                                mensagem['idUsuario']
-                                            ? Alignment.topRight
-                                            : Alignment.topLeft,
-                                    child: TextDataWidget(
-                                      text:
-                                          '${DateTime.now().hour}:${DateTime.now().minute}',
-                                      style: TextStyles.textRegularDateChat,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            );
-                          },
-                        ),
-                      );
-                    }
-                }
-              }),
-          SizedBox(height: size.height * 0.02),
+                  }
+              }
+            },
+          ),
           TextFieldChatWidget(
             prefixIcon: const Icon(
               Icons.camera_alt_outlined,
@@ -157,7 +154,7 @@ class _MessageListComponentState extends State<MessageListComponent> {
               },
             ),
           ),
-          SizedBox(height: size.height * 0.02),
+          SizedBox(height: size.height * 0.04),
         ],
       ),
     );
