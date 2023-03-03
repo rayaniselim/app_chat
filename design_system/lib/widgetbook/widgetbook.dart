@@ -104,62 +104,30 @@ class PageWidgetbook extends StatelessWidget {
                 ],
               ),
 
-              // WidgetbookComponent(
-              //   name: 'Card SliverList home',
-              //   useCases: [
-              //     WidgetbookUseCase(
-              //       name: 'Card SliverList home',
-              //       builder: (context) => const SliverListWidget(
-              //         date: '08:45',
-              //         messageUser: '',
-              //       ),
-              //     ),
-              //   ],
-              // ),
-
               ///// CHAT
-              WidgetbookComponent(
-                name: 'AppBar Chat',
-                useCases: [
-                  WidgetbookUseCase(
-                    name: 'AppBar Chat',
-                    builder: (context) => Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: AppBarChatWidget(
-                        onPressedIcon: () {},
-                        icon: Icon(
-                          Icons.search,
-                          size: MediaQuery.of(context).size.width * 0.07,
-                        ),
-                        imageMock: 'assets/image/Jeon Yeo-been.jpeg',
-                        nameMock: 'Name Widgetbook',
-                        sizeImage: size.height * 0.10, // 37,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              //   WidgetbookComponent(
+              //     name: 'AppBar Chat',
+              //     useCases: [
+              //       WidgetbookUseCase(
+              //         name: 'AppBar Chat',
+              //         builder: (context) => Padding(
+              //           padding: const EdgeInsets.all(8.0),
+              //           child: AppBarChatWidget(
+              //             onPressedIcon: () {},
+              //             icon: Icon(
+              //               Icons.search,
+              //               size: MediaQuery.of(context).size.width * 0.07,
+              //             ),
 
-              // WidgetbookComponent(
-              //   name: 'Card Messages Chat',
-              //   useCases: [
-              //     WidgetbookUseCase(
-              //       name: 'Card Messages Chat',
-              //       builder: (context) => SizedBox(
-              //         height: 200,
-              //         width: size.width,
-              //         child: const Padding(
-              //           padding: EdgeInsets.all(10.0),
-              //           child: CardMessagesChat(
-              //             dataChat: 'date mock',
-              //             senderMessage: 'mensagem remetente',
-              //             recipientMessage: 'mensagem destinatario', child: null,
+              //             nameMock: 'Name Widgetbook',
+              //             sizeImage: size.height * 0.10,
+              //              imageMock: // TODO:
+              //            , ), // 37,
               //           ),
               //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
+              // ],),
+              //     ],
+              //   ),
 
               WidgetbookComponent(
                 name: 'Name Chat',
@@ -200,11 +168,8 @@ class PageWidgetbook extends StatelessWidget {
                           Icons.camera_alt_outlined,
                         ),
                         onPressedPrefixIcon: () {},
-                        // suffixIcon: const Icon(Icons.arrow_forward_ios_rounded),
                         hintText: 'Message',
-                        // onPressedSuffixIcon: () {},
                         controller: controllerMessage,
-                        onChanged: (string) {},
                         child: IconButtonWidget(
                           icon: const Icon(Icons.arrow_forward_ios_rounded),
                           onPressedIcon: () {},
@@ -259,10 +224,7 @@ class PageWidgetbook extends StatelessWidget {
                                   Icons.visibility_outlined,
                                   size: 19,
                                 ),
-                          onTap: () {
-                            // setState(() {
-                            //   isObscure = !isObscure;
-                          },
+                          onTap: () {},
                         ),
                         keyboardType: TextInputType.none,
                         labelText: 'Password',

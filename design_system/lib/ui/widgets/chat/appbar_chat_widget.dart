@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import '../home/image_provider_app.dart';
 import '../icon_button_widget.dart';
-import '../image_app_widget.dart';
 import 'name_chat_widget.dart';
 
 class AppBarChatWidget extends StatelessWidget {
   final Icon icon;
-  final String imageMock;
+  final ImageProvider<Object>? imageMock;
   final String nameMock;
   final double sizeImage;
   final void Function() onPressedIcon;
@@ -35,8 +35,8 @@ class AppBarChatWidget extends StatelessWidget {
             return SizedBox(
               height: size.height * 0.062,
               child: FittedBox(
-                child: ImageAppWidget(
-                  image: imageMock,
+                child: ImageProviderWidget(
+                  imageProvider: imageMock,
                   sizeImage: sizeImage,
                 ),
               ),

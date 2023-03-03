@@ -6,10 +6,6 @@ class TextFieldChatWidget extends StatelessWidget {
   final String hintText;
   final Icon prefixIcon;
   final void Function()? onPressedPrefixIcon;
-  // final Icon suffixIcon;
-  // final void Function()? onPressedSuffixIcon;
-  final void Function(String)? onChanged;
-  final void Function(String)? onSubmitted;
   final TextEditingController controller;
   final Widget child;
 
@@ -18,11 +14,7 @@ class TextFieldChatWidget extends StatelessWidget {
     required this.hintText,
     required this.prefixIcon,
     required this.onPressedPrefixIcon,
-    // required this.suffixIcon,
-    // required this.onPressedSuffixIcon,
     required this.controller,
-    required this.onChanged,
-    this.onSubmitted,
     required this.child,
   });
 
@@ -54,8 +46,6 @@ class TextFieldChatWidget extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                   controller: controller,
-                  onChanged: onChanged,
-                  onSubmitted: onSubmitted,
                   decoration: InputDecoration(
                     hintText: hintText,
                     hintStyle: TextStyles.textRegularCardMessageChat,
@@ -84,11 +74,6 @@ class TextFieldChatWidget extends StatelessWidget {
                 ),
               ),
             ),
-            // IconButtonWidget(
-            //   icon: suffixIcon,
-            //   onPressedIcon: onPressedSuffixIcon,
-            // ),
-            // child,
           ],
         ),
       ),
