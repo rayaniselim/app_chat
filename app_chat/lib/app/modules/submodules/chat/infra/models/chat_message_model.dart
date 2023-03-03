@@ -24,17 +24,17 @@ class ChatMessageModel {
 
   ChatMessageEntity toEntity() {
     return ChatMessageEntity(
-      data: data,
-      idUsuario: idUsuario,
-      texto: texto,
+      date: data,
+      userId: idUsuario,
+      text: texto,
     );
   }
 
   factory ChatMessageModel.fromEntity(ChatMessageEntity entity) {
     return ChatMessageModel(
-      data: entity.data,
-      idUsuario: entity.idUsuario,
-      texto: entity.texto,
+      data: entity.date,
+      idUsuario: entity.userId,
+      texto: entity.text,
     );
   }
 }

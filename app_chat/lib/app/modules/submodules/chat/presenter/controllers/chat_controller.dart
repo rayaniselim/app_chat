@@ -96,9 +96,9 @@ class ChatController {
     if (textoMensagem.isNotEmpty) {
       String idUsuarioRemetente = usuarioRemetente.userId;
       ChatMessageEntity mensagem = ChatMessageEntity(
-        idUsuario: idUsuarioRemetente,
-        texto: textoMensagem,
-        data: Timestamp.now().toString(),
+        userId: idUsuarioRemetente,
+        text: textoMensagem,
+        date: Timestamp.now().toString(),
       );
 
       //Salvar mensagem para remetente
@@ -109,12 +109,12 @@ class ChatController {
         message: mensagem,
       );
       ChatEntity conversaRementente = ChatEntity(
-        emailDestinatario: usuarioDestinatario.email,
-        idDestinatario: idUsuarioDestinatario,
-        idRemetente: idUsuarioRemetente,
-        nomeDestinatario: usuarioDestinatario.name,
-        ultimaMensagem: mensagem.texto,
-        urlImagemDestinatario: usuarioDestinatario.imageUrl,
+        recipientEmail: usuarioDestinatario.email,
+        recipientId: idUsuarioDestinatario,
+        senderId: idUsuarioRemetente,
+        recipientName: usuarioDestinatario.name,
+        lastMessage: mensagem.text,
+        imageUrlRecipient: usuarioDestinatario.imageUrl,
       );
       await _saveChatStatus(conversaRementente);
 
@@ -125,12 +125,12 @@ class ChatController {
         message: mensagem,
       );
       ChatEntity conversaDestinatario = ChatEntity(
-        emailDestinatario: usuarioRemetente.email,
-        idDestinatario: idUsuarioRemetente,
-        idRemetente: idUsuarioDestinatario,
-        nomeDestinatario: usuarioRemetente.name,
-        ultimaMensagem: mensagem.texto,
-        urlImagemDestinatario: usuarioRemetente.imageUrl,
+        recipientEmail: usuarioRemetente.email,
+        recipientId: idUsuarioRemetente,
+        senderId: idUsuarioDestinatario,
+        recipientName: usuarioRemetente.name,
+        lastMessage: mensagem.text,
+        imageUrlRecipient: usuarioRemetente.imageUrl,
       );
       await _saveChatStatus(conversaDestinatario);
     }

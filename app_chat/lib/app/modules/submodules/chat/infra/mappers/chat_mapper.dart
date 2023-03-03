@@ -32,23 +32,23 @@ class ChatMapper {
 
   ChatEntity toEntity() {
     return ChatEntity(
-      idRemetente: idRemetente,
-      idDestinatario: idDestinatario,
-      ultimaMensagem: ultimaMensagem,
-      nomeDestinatario: nomeDestinatario,
-      emailDestinatario: emailDestinatario,
-      urlImagemDestinatario: urlImagemDestinatario,
+      senderId: idRemetente,
+      recipientId: idDestinatario,
+      lastMessage: ultimaMensagem,
+      recipientName: nomeDestinatario,
+      recipientEmail: emailDestinatario,
+      imageUrlRecipient: urlImagemDestinatario,
     );
   }
 
   factory ChatMapper.fromEntity(ChatEntity entity) {
     return ChatMapper(
-      idRemetente: entity.idRemetente,
-      idDestinatario: entity.idDestinatario,
-      ultimaMensagem: entity.ultimaMensagem,
-      nomeDestinatario: entity.nomeDestinatario,
-      emailDestinatario: entity.emailDestinatario,
-      urlImagemDestinatario: entity.urlImagemDestinatario,
+      idRemetente: entity.senderId,
+      idDestinatario: entity.recipientId,
+      ultimaMensagem: entity.lastMessage,
+      nomeDestinatario: entity.recipientName,
+      emailDestinatario: entity.recipientEmail,
+      urlImagemDestinatario: entity.imageUrlRecipient,
     );
   }
 }

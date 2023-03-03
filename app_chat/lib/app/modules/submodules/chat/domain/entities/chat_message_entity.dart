@@ -1,11 +1,11 @@
 class ChatMessageEntity {
-  String idUsuario;
-  String texto;
-  String data;
+  String userId;
+  String text;
+  String date;
 
   ChatMessageEntity({
-    required this.idUsuario,
-    required this.texto,
-    required this.data,
+    required this.userId,
+    required this.text,
+    required this.date,
   });
 }

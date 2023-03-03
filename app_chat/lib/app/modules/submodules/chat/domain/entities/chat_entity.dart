@@ -1,17 +1,17 @@
 class ChatEntity {
-  String idRemetente;
-  String idDestinatario;
-  String ultimaMensagem;
-  String nomeDestinatario;
-  String emailDestinatario;
-  String urlImagemDestinatario;
+  String senderId;
+  String recipientId;
+  String lastMessage;
+  String recipientName;
+  String recipientEmail;
+  String imageUrlRecipient;
 
   ChatEntity({
-    required this.idRemetente,
-    required this.idDestinatario,
-    required this.ultimaMensagem,
-    required this.nomeDestinatario,
-    required this.emailDestinatario,
-    required this.urlImagemDestinatario,
+    required this.senderId,
+    required this.recipientId,
+    required this.lastMessage,
+    required this.recipientName,
+    required this.recipientEmail,
+    required this.imageUrlRecipient,
   });
 }
