@@ -9,6 +9,9 @@ class FirebaseAuthService implements AuthService {
   const FirebaseAuthService(this._auth);
 
   @override
+  User? get currentUser => _auth.currentUser;
+
+  @override
   Future<Map<String, dynamic>> loginWithEmailandPassword(
     String email,
     String password,

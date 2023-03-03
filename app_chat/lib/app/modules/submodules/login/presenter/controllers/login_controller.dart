@@ -22,6 +22,6 @@ class LoginController {
 
     await remoteLoginWithEmailAndPassword.call(email, password);
 
-    Modular.to.navigate('/home/');
+    Modular.to.navigate('/home');
   }
 }

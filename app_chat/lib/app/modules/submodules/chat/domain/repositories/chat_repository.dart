@@ -1,7 +1,18 @@
-import '../../../../../core/domain/entities/user_entity.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:app_chat/app/modules/submodules/chat/infra/models/chat_message_model.dart';
+import 'package:app_chat/app/modules/submodules/chat/infra/mappers/chat_mapper.dart';
 
 abstract class ChatRepository {
-  UserEntity? get userRecipient;
+  Future<void> remotePutChatStatus(ChatMapper chat);
 
-  set userRecipient(UserEntity? usuario);
+  Future<void> putMessage({
+    required String idLoggedUser,
+    required String idRecipient,
+    required ChatMessageModel message,
+  });
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> remoteStreamMessages({
+    required String idLoggedUser,
+    required String idRecipientUser,
+  });
 }

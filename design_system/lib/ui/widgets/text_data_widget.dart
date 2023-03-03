@@ -11,12 +11,9 @@ class TextDataWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        text,
-        style: style,
-        textAlign: TextAlign.center,
-      ),
+    return Text(
+      text,
+      style: style,
     );
   }
 }

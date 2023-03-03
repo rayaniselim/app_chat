@@ -23,10 +23,8 @@ class AppBarHomeWidget extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
     final statusBar = mediaQuery.viewPadding.top;
 
-    return SliverAppBar(
+    return AppBar(
       toolbarHeight: kToolbarHeight + statusBar,
-      floating: true,
-      snap: true,
       elevation: 0,
       centerTitle: false,
       title: Text(
@@ -39,7 +37,6 @@ class AppBarHomeWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(
             right: 10,
-            bottom: 20,
           ),
           child: Row(
             children: [
