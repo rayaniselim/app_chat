@@ -27,8 +27,8 @@ class ChatController {
     required this.remoteSaveMessage,
   });
 
-  late UserEntity usuarioDestinatario;
-  late UserEntity usuarioRemetente;
+  late UserEntity recipientUser;
+  late UserEntity loggedUser;
 
   TextEditingController controllerMensagem = TextEditingController();
   ScrollController scrollController = ScrollController();
@@ -44,8 +44,8 @@ class ChatController {
 
   void adicionarListenerMensagens() {
     final stream = remoteStreamMessages.call(
-      idLoggedUser: usuarioRemetente.userId,
-      idRecipientUser: usuarioDestinatario.userId,
+      idLoggedUser: loggedUser.userId,
+      idRecipientUser: recipientUser.userId,
     );
 
     if (stream == null) {
@@ -58,10 +58,9 @@ class ChatController {
   }
 
   void atualizarListenerMensagens() {
-    UserEntity? usuarioDestinatario =
-        Modular.get<ChatController>().usuarioDestinatario;
+    UserEntity? recipientUser = Modular.get<ChatController>().recipientUser;
 
-    usuarioDestinatario = usuarioDestinatario;
+    recipientUser = recipientUser;
     adicionarListenerMensagens();
   }
 
@@ -92,47 +91,47 @@ class ChatController {
   }
 
   Future<void> enviarMensagem() async {
-    String textoMensagem = controllerMensagem.text;
-    if (textoMensagem.isNotEmpty) {
-      String idUsuarioRemetente = usuarioRemetente.userId;
-      ChatMessageEntity mensagem = ChatMessageEntity(
-        userId: idUsuarioRemetente,
-        text: textoMensagem,
+    String textMessage = controllerMensagem.text;
+    if (textMessage.isNotEmpty) {
+      String idLoggedUser = loggedUser.userId;
+      ChatMessageEntity message = ChatMessageEntity(
+        userId: idLoggedUser,
+        text: textMessage,
         date: Timestamp.now().toString(),
       );
 
       //Salvar mensagem para remetente
-      String idUsuarioDestinatario = usuarioDestinatario.userId;
+      String idRecipientUser = recipientUser.userId;
       await _saveMessage(
-        idLoggedUser: idUsuarioRemetente,
-        idRecipient: idUsuarioDestinatario,
-        message: mensagem,
+        idLoggedUser: idLoggedUser,
+        idRecipient: idRecipientUser,
+        message: message,
       );
       ChatEntity conversaRementente = ChatEntity(
-        recipientEmail: usuarioDestinatario.email,
-        recipientId: idUsuarioDestinatario,
-        senderId: idUsuarioRemetente,
-        recipientName: usuarioDestinatario.name,
-        lastMessage: mensagem.text,
-        imageUrlRecipient: usuarioDestinatario.imageUrl,
+        recipientEmail: recipientUser.email,
+        recipientId: idRecipientUser,
+        senderId: idLoggedUser,
+        recipientName: recipientUser.name,
+        lastMessage: message.text,
+        imageUrlRecipient: recipientUser.imageUrl,
       );
       await _saveChatStatus(conversaRementente);
 
       //Salvar mensagem para destinatário
       await _saveMessage(
-        idLoggedUser: idUsuarioDestinatario,
-        idRecipient: idUsuarioRemetente,
-        message: mensagem,
+        idLoggedUser: idRecipientUser,
+        idRecipient: idLoggedUser,
+        message: message,
       );
-      ChatEntity conversaDestinatario = ChatEntity(
-        recipientEmail: usuarioRemetente.email,
-        recipientId: idUsuarioRemetente,
-        senderId: idUsuarioDestinatario,
-        recipientName: usuarioRemetente.name,
-        lastMessage: mensagem.text,
-        imageUrlRecipient: usuarioRemetente.imageUrl,
+      ChatEntity conversationRecipient = ChatEntity(
+        recipientEmail: loggedUser.email,
+        recipientId: idLoggedUser,
+        senderId: idRecipientUser,
+        recipientName: loggedUser.name,
+        lastMessage: message.text,
+        imageUrlRecipient: loggedUser.imageUrl,
       );
-      await _saveChatStatus(conversaDestinatario);
+      await _saveChatStatus(conversationRecipient);
     }
   }
 }

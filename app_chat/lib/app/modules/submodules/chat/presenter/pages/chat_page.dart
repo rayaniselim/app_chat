@@ -8,13 +8,13 @@ import 'package:app_chat/app/modules/submodules/chat/presenter/controllers/chat_
 import '../../../../../core/domain/entities/user_entity.dart';
 
 class ChatPage extends StatefulWidget {
-  final UserEntity usuarioDestinatario;
-  final UserEntity usuarioRemetente;
+  final UserEntity recipientUser;
+  final UserEntity loggedUser;
 
   const ChatPage({
     super.key,
-    required this.usuarioDestinatario,
-    required this.usuarioRemetente,
+    required this.recipientUser,
+    required this.loggedUser,
   });
 
   @override
@@ -28,8 +28,8 @@ class _ChatPageState extends State<ChatPage> {
   void initState() {
     super.initState();
     chatController = Modular.get<ChatController>();
-    chatController.usuarioDestinatario = widget.usuarioDestinatario;
-    chatController.usuarioRemetente = widget.usuarioRemetente;
+    chatController.recipientUser = widget.recipientUser;
+    chatController.loggedUser = widget.loggedUser;
   }
 
   @override
@@ -41,9 +41,9 @@ class _ChatPageState extends State<ChatPage> {
         preferredSize: const Size(0, 100),
         child: AppBarChatWidget(
           imageMock: CachedNetworkImageProvider(
-            chatController.usuarioDestinatario.imageUrl,
+            chatController.recipientUser.imageUrl,
           ),
-          nameMock: chatController.usuarioDestinatario.name,
+          nameMock: chatController.recipientUser.name,
           sizeImage: size.height * 0.10,
           icon: Icon(
             Icons.search,

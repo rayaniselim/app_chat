@@ -89,7 +89,7 @@ class _MessageListComponentState extends State<MessageListComponent> {
                             Alignment alinhamento = Alignment.topLeft;
                             var color = colorsExtension.cardSenderMessage;
 
-                            if (chatController.usuarioRemetente.userId ==
+                            if (chatController.loggedUser.userId ==
                                 mensagem['idUsuario']) {
                               alinhamento = Alignment.topRight;
                               color = colorsExtension.cardRecipientMessage;
@@ -119,11 +119,11 @@ class _MessageListComponentState extends State<MessageListComponent> {
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 18.0),
                                   child: Align(
-                                    alignment: chatController
-                                                .usuarioRemetente.userId ==
-                                            mensagem['idUsuario']
-                                        ? Alignment.topRight
-                                        : Alignment.topLeft,
+                                    alignment:
+                                        chatController.loggedUser.userId ==
+                                                mensagem['idUsuario']
+                                            ? Alignment.topRight
+                                            : Alignment.topLeft,
                                     child: TextDataWidget(
                                       text:
                                           '${DateTime.now().hour}:${DateTime.now().minute}',

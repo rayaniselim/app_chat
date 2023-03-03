@@ -18,31 +18,31 @@ class ChatsListTab extends StatefulWidget {
 }
 
 class _ChatsListTabState extends State<ChatsListTab> {
-  late UserEntity usuarioRemetente;
+  late UserEntity loggedUser;
 
   Future<void> loadLoggedUserData() async {
     final remoteLoadLoggedUserData =
         Modular.get<RemoteLoadLoggedUserDataUseCase>();
-    usuarioRemetente = await remoteLoadLoggedUserData.call();
+    loggedUser = await remoteLoadLoggedUserData.call();
   }
 
   final FirebaseFirestore _firestore = Modular.get<FirebaseFirestore>();
   final FirebaseAuth _auth = Modular.get<FirebaseAuth>();
 
-  late UserEntity _usuarioRemetente;
+  late UserEntity _loggedUser;
   final StreamController _streamController =
       StreamController<QuerySnapshot>.broadcast();
   late StreamSubscription _streamConversas;
 
   _recuperarDadosIniciais() {
-    User? usuarioLogado = _auth.currentUser;
-    if (usuarioLogado != null) {
-      String idUsuario = usuarioLogado.uid;
-      String? nome = usuarioLogado.displayName ?? '';
-      String? email = usuarioLogado.email ?? '';
-      String? urlImagem = usuarioLogado.photoURL ?? '';
+    User? loggedUser = _auth.currentUser;
+    if (loggedUser != null) {
+      String idUsuario = loggedUser.uid;
+      String? nome = loggedUser.displayName ?? '';
+      String? email = loggedUser.email ?? '';
+      String? urlImagem = loggedUser.photoURL ?? '';
 
-      _usuarioRemetente = UserEntity(
+      _loggedUser = UserEntity(
         userId: idUsuario,
         name: nome,
         email: email,
@@ -56,7 +56,7 @@ class _ChatsListTabState extends State<ChatsListTab> {
   _adicionarListenerConversas() {
     final stream = _firestore
         .collection('conversas')
-        .doc(_usuarioRemetente.userId)
+        .doc(_loggedUser.userId)
         .collection('ultimas_mensagens')
         .snapshots();
 
@@ -108,18 +108,18 @@ class _ChatsListTabState extends State<ChatsListTab> {
               return ListView.builder(
                 itemCount: listaConversas.length,
                 itemBuilder: (context, index) {
-                  DocumentSnapshot conversa = listaConversas[index];
+                  DocumentSnapshot conversation = listaConversas[index];
                   String urlImagemDestinatario =
-                      conversa['urlImagemDestinatario'];
-                  String nomeDestinatario = conversa['nomeDestinatario'];
-                  String emailDestinatario = conversa['emailDestinatario'];
-                  String ultimaMensagem = conversa['ultimaMensagem'];
-                  String idDestinatario = conversa['idDestinatario'];
+                      conversation['urlImagemDestinatario'];
+                  String recipientName = conversation['nomeDestinatario'];
+                  String recipientEmail = conversation['emailDestinatario'];
+                  String lastMessage = conversation['ultimaMensagem'];
+                  String idDestinatario = conversation['idDestinatario'];
 
-                  UserEntity usuarioDestinatario = UserEntity(
+                  UserEntity recipientUser = UserEntity(
                     userId: idDestinatario,
-                    name: nomeDestinatario,
-                    email: emailDestinatario,
+                    name: recipientName,
+                    email: recipientEmail,
                     imageUrl: urlImagemDestinatario,
                   );
 
@@ -128,25 +128,25 @@ class _ChatsListTabState extends State<ChatsListTab> {
                       Modular.to.pushNamed(
                         '/chat',
                         arguments: {
-                          'usuarioRemetente': usuarioRemetente,
-                          'usuarioDestinatario': usuarioDestinatario,
+                          'usuarioRemetente': loggedUser,
+                          'usuarioDestinatario': recipientUser,
                         },
                       );
                     },
                     leading: ImageProviderWidget(
                       imageProvider: CachedNetworkImageProvider(
-                        usuarioDestinatario.imageUrl,
+                        recipientUser.imageUrl,
                       ),
                       sizeImage: 25,
                     ),
                     title: Text(
-                      usuarioDestinatario.name,
+                      recipientUser.name,
                       style: TextStyles.textSemiBoldTitles.copyWith(
                         fontSize: 15,
                       ),
                     ),
                     subtitle: Text(
-                      ultimaMensagem,
+                      lastMessage,
                       style: TextStyles.textRegularMessageCard,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,

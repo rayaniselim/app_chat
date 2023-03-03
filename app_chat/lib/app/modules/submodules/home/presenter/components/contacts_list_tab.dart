@@ -16,12 +16,12 @@ class ContactsListTab extends StatefulWidget {
 }
 
 class _ContactsListTabState extends State<ContactsListTab> {
-  late UserEntity usuarioRemetente;
+  late UserEntity loggedUser;
 
   Future<void> loadLoggedUserData() async {
     final remoteLoadLoggedUserData =
         Modular.get<RemoteLoadLoggedUserDataUseCase>();
-    usuarioRemetente = await remoteLoadLoggedUserData.call();
+    loggedUser = await remoteLoadLoggedUserData.call();
   }
 
   final FirebaseAuth _auth = Modular.get<FirebaseAuth>();
@@ -95,25 +95,25 @@ class _ContactsListTabState extends State<ContactsListTab> {
                   return ListView.builder(
                     itemCount: listaUsuarios.length,
                     itemBuilder: (context, index) {
-                      UserEntity usuarioDestinatario = listaUsuarios[index];
+                      UserEntity recipientUser = listaUsuarios[index];
                       return ListTile(
                         onTap: () {
                           Modular.to.pushNamed(
                             '/chat',
                             arguments: {
-                              'usuarioRemetente': usuarioRemetente,
-                              'usuarioDestinatario': usuarioDestinatario,
+                              'usuarioRemetente': loggedUser,
+                              'usuarioDestinatario': recipientUser,
                             },
                           );
                         },
                         leading: ImageProviderWidget(
                           imageProvider: CachedNetworkImageProvider(
-                            usuarioDestinatario.imageUrl,
+                            recipientUser.imageUrl,
                           ),
                           sizeImage: 25,
                         ),
                         title: Text(
-                          usuarioDestinatario.name,
+                          recipientUser.name,
                           style: TextStyles.textSemiBoldTitles.copyWith(
                             fontSize: 15,
                           ),

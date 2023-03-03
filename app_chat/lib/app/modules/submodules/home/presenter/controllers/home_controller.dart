@@ -8,24 +8,24 @@ class HomeController {
   FirebaseFirestore firestore = Modular.get<FirebaseFirestore>();
   FirebaseAuth auth = Modular.get<FirebaseAuth>();
 
-  late UserEntity _usuarioRemetente;
+  late UserEntity _loggedUser;
   StreamController streamController =
       StreamController<QuerySnapshot>.broadcast();
   late StreamSubscription streamConversas;
 
   recuperarDadosIniciais() {
-    User? usuarioLogado = auth.currentUser;
-    if (usuarioLogado != null) {
-      String userId = usuarioLogado.uid;
-      String? name = usuarioLogado.displayName ?? '';
-      String? email = usuarioLogado.email ?? '';
-      String? urlImagem = usuarioLogado.photoURL ?? '';
+    User? loggedInUser = auth.currentUser;
+    if (loggedInUser != null) {
+      String userId = loggedInUser.uid;
+      String? name = loggedInUser.displayName ?? '';
+      String? email = loggedInUser.email ?? '';
+      String? imageUrl = loggedInUser.photoURL ?? '';
 
-      _usuarioRemetente = UserEntity(
+      _loggedUser = UserEntity(
         userId: userId,
         name: name,
         email: email,
-        imageUrl: urlImagem,
+        imageUrl: imageUrl,
       );
     }
 
@@ -35,7 +35,7 @@ class HomeController {
   _adicionarListenerConversas() {
     final stream = firestore
         .collection('conversas')
-        .doc(_usuarioRemetente.userId)
+        .doc(_loggedUser.userId)
         .collection('ultimas_mensagens')
         .snapshots();
 

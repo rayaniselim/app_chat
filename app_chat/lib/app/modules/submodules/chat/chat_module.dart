@@ -31,8 +31,8 @@ class ChatModule extends Module {
         ChildRoute(
           '/',
           child: (context, args) => ChatPage(
-            usuarioDestinatario: args.data['usuarioDestinatario'],
-            usuarioRemetente: args.data['usuarioRemetente'],
+            recipientUser: args.data['usuarioDestinatario'],
+            loggedUser: args.data['usuarioRemetente'],
           ),
         ),
       ];
