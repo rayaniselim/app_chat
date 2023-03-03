@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:app_chat/app/core/domain/usecases/remote_load_logged_user_data_usecase.dart';
 
 import '../../infra/repositories/user_repository_impl.dart';
@@ -12,14 +10,12 @@ class RemoteLoadLoggedUserDataUseCaseImpl
   const RemoteLoadLoggedUserDataUseCaseImpl(this.chatRepository);
 
   @override
-  UserEntity? call() {
+  Future<UserEntity> call() async {
     try {
-      UserEntity? user = chatRepository.remoteGetLoggedUserData();
-
+      UserEntity user = await chatRepository.remoteGetLoggedUserData();
       return user;
     } catch (error) {
-      log('[ERROR ON: RemoteLoadLoggedUserDataUseCaseImpl]$error');
+      rethrow;
     }
-    return null;
   }
 }

@@ -23,7 +23,7 @@ class LoginRepositoryImpl implements LoginRepository {
         email,
         password,
       );
-      final user = UserMapper.fromEntity(map);
+      final user = UserMapper.loginFromMap(map);
       return Right(user);
     } on NotAuthenticatedAuthException catch (e, stack) {
       return Left(
