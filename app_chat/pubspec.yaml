@@ -36,18 +36,23 @@ dependencies:
   firebase_core: ^2.4.1
   firebase_database: ^10.0.10
   firebase_auth: ^4.2.6
-  # firebase_storage: ^11.0.11
+  cached_network_image: ^3.1.0
+
 
   design_system: 
     path: ../design_system
   flutter_modular: ^5.0.3
   triple: ^1.5.0+1
+  firebase_auth_mocks: ^0.9.3
+  either_dart: ^0.3.0
+  dartz: ^0.10.1
     
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
   flutterando_analysis: ^0.0.2
+  mocktail: ^0.3.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

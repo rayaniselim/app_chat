@@ -77,58 +77,5 @@ class ThemeLightApp {
         ),
       ),
     ),
-
-//     extensions: <ThemeExtension<dynamic>>[
-//       ColorsExtension(
-//         containerLogin: ColorsAppLight.writeBoxColor,
-//         cardRecipientMessage: ColorsAppLight.cardRecipientMessage, // enviada
-//         cardSenderMessage: ColorsAppLight.cardSenderMessageColor, // recebida
-//         cardSliverListHome: ColorsAppLight.writeBoxColor,
-//         containerTextFieldChat: ColorsAppLight.writeBoxColor,
-//         circleCamera: ColorsAppLight.iconsButtonChatTextFieldColor,
-//       ),
-//     ],
-//     scaffoldBackgroundColor: ColorsAppLight.primary,
-//     appBarTheme: AppBarTheme(
-//       backgroundColor: ColorsAppLight.primary,
-//       elevation: 0,
-//       centerTitle: true,
-//       iconTheme: IconThemeData(
-// // ICON SEARCH
-//         color: ColorsAppLight.secondary,
-//       ),
-//     ),
-
-//     primaryColor: ColorsAppLight.primary,
-//     colorScheme: ColorScheme.fromSeed(
-//       seedColor: Colors.pink, //ColorsAppLight.primary,
-//       primary: ColorsAppLight.secondary, // botao!
-//       // secondary: ColorsAppLight.secondary,
-//       secondary: Colors.amber,
-//     ),
-//     // cardColor: ColorsAppLight.cardChatsColorLight,
-//     backgroundColor: ColorsAppLight.primary,
-//     inputDecorationTheme: InputDecorationTheme(
-//       //////
-//       prefixIconColor: ColorsAppLight.prefixIconColor, // camera
-//       suffixIconColor: ColorsAppLight.iconsButtonChatTextFieldColor,
-//       fillColor: ColorsAppLight.writeBoxColor, // cor fundo do textfield
-//       filled: true,
-//       isDense: true,
-//       contentPadding: const EdgeInsets.all(13),
-//       errorStyle: TextStyles.textMediumRecent.copyWith(
-//         color: ColorsAppLight.errorColor,
-//       ),
-//       errorBorder: OutlineInputBorder(
-//         borderSide: BorderSide(
-//           color: ColorsAppLight.errorColor,
-//         ),
-//       ),
-//       focusedErrorBorder: OutlineInputBorder(
-//         borderSide: BorderSide(
-//           color: ColorsAppLight.errorColor,
-//         ),
-//       ),
-//     ),
   );
 }

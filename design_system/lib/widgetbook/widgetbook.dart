@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
-
+import 'package:app_chat/app/modules/submodules/home/presenter/components/list_stories_home_widget.dart';
 import '../design_system.dart';
 import '../ui/widgets/chat/name_chat_widget.dart';
 
@@ -36,25 +36,7 @@ class PageWidgetbook extends StatelessWidget {
                   ),
                 ],
               ),
-              // WidgetbookComponent(
-              //   name: 'Components Card Message Home',
-              //   useCases: [
-              //     WidgetbookUseCase(
-              //       name: 'Components Card Message Home',
-              //       builder: (context) => SizedBox(
-              //         height: 200,
-              //         width: size.width,
-              //         child: ComponentsCardMessageHomeWidget(
-              //           onTap: () {},
-              //           date: '08:43',
-              //           user: listUserMock[0],
-              //           selectedItem: false,
-              //           message: 'message user',
-              //         ),
-              //       ),
-              //     ),
-              // ],
-              // ),
+
               WidgetbookComponent(
                 name: 'Recent Home',
                 useCases: [
@@ -77,9 +59,9 @@ class PageWidgetbook extends StatelessWidget {
                     name: 'List Stories Home',
                     builder: (context) => const Padding(
                       padding: EdgeInsets.only(top: 100.0),
-                      // child: ListStoriesHomeWidget(
-                      //   sizeImage: 37, // valor radius
-                      // ),
+                      child: ListStoriesHomeWidget(
+                        sizeImage: 37, // valor radius
+                      ),
                     ),
                   ),
                 ],
@@ -104,20 +86,7 @@ class PageWidgetbook extends StatelessWidget {
                 ],
               ),
 
-              // WidgetbookComponent(
-              //   name: 'Card SliverList home',
-              //   useCases: [
-              //     WidgetbookUseCase(
-              //       name: 'Card SliverList home',
-              //       builder: (context) => const SliverListWidget(
-              //         date: '08:45',
-              //         messageUser: '',
-              //       ),
-              //     ),
-              //   ],
-              // ),
-
-              ///// CHAT
+              /// CHAT
               WidgetbookComponent(
                 name: 'AppBar Chat',
                 useCases: [
@@ -131,35 +100,16 @@ class PageWidgetbook extends StatelessWidget {
                           Icons.search,
                           size: MediaQuery.of(context).size.width * 0.07,
                         ),
-                        imageMock: 'assets/image/Jeon Yeo-been.jpeg',
                         nameMock: 'Name Widgetbook',
-                        sizeImage: size.height * 0.10, // 37,
+                        sizeImage: size.height * 0.10,
+                        imageMock:
+                            Image.asset('app_chat/assets/image/hyun-bin.webp')
+                                .image,
                       ),
                     ),
                   ),
                 ],
               ),
-
-              // WidgetbookComponent(
-              //   name: 'Card Messages Chat',
-              //   useCases: [
-              //     WidgetbookUseCase(
-              //       name: 'Card Messages Chat',
-              //       builder: (context) => SizedBox(
-              //         height: 200,
-              //         width: size.width,
-              //         child: const Padding(
-              //           padding: EdgeInsets.all(10.0),
-              //           child: CardMessagesChat(
-              //             dataChat: 'date mock',
-              //             senderMessage: 'mensagem remetente',
-              //             recipientMessage: 'mensagem destinatario', child: null,
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
 
               WidgetbookComponent(
                 name: 'Name Chat',
@@ -200,11 +150,8 @@ class PageWidgetbook extends StatelessWidget {
                           Icons.camera_alt_outlined,
                         ),
                         onPressedPrefixIcon: () {},
-                        // suffixIcon: const Icon(Icons.arrow_forward_ios_rounded),
                         hintText: 'Message',
-                        // onPressedSuffixIcon: () {},
                         controller: controllerMessage,
-                        onChanged: (string) {},
                         child: IconButtonWidget(
                           icon: const Icon(Icons.arrow_forward_ios_rounded),
                           onPressedIcon: () {},
@@ -230,9 +177,9 @@ class PageWidgetbook extends StatelessWidget {
                           (Icons.email_outlined),
                         ),
                         isObscure: false,
-                        initialValue: 'rayani@user.com',
                         keyboardType: TextInputType.emailAddress,
                         labelText: '',
+                        controller: null,
                       ),
                     ),
                   ),
@@ -259,14 +206,11 @@ class PageWidgetbook extends StatelessWidget {
                                   Icons.visibility_outlined,
                                   size: 19,
                                 ),
-                          onTap: () {
-                            // setState(() {
-                            //   isObscure = !isObscure;
-                          },
+                          onTap: () {},
                         ),
-                        initialValue: '123456',
                         keyboardType: TextInputType.none,
                         labelText: 'Password',
+                        controller: null,
                       ),
                     ),
                   ),
