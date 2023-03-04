@@ -1,7 +1,7 @@
-import 'package:app_chat/app/modules/submodules/chat/infra/services/firestore_service.dart';
 import 'package:app_chat/app/modules/submodules/chat/infra/datasources/chat_datasource.dart';
-import 'package:app_chat/app/modules/submodules/chat/infra/models/chat_message_model.dart';
 import 'package:app_chat/app/modules/submodules/chat/infra/mappers/chat_mapper.dart';
+import 'package:app_chat/app/modules/submodules/chat/infra/models/chat_message_model.dart';
+import 'package:app_chat/app/modules/submodules/chat/infra/services/firestore_service.dart';
 
 class ChatDatasourceImpl implements ChatDatasource {
   final FirestoreService service;
@@ -44,15 +44,15 @@ class ChatDatasourceImpl implements ChatDatasource {
   }
 
   @override
-  // Stream<QuerySnapshot<Map<String, dynamic>>>
-  Future<Map<String, dynamic>> remoteSnapshotMessages({
+  Stream<List<Map<String, dynamic>>> remoteSnapshotMessages({
     required String idLoggedUser,
     required String idRecipientUser,
-  }) async {
-    final result = await service.remoteSnapshotMessages(
+  }) {
+    final result = service.remoteSnapshotMessages(
       idLoggedUser: idLoggedUser,
       idRecipientUser: idRecipientUser,
     );
+
     return result;
     // return firestore
     //     .collection('mensagens')

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
-
+import 'package:app_chat/app/modules/submodules/home/presenter/components/list_stories_home_widget.dart';
 import '../design_system.dart';
 import '../ui/widgets/chat/name_chat_widget.dart';
 
@@ -36,25 +36,7 @@ class PageWidgetbook extends StatelessWidget {
                   ),
                 ],
               ),
-              // WidgetbookComponent(
-              //   name: 'Components Card Message Home',
-              //   useCases: [
-              //     WidgetbookUseCase(
-              //       name: 'Components Card Message Home',
-              //       builder: (context) => SizedBox(
-              //         height: 200,
-              //         width: size.width,
-              //         child: ComponentsCardMessageHomeWidget(
-              //           onTap: () {},
-              //           date: '08:43',
-              //           user: listUserMock[0],
-              //           selectedItem: false,
-              //           message: 'message user',
-              //         ),
-              //       ),
-              //     ),
-              // ],
-              // ),
+
               WidgetbookComponent(
                 name: 'Recent Home',
                 useCases: [
@@ -77,9 +59,9 @@ class PageWidgetbook extends StatelessWidget {
                     name: 'List Stories Home',
                     builder: (context) => const Padding(
                       padding: EdgeInsets.only(top: 100.0),
-                      // child: ListStoriesHomeWidget(
-                      //   sizeImage: 37, // valor radius
-                      // ),
+                      child: ListStoriesHomeWidget(
+                        sizeImage: 37, // valor radius
+                      ),
                     ),
                   ),
                 ],
@@ -104,30 +86,30 @@ class PageWidgetbook extends StatelessWidget {
                 ],
               ),
 
-              ///// CHAT
-              //   WidgetbookComponent(
-              //     name: 'AppBar Chat',
-              //     useCases: [
-              //       WidgetbookUseCase(
-              //         name: 'AppBar Chat',
-              //         builder: (context) => Padding(
-              //           padding: const EdgeInsets.all(8.0),
-              //           child: AppBarChatWidget(
-              //             onPressedIcon: () {},
-              //             icon: Icon(
-              //               Icons.search,
-              //               size: MediaQuery.of(context).size.width * 0.07,
-              //             ),
-
-              //             nameMock: 'Name Widgetbook',
-              //             sizeImage: size.height * 0.10,
-              //              imageMock: // TODO:
-              //            , ), // 37,
-              //           ),
-              //         ),
-              // ],),
-              //     ],
-              //   ),
+              /// CHAT
+              WidgetbookComponent(
+                name: 'AppBar Chat',
+                useCases: [
+                  WidgetbookUseCase(
+                    name: 'AppBar Chat',
+                    builder: (context) => Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: AppBarChatWidget(
+                        onPressedIcon: () {},
+                        icon: Icon(
+                          Icons.search,
+                          size: MediaQuery.of(context).size.width * 0.07,
+                        ),
+                        nameMock: 'Name Widgetbook',
+                        sizeImage: size.height * 0.10,
+                        imageMock:
+                            Image.asset('app_chat/assets/image/hyun-bin.webp')
+                                .image,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
 
               WidgetbookComponent(
                 name: 'Name Chat',

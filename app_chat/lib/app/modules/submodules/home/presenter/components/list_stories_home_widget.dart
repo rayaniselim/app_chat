@@ -13,9 +13,7 @@ class ListStoriesHomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     final list = listUserMock;
-
     final height = SizedBox(
       height: size.height * 0.009,
     );

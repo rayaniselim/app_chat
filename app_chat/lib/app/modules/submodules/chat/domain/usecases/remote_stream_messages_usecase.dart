@@ -1,9 +1,9 @@
+import 'package:app_chat/app/modules/submodules/chat/domain/entities/chat_message_entity.dart';
 import 'package:dartz/dartz.dart';
+
 import '../../../../../core/exceptions/app_exceptions.dart';
-import '../entities/chat_entity.dart';
 
 abstract class RemoteStreamMessagesUseCase {
-  // Stream<QuerySnapshot<Map<String, dynamic>>>?
-  Future<Either<AppException, ChatEntity>> call(
+  Either<AppException, Stream<List<ChatMessageEntity>>> call(
       {required String idLoggedUser, required String idRecipientUser});
 }

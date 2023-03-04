@@ -6,5 +6,5 @@ abstract class AuthService {
   Future<void> logout();
   Future<Map<String, dynamic>> getUser();
 
-  User? get currentUser; // TODO: REMOVER
+  User? get currentUser;
 }

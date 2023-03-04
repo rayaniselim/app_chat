@@ -11,7 +11,7 @@ abstract class FirestoreService {
     required ChatMessageModel message,
   });
 
-  Stream<Map<String, dynamic>> remoteSnapshotMessages({
+  Stream<List<Map<String, dynamic>>> remoteSnapshotMessages({
     required String idLoggedUser,
     required String idRecipientUser,
   });

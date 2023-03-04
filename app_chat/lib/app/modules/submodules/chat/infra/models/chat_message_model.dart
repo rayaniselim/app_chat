@@ -1,6 +1,6 @@
 import 'package:app_chat/app/modules/submodules/chat/domain/entities/chat_message_entity.dart';
 
-/// COMENTÁRIO: Mensagens q aparecem dentro do chat
+/// Mensagens q aparecem dentro do chat
 class ChatMessageModel {
   String idUsuario;
   String texto;
@@ -18,7 +18,6 @@ class ChatMessageModel {
       'texto': texto,
       'data': data,
     };
-
     return map;
   }
 

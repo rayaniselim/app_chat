@@ -1,8 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:app_chat/app/modules/submodules/chat/domain/entities/chat_message_entity.dart';
+import 'package:app_chat/app/modules/submodules/chat/presenter/controllers/chat_controller.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:app_chat/app/modules/submodules/chat/presenter/controllers/chat_controller.dart';
 
 class MessageListComponent extends StatefulWidget {
   const MessageListComponent({Key? key}) : super(key: key);
@@ -71,10 +71,7 @@ class _MessageListComponentState extends State<MessageListComponent> {
                     return const Center(
                         child: Text('Erro ao carregar os dados!'));
                   } else {
-                    QuerySnapshot querySnapshot =
-                        snapshot.data as QuerySnapshot;
-                    List<DocumentSnapshot> listMessage =
-                        querySnapshot.docs.toList();
+                    final listMessage = snapshot.data;
 
                     return Expanded(
                       child: ListView.builder(
@@ -82,13 +79,13 @@ class _MessageListComponentState extends State<MessageListComponent> {
                         controller: chatController.scrollController,
                         itemCount: listMessage.length,
                         itemBuilder: (context, index) {
-                          DocumentSnapshot message = listMessage[index];
+                          final ChatMessageEntity message = listMessage[index];
 
                           Alignment align = Alignment.topLeft;
                           var color = colorsExtension.cardSenderMessage;
 
                           if (chatController.loggedUser.userId ==
-                              message['idUsuario']) {
+                              message.userId) {
                             align = Alignment.topRight;
                             color = colorsExtension.cardRecipientMessage;
                           }
@@ -108,7 +105,7 @@ class _MessageListComponentState extends State<MessageListComponent> {
                                   padding: const EdgeInsets.all(16),
                                   margin: const EdgeInsets.all(6),
                                   child: Text(
-                                    message['texto'],
+                                    message.text,
                                     style: TextStyles.textRegularMessageChat,
                                   ),
                                 ),
@@ -118,7 +115,7 @@ class _MessageListComponentState extends State<MessageListComponent> {
                                     horizontal: 18.0),
                                 child: Align(
                                   alignment: chatController.loggedUser.userId ==
-                                          message['idUsuario']
+                                          message.userId
                                       ? Alignment.topRight
                                       : Alignment.topLeft,
                                   child: TextDataWidget(

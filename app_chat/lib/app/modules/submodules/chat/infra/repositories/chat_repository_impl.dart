@@ -1,10 +1,10 @@
-import 'package:app_chat/app/core/infra/mappers/user_mapper.dart';
-import 'package:app_chat/app/modules/submodules/chat/domain/entities/chat_entity.dart';
+import 'package:app_chat/app/modules/submodules/chat/domain/entities/chat_message_entity.dart';
 import 'package:app_chat/app/modules/submodules/chat/domain/repositories/chat_repository.dart';
 import 'package:app_chat/app/modules/submodules/chat/external/datasources/chat_datasource_impl.dart';
-import 'package:app_chat/app/modules/submodules/chat/infra/models/chat_message_model.dart';
 import 'package:app_chat/app/modules/submodules/chat/infra/mappers/chat_mapper.dart';
+import 'package:app_chat/app/modules/submodules/chat/infra/models/chat_message_model.dart';
 import 'package:dartz/dartz.dart';
+
 import '../../../../../core/exceptions/app_exceptions.dart';
 
 class ChatRepositoryImpl implements ChatRepository {
@@ -32,57 +32,28 @@ class ChatRepositoryImpl implements ChatRepository {
   }
 
   @override
-  // Stream<QuerySnapshot<Map<String, dynamic>>>
-  Future<Either<AppException, ChatEntity>> remoteStreamMessages({
+  Either<AppException, Stream<List<ChatMessageEntity>>> remoteStreamMessages({
     required String idLoggedUser,
     required String idRecipientUser,
-  }) async {
-    try {
-      final data = chatDatasource.remoteSnapshotMessages(
+  }) {
+    final streamMap = chatDatasource.remoteSnapshotMessages(
       idLoggedUser: idLoggedUser,
       idRecipientUser: idRecipientUser,
     );
-    final user = UserMapper.
-    } catch (e) 
-    
-    {
-      
-    }
-    // return await chatDatasource.remoteSnapshotMessages(
-    //   idLoggedUser: idLoggedUser,
-    //   idRecipientUser: idRecipientUser,
-    // );
+
+    final streamEntity = streamMap.map((event) =>
+        event.map((value) => ChatMessageMapper().fromMap(value)).toList());
+
+    return Right(streamEntity);
   }
 }
 
-
-//  @override
-//   Future<Either<AppException, LoginEntity>> loginWithEmailAndPassword(
-//     String email,
-//     String password,
-//   ) async {
-//     try {
-//       final map = await _datasource.loginWithEmailandPassword(
-//         email,
-//         password,
-//       );
-//       final user = UserMapper.loginFromMap(map);
-//       return Right(user);
-
-      
-//     } on NotAuthenticatedAuthException catch (e, stack) {
-//       return Left(
-//         AuthException(
-//           message: 'Não autenticado',
-//           stackTrace: stack,
-//         ),
-//       );
-//     } on MapperException catch (e, stack) {
-//       return Left(
-//         MapperException(
-//           message: e.toString(),
-//           stackTrace: stack,
-//         ),
-//       );
-//     }
-//   }
+class ChatMessageMapper {
+  ChatMessageEntity fromMap(Map<String, dynamic> map) {
+    return ChatMessageEntity(
+      date: map['data'],
+      text: map['texto'],
+      userId: map['idUsuario'],
+    );
+  }
+}
