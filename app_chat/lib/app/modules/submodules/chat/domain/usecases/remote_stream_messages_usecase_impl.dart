@@ -1,8 +1,8 @@
-import 'dart:developer';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:app_chat/app/modules/submodules/chat/domain/repositories/chat_repository.dart';
 import 'package:app_chat/app/modules/submodules/chat/domain/usecases/remote_stream_messages_usecase.dart';
+import 'package:dartz/dartz.dart';
+import '../../../../../core/exceptions/app_exceptions.dart';
+import '../entities/chat_entity.dart';
 
 class RemoteStreamMessagesUseCaseImpl implements RemoteStreamMessagesUseCase {
   final ChatRepository chatRepository;
@@ -10,7 +10,8 @@ class RemoteStreamMessagesUseCaseImpl implements RemoteStreamMessagesUseCase {
   RemoteStreamMessagesUseCaseImpl(this.chatRepository);
 
   @override
-  Stream<QuerySnapshot<Map<String, dynamic>>>? call({
+  // Stream<QuerySnapshot<Map<String, dynamic>>>?
+  Future<Either<AppException, ChatEntity>> call({
     required String idLoggedUser,
     required String idRecipientUser,
   }) {
@@ -21,9 +22,12 @@ class RemoteStreamMessagesUseCaseImpl implements RemoteStreamMessagesUseCase {
       );
 
       return stream;
-    } catch (error) {
-      log('[ERROR ON: RemoteStreamMessagesUseCaseImpl]$error');
+    } on RemoteStreamMessagesException catch (e, s) {
+      // log('[ERROR ON: RemoteStreamMessagesUseCaseImpl]$error');
+      throw RemoteStreamMessagesException(
+        message: e.message,
+        stackTrace: s,
+      );
     }
-    return null;
   }
 }

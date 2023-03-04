@@ -11,7 +11,7 @@ import '../../../core/domain/usecases/remote_load_logged_user_data_usecase_impl.
 class ChatModule extends Module {
   @override
   List<Bind> get binds => [
-        Bind.factory((i) => ChatDatasourceImpl(firestore: i())),
+        Bind.factory((i) => ChatDatasourceImpl(service: i())),
         Bind.factory((i) => ChatRepositoryImpl(i())),
         Bind.factory((i) => RemoteSaveChatStatusUseCaseImpl(i())),
         Bind.factory((i) => RemoteStreamMessagesUseCaseImpl(i())),

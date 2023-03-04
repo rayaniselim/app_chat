@@ -1,16 +1,13 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
 import 'package:app_chat/app/modules/submodules/chat/domain/entities/chat_entity.dart';
 import 'package:app_chat/app/modules/submodules/chat/domain/entities/chat_message_entity.dart';
 import 'package:app_chat/app/modules/submodules/chat/domain/helpers/end_connection_status_type.dart';
 import 'package:app_chat/app/modules/submodules/chat/domain/usecases/remote_save_chat_status_usecase.dart';
 import 'package:app_chat/app/modules/submodules/chat/domain/usecases/remote_save_message_usecase.dart';
 import 'package:app_chat/app/modules/submodules/chat/domain/usecases/remote_stream_messages_usecase.dart';
-
 import '../../../../../core/domain/entities/user_entity.dart';
 import '../../../../../core/domain/usecases/remote_load_logged_user_data_usecase.dart';
 

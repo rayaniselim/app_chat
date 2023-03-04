@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../../../modules/submodules/chat/infra/models/chat_message_model.dart';
 import '../../../modules/submodules/login/domain/entities/login_entity.dart';
 import '../../domain/entities/user_entity.dart';
 import '../../exceptions/app_exceptions.dart';
@@ -52,7 +53,22 @@ class UserMapper {
       );
     } catch (e, s) {
       throw MapperException(
-        message: 'UserMapper - Erro na conversão',
+        message: 'loginFromMap - Erro na conversão',
+        stackTrace: s,
+      );
+    }
+  }
+
+  static ChatMessageModel chatFromMap(Map<String, dynamic> map) {
+    try {
+      return ChatMessageModel(
+        texto: map['texto'],
+        idUsuario: map['idUsuario'],
+        data: map['data'],
+      );
+    } catch (e, s) {
+      throw MapperException(
+        message: 'chatFromMap - Erro na conversão',
         stackTrace: s,
       );
     }
@@ -68,7 +84,7 @@ class UserMapper {
       );
     } catch (e, s) {
       throw MapperException(
-        message: 'UserMapper - Erro na conversão',
+        message: 'userFromMap - Erro na conversão',
         stackTrace: s,
       );
     }
@@ -85,7 +101,7 @@ class UserMapper {
       return map;
     } catch (e, s) {
       throw MapperException(
-        message: 'UserMapper - Erro na conversão',
+        message: 'fromFirestoreDocument - Erro na conversão',
         stackTrace: s,
       );
     }

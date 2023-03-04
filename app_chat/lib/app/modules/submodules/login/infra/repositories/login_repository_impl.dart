@@ -33,7 +33,12 @@ class LoginRepositoryImpl implements LoginRepository {
         ),
       );
     } on MapperException catch (e, stack) {
-      return Left(MapperException(message: e.toString(), stackTrace: stack));
+      return Left(
+        MapperException(
+          message: e.toString(),
+          stackTrace: stack,
+        ),
+      );
     }
   }
 }

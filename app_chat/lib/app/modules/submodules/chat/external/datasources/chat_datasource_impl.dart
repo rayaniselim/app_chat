@@ -1,24 +1,26 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:app_chat/app/modules/submodules/chat/infra/services/firestore_service.dart';
 import 'package:app_chat/app/modules/submodules/chat/infra/datasources/chat_datasource.dart';
 import 'package:app_chat/app/modules/submodules/chat/infra/models/chat_message_model.dart';
 import 'package:app_chat/app/modules/submodules/chat/infra/mappers/chat_mapper.dart';
 
 class ChatDatasourceImpl implements ChatDatasource {
-  final FirebaseFirestore firestore;
+  final FirestoreService service;
 
   ChatDatasourceImpl({
-    required this.firestore,
+    required this.service,
   });
 
   @override
   Future<void> remoteSetChatStatus(ChatMapper chat) async {
-    final chatMap = chat.toMap();
-    await firestore
-        .collection('conversas')
-        .doc(chat.idRemetente)
-        .collection('ultimas_mensagens')
-        .doc(chat.idDestinatario)
-        .set(chatMap);
+    final chatMock = ChatMapper(
+      emailDestinatario: chat.emailDestinatario,
+      idDestinatario: chat.idDestinatario,
+      idRemetente: chat.idRemetente,
+      nomeDestinatario: chat.nomeDestinatario,
+      ultimaMensagem: chat.ultimaMensagem,
+      urlImagemDestinatario: chat.urlImagemDestinatario,
+    );
+    await service.remotePutChatStatus(chatMock);
   }
 
   @override
@@ -27,24 +29,36 @@ class ChatDatasourceImpl implements ChatDatasource {
     required String idRecipient,
     required ChatMessageModel message,
   }) async {
-    final chatMessageMap = message.toMap();
-    await firestore
-        .collection('mensagens')
-        .doc(idLoggedUser)
-        .collection(idRecipient)
-        .add(chatMessageMap);
+    // final chatMessageMap = message.toMap();
+    final result = await service.addMessage(
+      idLoggedUser: idLoggedUser,
+      idRecipient: idRecipient,
+      message: message,
+    );
+    // await firestore
+    //     .collection('mensagens')
+    //     .doc(idLoggedUser)
+    //     .collection(idRecipient)
+    //     .add(chatMessageMap);
+    return result;
   }
 
   @override
-  Stream<QuerySnapshot<Map<String, dynamic>>> remoteSnapshotMessages({
+  // Stream<QuerySnapshot<Map<String, dynamic>>>
+  Future<Map<String, dynamic>> remoteSnapshotMessages({
     required String idLoggedUser,
     required String idRecipientUser,
-  }) {
-    return firestore
-        .collection('mensagens')
-        .doc(idLoggedUser)
-        .collection(idRecipientUser)
-        .orderBy('data', descending: true)
-        .snapshots();
+  }) async {
+    final result = await service.remoteSnapshotMessages(
+      idLoggedUser: idLoggedUser,
+      idRecipientUser: idRecipientUser,
+    );
+    return result;
+    // return firestore
+    //     .collection('mensagens')
+    //     .doc(idLoggedUser)
+    //     .collection(idRecipientUser)
+    //     .orderBy('data', descending: true)
+    //     .snapshots();
   }
 }
