@@ -27,3 +27,6 @@ void main() {
     expect(resultService, isA<Map<String, dynamic>>());
   });
 }
+
+
+///  User? get currentUser; ???? testar? TODO:

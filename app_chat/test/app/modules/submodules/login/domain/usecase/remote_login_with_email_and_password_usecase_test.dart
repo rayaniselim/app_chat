@@ -11,7 +11,10 @@ class RepositoryMock extends Mock implements LoginRepository {}
 void main() {
   late LoginRepository repository;
   late RemoteLoginWithEmailAndPasswordUseCaseImpl usecase;
-  const userLogin = LoginEntity(id: '', email: '');
+  const userLogin = LoginEntity(
+    id: '',
+    email: '',
+  );
   setUp(() {
     repository = RepositoryMock();
     usecase = RemoteLoginWithEmailAndPasswordUseCaseImpl(repository);

@@ -1,12 +1,11 @@
 import 'package:app_chat/app/core/exceptions/app_exceptions.dart';
 import 'package:app_chat/app/core/infra/mappers/user_mapper.dart';
-
 import '../../domain/entities/user_entity.dart';
 import '../../domain/repositories/user_repository.dart';
-import '../../external/datasources/user_datasource_impl.dart';
+import '../datasources/user_datasource.dart';
 
 class UserRepositoryImpl implements UserRepository {
-  final UserDataSourceImpl userDatasource;
+  final UserDataSource userDatasource;
 
   const UserRepositoryImpl(this.userDatasource);
 
@@ -15,7 +14,7 @@ class UserRepositoryImpl implements UserRepository {
   Future<UserEntity> remoteGetLoggedUserData() async {
     try {
       final map = await userDatasource.remoteFetchLoggedUserData();
-      final entity = UserMapper().userFromMap(map);
+      final entity = UserMapper.userFromMap(map);
       return entity;
     } on MapperException catch (_) {
       rethrow;

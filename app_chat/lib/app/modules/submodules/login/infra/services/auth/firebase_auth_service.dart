@@ -50,26 +50,6 @@ class FirebaseAuthService implements AuthService {
     }
   }
 
-  @override
-  Future<void> logout() async {
-    try {
-      await _auth.signOut();
-    } on FirebaseAuthException catch (e, s) {
-      _handleFirebaseException(e, s);
-    }
-  }
-
-  @override
-  Future<Map<String, dynamic>> getUser() async {
-    final user = _auth.currentUser;
-
-    if (user == null) {
-      throw NotAuthenticatedAuthException(stackTrace: StackTrace.current);
-    }
-
-    return _credentialToMap(user);
-  }
-
   Map<String, dynamic> _credentialToMap(User credential) {
     return {
       'email': credential.email,

@@ -4,10 +4,11 @@ import 'package:app_chat/app/modules/submodules/chat/domain/entities/chat_entity
 import 'package:app_chat/app/modules/submodules/chat/domain/helpers/end_connection_status_type.dart';
 import 'package:app_chat/app/modules/submodules/chat/domain/usecases/remote_save_chat_status_usecase.dart';
 import 'package:app_chat/app/modules/submodules/chat/infra/mappers/chat_mapper.dart';
-import 'package:app_chat/app/modules/submodules/chat/infra/repositories/chat_repository_impl.dart';
+
+import '../repositories/chat_repository.dart';
 
 class RemoteSaveChatStatusUseCaseImpl implements RemoteSaveChatStatusUseCase {
-  final ChatRepositoryImpl chatRepository;
+  final ChatRepository chatRepository;
 
   const RemoteSaveChatStatusUseCaseImpl(this.chatRepository);
 

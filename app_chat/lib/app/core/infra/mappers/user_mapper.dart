@@ -18,7 +18,7 @@ class UserMapper {
     return map;
   }
 
-  Map<String, dynamic> fromUser(User? user) {
+  static Map<String, dynamic> fromUser(User? user) {
     try {
       Map<String, dynamic> map = {
         "userId": user!.uid,
@@ -74,7 +74,7 @@ class UserMapper {
     }
   }
 
-  UserEntity userFromMap(Map<String, dynamic> map) {
+  static UserEntity userFromMap(Map<String, dynamic> map) {
     try {
       return UserEntity(
         email: map['email'],

@@ -3,7 +3,7 @@ import 'package:app_chat/app/modules/submodules/chat/domain/usecases/remote_save
 import 'package:app_chat/app/modules/submodules/chat/domain/usecases/remote_stream_messages_usecase_impl.dart';
 import 'package:app_chat/app/modules/submodules/chat/external/datasources/chat_datasource_impl.dart';
 import 'package:app_chat/app/modules/submodules/chat/infra/repositories/chat_repository_impl.dart';
-import 'package:app_chat/app/modules/submodules/chat/infra/services/auth/firebase_firestore_service.dart';
+import 'package:app_chat/app/modules/submodules/chat/infra/services/firestore/firebase_firestore_service.dart';
 import 'package:app_chat/app/modules/submodules/chat/presenter/controllers/chat_controller.dart';
 import 'package:app_chat/app/modules/submodules/chat/presenter/pages/chat_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
