@@ -1,7 +1,9 @@
 //Caso de uso: login remoto(nuvem, firebase..) com e-mail e senha
 
-import '../../../../../core/domain/entities/user_entity.dart';
+import 'package:dartz/dartz.dart';
+import '../../../../../core/exceptions/app_exceptions.dart';
+import '../entities/login_entity.dart';
 
 abstract class RemoteLoginWithEmailAndPasswordUseCase {
-  Future<UserEntity> call(String email, String password);
+  Future<Either<AppException, LoginEntity>> call(String email, String password);
 }
