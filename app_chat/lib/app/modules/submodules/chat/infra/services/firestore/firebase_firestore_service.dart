@@ -1,8 +1,8 @@
 import 'dart:async';
-
+import 'package:app_chat/app/core/exceptions/app_exceptions.dart';
 import 'package:app_chat/app/modules/submodules/chat/infra/models/chat_message_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:dartz/dartz.dart';
 import '../../mappers/messages_mapper.dart';
 import '../firestore_service.dart';
 
@@ -12,27 +12,39 @@ class FirebaseFirestoreServiceImpl implements FirestoreService {
   const FirebaseFirestoreServiceImpl(this.firestore);
 
   @override
-  Future<void> remotePutChatStatus(chat) async {
+  Future<Either<AppException, Unit>> remotePutChatStatus(chat) async {
     final chatMap = chat.toMap();
-    await firestore
-        .collection('conversas')
-        .doc(chat.idRemetente)
-        .collection('ultimas_mensagens')
-        .doc(chat.idDestinatario)
-        .set(chatMap);
+
+    try {
+      await firestore
+          .collection('conversas')
+          .doc(chat.idRemetente)
+          .collection('ultimas_mensagens')
+          .doc(chat.idDestinatario)
+          .set(chatMap);
+      return const Right(unit);
+    } on AppException catch (e) {
+      return Left(e);
+    }
   }
 
   @override
-  Future<void> addMessage(
+  Future<Either<AppException, Unit>> addMessage(
       {required String idLoggedUser,
       required String idRecipient,
       required ChatMessageModel message}) async {
     final chatMessageMap = message.toMap();
-    await firestore
-        .collection('mensagens')
-        .doc(idLoggedUser)
-        .collection(idRecipient)
-        .add(chatMessageMap);
+
+    try {
+      await firestore
+          .collection('mensagens')
+          .doc(idLoggedUser)
+          .collection(idRecipient)
+          .add(chatMessageMap);
+      return const Right(unit);
+    } on AppException catch (e) {
+      return Left(e);
+    }
   }
 
   @override

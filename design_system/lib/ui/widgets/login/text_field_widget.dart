@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../design_system.dart';
 
 class TextFieldWdiget extends StatelessWidget {
@@ -26,8 +25,6 @@ class TextFieldWdiget extends StatelessWidget {
       style: TextStyles.textMediumRecent,
       obscureText: isObscure,
       keyboardType: keyboardType,
-
-      /// COLOCAR O VALIDATORS - PASTA DOMAIN
       controller: controller,
       decoration: InputDecoration(
         hintText: hintText,

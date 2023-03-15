@@ -46,7 +46,8 @@ class ChatController {
     );
 
     result.fold(
-      (left) => null, // TODO: SHOW FEEDBACK ERROR WITH SNAPBAR SERVICE
+      (left) => null,
+      // TODO: MELHORAR O TRATAMENTO DE ERRO E MOSTRAR O ERRO,
       (right) => streamMensagens = right.listen(
         (value) => streamController.add(value),
       ),

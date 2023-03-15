@@ -2,6 +2,9 @@ import 'package:app_chat/app/modules/submodules/chat/infra/datasources/chat_data
 import 'package:app_chat/app/modules/submodules/chat/infra/mappers/chat_mapper.dart';
 import 'package:app_chat/app/modules/submodules/chat/infra/models/chat_message_model.dart';
 import 'package:app_chat/app/modules/submodules/chat/infra/services/firestore_service.dart';
+import 'package:dartz/dartz.dart';
+
+import '../../../../../core/exceptions/app_exceptions.dart';
 
 class ChatDatasourceImpl implements ChatDatasource {
   final FirestoreService service;
@@ -24,23 +27,21 @@ class ChatDatasourceImpl implements ChatDatasource {
   }
 
   @override
-  Future<void> addMessage({
+  Future<Either<AppException, Unit>> addMessage({
     required String idLoggedUser,
     required String idRecipient,
     required ChatMessageModel message,
   }) async {
-    // final chatMessageMap = message.toMap();
-    final result = await service.addMessage(
-      idLoggedUser: idLoggedUser,
-      idRecipient: idRecipient,
-      message: message,
-    );
-    // await firestore
-    //     .collection('mensagens')
-    //     .doc(idLoggedUser)
-    //     .collection(idRecipient)
-    //     .add(chatMessageMap);
-    return result;
+    try {
+      await service.addMessage(
+        idLoggedUser: idLoggedUser,
+        idRecipient: idRecipient,
+        message: message,
+      );
+      return const Right(unit);
+    } on AppException catch (e) {
+      return Left(e);
+    }
   }
 
   @override

@@ -6,9 +6,9 @@ import 'package:dartz/dartz.dart';
 import '../../../../../core/exceptions/app_exceptions.dart';
 
 abstract class ChatRepository {
-  Future<void> remotePutChatStatus(ChatMapper chat);
+  Future<Either<AppException, Unit>> remotePutChatStatus(ChatMapper chat);
 
-  Future<void> putMessage({
+  Future<Either<AppException, Unit>> putMessage({
     required String idLoggedUser,
     required String idRecipient,
     required ChatMessageModel message,

@@ -13,18 +13,23 @@ class ChatRepositoryImpl implements ChatRepository {
   const ChatRepositoryImpl(this.chatDatasource);
 
   @override
-  Future<void> remotePutChatStatus(ChatMapper chat) async {
-    await chatDatasource.remoteSetChatStatus(chat);
-    return;
+  Future<Either<AppException, Unit>> remotePutChatStatus(
+      ChatMapper chat) async {
+    try {
+      await chatDatasource.remoteSetChatStatus(chat);
+      return const Right(unit);
+    } on AppException catch (e) {
+      return Left(e);
+    }
   }
 
   @override
-  Future<void> putMessage({
+  Future<Either<AppException, Unit>> putMessage({
     required String idLoggedUser,
     required String idRecipient,
     required ChatMessageModel message,
-  }) async {
-    return await chatDatasource.addMessage(
+  }) {
+    return chatDatasource.addMessage(
       idLoggedUser: idLoggedUser,
       idRecipient: idRecipient,
       message: message,
