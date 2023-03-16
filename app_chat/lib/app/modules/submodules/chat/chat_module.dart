@@ -6,6 +6,8 @@ import 'package:app_chat/app/modules/submodules/chat/infra/repositories/chat_rep
 import 'package:app_chat/app/modules/submodules/chat/infra/services/firestore/firebase_firestore_service.dart';
 import 'package:app_chat/app/modules/submodules/chat/presenter/controllers/chat_controller.dart';
 import 'package:app_chat/app/modules/submodules/chat/presenter/pages/chat_page.dart';
+import 'package:app_chat/app/modules/submodules/chat/presenter/stores/chat_state.dart';
+import 'package:app_chat/app/modules/submodules/chat/presenter/stores/chat_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../core/domain/usecases/remote_load_logged_user_data_usecase_impl.dart';
@@ -27,6 +29,8 @@ class ChatModule extends Module {
             remoteStreamMessages:
                 Modular.get<RemoteStreamMessagesUseCaseImpl>(),
             remoteSaveMessage: Modular.get<RemoteSaveMessageUseCaseImpl>())),
+        Bind.singleton((i) => const ChatState(message: '')),
+        Bind.singleton((i) => ChatStore(i(), i(), i(), i())),
       ];
 
   @override
@@ -36,6 +40,7 @@ class ChatModule extends Module {
           child: (context, args) => ChatPage(
             recipientUser: args.data['usuarioDestinatario'],
             loggedUser: args.data['usuarioRemetente'],
+            store: Modular.get<ChatStore>(),
           ),
         ),
       ];

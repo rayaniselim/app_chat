@@ -1,19 +1,14 @@
 class ChatState {
-  final String email;
-  final String password;
-
+  final String message;
   const ChatState({
-    required this.email,
-    required this.password,
+    required this.message,
   });
 
   ChatState copyWith({
-    String? email,
-    String? password,
+    String? message,
   }) {
     return ChatState(
-      email: email ?? this.email,
-      password: password ?? this.password,
+      message: message ?? this.message,
     );
   }
 }
