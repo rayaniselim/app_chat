@@ -5,7 +5,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:app_chat/app/modules/submodules/chat/presenter/components/messages_list_component.dart';
 import 'package:app_chat/app/modules/submodules/chat/presenter/controllers/chat_controller.dart';
 import 'package:flutter_triple/flutter_triple.dart';
-
 import '../../../../../core/domain/entities/user_entity.dart';
 import '../stores/chat_state.dart';
 import '../stores/chat_store.dart';
