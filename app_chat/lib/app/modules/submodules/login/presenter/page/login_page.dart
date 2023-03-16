@@ -38,6 +38,8 @@ class _LoginPageState extends State<LoginPage> {
     final size = MediaQuery.of(context).size;
     final ColorsExtension colorsExtension =
         Theme.of(context).extension<ColorsExtension>()!;
+    final String email;
+    final String password;
 
     return Scaffold(
       body: Stack(
@@ -73,6 +75,15 @@ class _LoginPageState extends State<LoginPage> {
                           isObscure: false,
                           keyboardType: TextInputType.emailAddress,
                           labelText: 'Email',
+                          validator: (email) {
+                            if (email == null || email.trim().isEmpty) {
+                              return 'Please enter your email address';
+                            }
+                            if (!RegExp(r'\S+@\S+\.\S+').hasMatch(email)) {
+                              return 'Please enter a valid email address';
+                            }
+                            return null;
+                          },
                         ),
                         sizedBox,
                         TextFieldWdiget(
@@ -97,6 +108,16 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           keyboardType: TextInputType.none,
                           labelText: 'Password',
+                          validator: (password) {
+                            /// TODO: VERIFICAR COM A VALIDAÇAO DO USECASE
+                            if (password == null || password.trim().isEmpty) {
+                              return 'Please enter your password';
+                            }
+                            if (!RegExp(r'[1-9]{6,}').hasMatch(password)) {
+                              return 'Please enter a valid password';
+                            }
+                            return null;
+                          },
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -127,7 +148,9 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   onError: (context, error) =>
                       Center(child: Text(error.toString())),
-                  // TODO: MELHORAR O TRATAMENTO DE ERRO
+// TODO: MELHORAR O TRATAMENTO DE ERRO:
+// ADICIONAR UM MÉTODO DE VALIDAÇAO PARA MELHORAR A RESPOSTA AO
+// USUARIO QUANDO DER ERRO AO LOGAR E NAO FICAR UM LOADING INFINITO,
                   onLoading: (context) => const CircularProgressIndicator(),
                 ),
               ),

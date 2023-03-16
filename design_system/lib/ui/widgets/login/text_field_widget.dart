@@ -8,6 +8,7 @@ class TextFieldWdiget extends StatelessWidget {
   final Widget icon;
   final bool isObscure;
   final TextEditingController? controller;
+  final String? Function(String?)? validator;
 
   const TextFieldWdiget({
     super.key,
@@ -17,6 +18,7 @@ class TextFieldWdiget extends StatelessWidget {
     required this.icon,
     required this.isObscure,
     required this.controller,
+    required this.validator,
   });
 
   @override
@@ -26,6 +28,7 @@ class TextFieldWdiget extends StatelessWidget {
       obscureText: isObscure,
       keyboardType: keyboardType,
       controller: controller,
+      validator: validator,
       decoration: InputDecoration(
         hintText: hintText,
         labelText: labelText,

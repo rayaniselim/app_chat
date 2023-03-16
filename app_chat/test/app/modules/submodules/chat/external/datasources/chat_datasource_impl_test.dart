@@ -9,7 +9,7 @@ class FirestoreServiceMock extends Mock implements FirestoreService {}
 void main() {
   final firestoreServiceMock = FirestoreServiceMock();
   final dataSource = ChatDatasourceImpl(service: firestoreServiceMock);
-  test('Deve retornar um Map<String, dynamic>', () async {
+  test('Deve retornar um Map<String, dynamic>', () {
     const idLoggedUser = '1';
     const idRecipient = '2';
     final message = ChatMessageModel(

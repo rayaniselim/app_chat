@@ -169,11 +169,14 @@ class PageWidgetbook extends StatelessWidget {
                 useCases: [
                   WidgetbookUseCase(
                     name: 'TextField Email Login',
-                    builder: (context) => const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 18.0),
+                    builder: (context) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 18.0),
                       child: TextFieldWdiget(
+                        validator: (value) {
+                          return null;
+                        },
                         hintText: 'Email',
-                        icon: Icon(
+                        icon: const Icon(
                           (Icons.email_outlined),
                         ),
                         isObscure: false,
@@ -194,6 +197,9 @@ class PageWidgetbook extends StatelessWidget {
                     builder: (context) => Padding(
                       padding: const EdgeInsets.symmetric(vertical: 18.0),
                       child: TextFieldWdiget(
+                        validator: (value) {
+                          return null;
+                        },
                         isObscure: true,
                         hintText: 'Password',
                         icon: GestureDetector(
